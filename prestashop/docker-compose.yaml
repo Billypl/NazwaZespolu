@@ -9,7 +9,7 @@ services:
     networks:
       - prestashop_network
     volumes:
-      - ./prestashop/dbdata:/var/lib/mysql
+      - ./dbdata:/var/lib/mysql
   ps:
     container_name: prestashop
     image: prestashop/prestashop:1.7.8.11
@@ -19,7 +19,7 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./prestashop/src:/var/www/html
+      - ./src:/var/www/html
     environment:
       DB_SERVER: some-mysql
       DB_NAME: prestashop
