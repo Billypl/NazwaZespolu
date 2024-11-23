@@ -6,6 +6,18 @@ Online shop made with PrestaShop for Electronic Buisness class.
 - MariaDB 11.5.2
 - Docker
 
+# How to run locally (dev)?
+To run the shop:
+```
+./run.sh # foreground
+./run.sh -d # background
+```
+To stop and cleanup docker:
+```
+./stop.sh
+```
+
+
 # Team
 - Michał Pawiłojć 193159
 - Krzysztof Rzeszotarski 193627
