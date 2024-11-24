@@ -2,7 +2,7 @@
 
 DUMP_DIR="../../prestashop/dbdump"
 DUMP_FILE="dump.sql"
-DB_CONTAINER_NAME="db"
+DB_CONTAINER_NAME="some-mysql"
 DB_NAME="prestashop"
 DB_PASSWORD="admin" # DON'T store password like that - its fine for development
 
@@ -17,5 +17,6 @@ if [ ! -f "$DUMP_FILE_PATH" ]; then
   exit 1
 fi
 
-docker exec -i $DB_CONTAINER_NAME mariadb --user=root -p$DB_PASSWORD $DB_NAME < "$DUMP_FILE_PATH"
+echo "Restoring..."
+docker exec -i $DB_CONTAINER_NAME mariadb $DB_NAME --user=root -p$DB_PASSWORD < "$DUMP_FILE_PATH"
 echo "Database restored"
