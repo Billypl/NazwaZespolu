@@ -2,7 +2,7 @@
 
 DUMP_DIR="../../prestashop/dbdump"
 DUMP_FILE="dump.sql"
-DB_CONTAINER_NAME="db"
+DB_CONTAINER_NAME="some-mysql"
 DB_NAME="prestashop"
 DB_PASSWORD="admin" # DON'T store password like that - its fine for development
 
@@ -11,5 +11,5 @@ DB_PASSWORD="admin" # DON'T store password like that - its fine for development
 # CURRENT_DATE=$(date +"%H%M_%d%m%y")
 # DUMP_FILE="dump_${CURRENT_DATE}.sql"
 
-docker exec $DB_CONTAINER_NAME mariadb-dump --user=root root -p$DB_PASSWORD $DB_NAME -x > "$DUMP_DIR/$DUMP_FILE"
+docker exec $DB_CONTAINER_NAME mariadb-dump $DB_NAME --user=root -p$DB_PASSWORD -x > "$DUMP_DIR/$DUMP_FILE"
 echo "Database dump saved to $DUMP_DIR/$DUMP_FILE"
