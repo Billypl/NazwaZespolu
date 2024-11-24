@@ -2,4 +2,21 @@
  * Custom code goes here.
  * A template should always ship with an empty custom.css
  */
- #header{ background: red !important; }
+ .carousel .carousel-inner {
+    height: 480px;
+}
+
+#header .logo {
+    max-height: 100px;
+    height: auto;
+    max-width: 180%;
+}
+
+#header {
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0);
+}
+
+#wrapper {
+    padding-top: 1.563rem;
+    background: white;
+}
