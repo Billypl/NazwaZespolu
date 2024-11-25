@@ -1,0 +1,29 @@
+ 
+
+{shop_url}
+
+Witaj {firstname} {lastname},
+
+Dziękujemy za zakupy na stronie {shop_name}!
+
+Numer zamówienia {order_name} - Oczekiwanie na płatność czekiem
+
+Twoje zamówienie o numerze {order_name} zostało pomyślnie złożone. Możesz spodziewać się dostawy natychmiast po otrzymaniu płatności.
+
+Metoda płatności: czek
+
+Zdecydowałeś się zapłacić czekiem bankowym. Oto informacje potrzebne do czeku:
+
+Kwota:  {total_paid}
+
+Płatne na zlecenie:  {check_name}
+
+Prosimy o przesłanie czeku do:  {check_address_html}
+
+Śledź status swojego zamówienia i pobierz fakturę w naszym sklepie, na stronie [Historia i szczegóły zamówień]({history_url}) w sekcji konta klienta.
+
+Jeśli posiadasz konto gościa, możesz śledzić swoje zamówienie na stronie [Śledzenie Zamówienia]({guest_tracking_url}) w naszym sklepie.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

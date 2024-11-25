@@ -1,0 +1,23 @@
+ 
+
+{shop_url}
+
+Witaj {firstname} {lastname},
+
+Twój koszyk na {shop_name}
+
+Dziękuję za Twoją wizytę. Wygląda jednak na to, że nie dokończyłeś zakupu.
+
+Twój koszyk został zapisany, możesz wrócić do zamówienia w naszym sklepie: {shop_url}
+
+Z przyjemnością oferujemy Ci zniżkę w wysokości {amount}% na kolejne zamówienie. Ta oferta jest ważna przez {days} dni, więc nie czekaj dłużej!
+
+Twój kod kuponu w {shop_name}
+
+Oto Twój KOD VOUCHER: {voucher_num}
+
+Wprowadź ten kod w koszyku, aby uzyskać zniżkę.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

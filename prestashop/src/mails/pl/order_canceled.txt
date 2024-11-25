@@ -1,0 +1,17 @@
+ 
+
+{shop_url}
+
+Witaj {firstname} {lastname},
+
+Numer zamówienia {order_name} - Zamówienie anulowane
+
+Twoje zamówienie o numerze {order_name} z {shop_name} zostało anulowane przez pracownika.
+
+Przejdź do swojego konta klienta, aby dowiedzieć się więcej na ten temat.
+
+Jeśli posiadasz konto gościa, możesz śledzić swoje zamówienie na stronie [Śledzenie Zamówienia]({guest_tracking_url}) w naszym sklepie.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

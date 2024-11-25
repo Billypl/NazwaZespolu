@@ -1,0 +1,198 @@
+/* This comment avoid some weird behavior with preceding unclosed comment */
+
+@keyframes showcase-img-appearance-rtl {
+  from {
+    -webkit-transform: translate(-20px) translateX(-1);
+    -ms-transform: translate(-20px) translateX(-1);
+    -webkit-transform: translate(-20px) translateX(-1);
+    transform: translate(-20px) translateX(-1);
+    opacity: 0;
+ }
+  to {
+    -webkit-transform: translate(0) translateX(-1);
+    -ms-transform: translate(0) translateX(-1);
+    -webkit-transform: translate(0) translateX(-1);
+    transform: translate(0) translateX(-1);
+    opacity: 1;
+ }
+}
+
+.sidebar.sidebar-right {
+  -webkit-transform: translate(-100%, 0);
+  -moz-transform: translate(-100%, 0);
+  -ms-transform: translate(-100%, 0);
+  -o-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+}
+
+/* fix logo position */
+.main-header > .logo {
+  background-position: right;
+}
+
+/* fix profile menu position */
+.employee-dropdown .dropdown-menu {
+  right: auto !important;
+  left: .3em !important;
+}
+
+/* fix select dropdown */
+.select2-container--open .select2-dropdown {
+  right: auto;
+  left: 0;
+}
+
+/* fix notification dropdown */
+.notification-center .dropdown-menu {
+  right: auto;
+  left: 85px !important;
+}
+
+/* fix popover */
+.popover {
+  right: auto;
+  left: 5px;
+  margin-right: 0;
+  margin-left: 8px;
+}
+.popover .arrow {
+  left: -8px;
+  right: auto;
+  transform: scaleX(-1);
+}
+
+/* fix stock quantity arrow direction */
+.stock-app .stock-overview .table .qty-update .material-icons {
+  transform: scaleX(-1);
+}
+
+/* Fixes image flipping for RTL language */
+.img-rtl {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  animation: showcase-img-appearance-rtl .4s;
+}
+
+/* Align order status dropdown correctly */
+.adminorders .dropdown-menu {
+  right: inherit;
+}
+
+/* Footer position on RTL */
+.adminproducts .product-page .product-footer {
+  right: 13.13rem;
+  left: 0;
+}
+
+.adminproducts .product-page .product-footer .text-right {
+  text-align: left!important;
+}
+
+.page-sidebar-closed:not(.mobile) .product-page .product-footer {
+  right: 3.125rem;
+  left: 0!important;
+}
+
+@media only screen and (max-width: 1450px) {
+  .adminproducts .product-page .product-footer .js-btn-save {
+    margin: 0!important;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .adminproducts .product-page .product-footer {
+    right: 0;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .adminproducts .product-page .product-footer .col-lg-4 {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 13rem;
+    padding-left: 0;
+    align-items: center;
+  }
+
+  .adminproducts .product-page .product-footer .dropdown {
+    margin-top: 0;
+  }
+
+  .adminproducts .product-page .product-footer .btn-outline-primary {
+    display: none;
+  }
+
+  .adminproducts .product-page .product-footer .online-title, 
+  .adminproducts .product-page .product-footer .offline-title {
+    margin-left: .25rem;
+    margin-right: 1rem;
+  }
+}
+
+/* Checkboxes RTL */
+.md-checkbox [type="checkbox"]:checked + .md-checkbox-control::after, .md-checkbox .indeterminate + .md-checkbox-control::after {
+  border-right-style: none;
+  border-left-style: solid;
+}
+
+/* Fix scrollbar position in sidebar menu */
+.nav-bar-overflow .ps__rail-y {
+  left: 0 !important;
+}
+
+/**
+ * Fix some RTL problem with `admin-dev/themes/new-theme/scss/pages/stock/stock_page.scss` page
+ * for details, take a look at https://github.com/PrestaShop/PrestaShop/issues/27864 
+ */
+
+.adminstockmanagement .stock-app #search .search-input.tags-input:not(.search-with-icon) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.adminstockmanagement .stock-app #search .alert-box {
+    right: auto;
+    left: 5px;
+}
+
+.adminstockmanagement .stock-app #search #filters-container .collapse-button {
+    text-align: right;
+}
+
+.adminstockmanagement .stock-app #search #filters-container .filter-container.filter-suppliers  ul {
+    padding-right: 0;
+}
+
+.adminstockmanagement .stock-app #filters-container #filters {
+    box-shadow: -1px 2px 3px 0 rgba(108, 134, 142, 0.3);
+}
+
+.adminstockmanagement .stock-app .qty-spinner form.qty:hover input[type="number"],
+.adminstockmanagement .stock-app .qty-spinner form.qty.active input[type="number"] {
+    padding-right: 16px;
+}
+
+.adminstockmanagement .stock-app .qty-spinner form.qty:hover .ps-number-spinner, .adminstockmanagement .stock-app .qty-spinner form.qty.active .ps-number-spinner {
+    right: auto;
+    left: 34px;
+    text-align: left;
+}
+
+.adminstockmanagement .stock-app .qty-spinner form.qty .check-button {
+    right: auto;
+    left: 1px;
+    border-radius: 4px 0 0 4px;
+}
+
+.adminstockmanagement .stock-app .card .stock-overview .table thead th.product-title {
+    padding-right: 6rem;
+}
+
+.adminstockmanagement .stock-app .card .stock-overview .table thead th:last-child .material-icons {
+    margin-left: 5px;
+}
+
+.adminstockmanagement .stock-app .card .stock-overview .product-actions .qty {
+    padding-right: 20px;
+}
+

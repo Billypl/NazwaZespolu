@@ -926,7 +926,7 @@ CREATE TABLE `ps_address` (
   KEY `id_manufacturer` (`id_manufacturer`),
   KEY `id_supplier` (`id_supplier`),
   KEY `id_warehouse` (`id_warehouse`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -941,7 +941,8 @@ INSERT INTO `ps_address` VALUES
 (3,21,35,0,0,1,0,'supplier','Fashion','supplier','supplier','767 Fifth Ave.','','10153','New York','','(212) 336-1440','','','','2024-11-24 06:20:22','2024-11-24 06:20:22',1,0),
 (4,21,35,0,1,0,0,'manufacturer','Fashion','manufacturer','manufacturer','767 Fifth Ave.','','10154','New York','','(212) 336-1666','','','','2024-11-24 06:20:22','2024-11-24 06:20:22',1,0),
 (5,21,12,2,0,0,0,'My address','My Company','DOE','John','16, Main street','2nd floor','33133','Miami','','0102030405','','','','2024-11-24 06:20:22','2024-11-24 06:20:22',1,0),
-(6,8,0,0,0,2,0,'accessories_supplier','Accessories and Co','accessories','accessories','42 Avenue Maréchal Soult','','64990','Bayonne','','0102030405','','','','2024-11-24 06:20:22','2024-11-24 06:20:22',1,0);
+(6,8,0,0,0,2,0,'accessories_supplier','Accessories and Co','accessories','accessories','42 Avenue Maréchal Soult','','64990','Bayonne','','0102030405','','','','2024-11-24 06:20:22','2024-11-24 06:20:22',1,0),
+(7,14,0,3,0,0,0,'Mój adres','','dfsfsd','gsdsgd','grerge','','80-180','gdayn','','','','','','2024-11-25 18:35:05','2024-11-25 18:35:05',1,0);
 /*!40000 ALTER TABLE `ps_address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1227,7 +1228,7 @@ CREATE TABLE `ps_admin_filter` (
   `filter_id` varchar(191) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `admin_filter_search_id_idx` (`employee`,`shop`,`controller`,`action`,`filter_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1236,6 +1237,8 @@ CREATE TABLE `ps_admin_filter` (
 
 LOCK TABLES `ps_admin_filter` WRITE;
 /*!40000 ALTER TABLE `ps_admin_filter` DISABLE KEYS */;
+INSERT INTO `ps_admin_filter` VALUES
+(1,1,1,'email','index','{\"limit\":50,\"orderBy\":\"id_mail\",\"sortOrder\":\"desc\",\"filters\":[]}','');
 /*!40000 ALTER TABLE `ps_admin_filter` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2725,7 +2728,7 @@ CREATE TABLE `ps_cart` (
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_shop_2` (`id_shop`,`date_upd`),
   KEY `id_shop` (`id_shop`,`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2739,7 +2742,8 @@ INSERT INTO `ps_cart` VALUES
 (2,1,1,2,'{\"3\":\"2,\"}',1,5,5,1,2,1,'b44a6d9efd7a0076a0fbce6b15eaf3b1',0,0,'',0,0,'2024-11-24 06:20:19','2024-11-24 06:20:19',NULL),
 (3,1,1,2,'{\"3\":\"2,\"}',1,5,5,1,2,1,'b44a6d9efd7a0076a0fbce6b15eaf3b1',0,0,'',0,0,'2024-11-24 06:20:19','2024-11-24 06:20:19',NULL),
 (4,1,1,2,'{\"3\":\"2,\"}',1,5,5,1,2,1,'b44a6d9efd7a0076a0fbce6b15eaf3b1',0,0,'',0,0,'2024-11-24 06:20:19','2024-11-24 06:20:19',NULL),
-(5,1,1,2,'{\"3\":\"2,\"}',1,5,5,1,2,1,'b44a6d9efd7a0076a0fbce6b15eaf3b1',0,0,'',0,0,'2024-11-24 06:20:19','2024-11-24 06:20:19',NULL);
+(5,1,1,2,'{\"3\":\"2,\"}',1,5,5,1,2,1,'b44a6d9efd7a0076a0fbce6b15eaf3b1',0,0,'',0,0,'2024-11-24 06:20:19','2024-11-24 06:20:19',NULL),
+(6,1,1,1,'{\"7\":\"1,\"}',1,7,7,1,3,4,'de694223a21a4c1da442868fbf0afaab',0,0,'',0,0,'2024-11-25 18:32:20','2024-11-25 18:35:07','{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"377e1faf6681c01a5ce8c9a1f2861aafa1a9375e\"}');
 /*!40000 ALTER TABLE `ps_cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2802,7 +2806,8 @@ INSERT INTO `ps_cart_product` VALUES
 (2,8,3,1,0,0,1,'0000-00-00 00:00:00'),
 (3,16,3,1,28,0,1,'0000-00-00 00:00:00'),
 (4,16,3,1,29,0,1,'0000-00-00 00:00:00'),
-(5,10,3,1,25,0,1,'0000-00-00 00:00:00');
+(5,10,3,1,25,0,1,'0000-00-00 00:00:00'),
+(6,3,7,1,13,0,1,'2024-11-25 18:34:49');
 /*!40000 ALTER TABLE `ps_cart_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3591,7 +3596,7 @@ CREATE TABLE `ps_configuration` (
   KEY `name` (`name`),
   KEY `id_shop` (`id_shop`),
   KEY `id_shop_group` (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=427 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=430 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3838,7 +3843,7 @@ INSERT INTO `ps_configuration` VALUES
 (235,NULL,NULL,'PS_SHOP_DOMAIN_SSL','localhost:8080','0000-00-00 00:00:00','2024-11-24 06:19:37'),
 (236,NULL,NULL,'PS_SHOP_NAME','PrestaShop','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (237,NULL,NULL,'PS_SHOP_EMAIL','demo@prestashop.com','0000-00-00 00:00:00','2024-11-24 06:19:40'),
-(238,NULL,NULL,'PS_MAIL_METHOD','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
+(238,NULL,NULL,'PS_MAIL_METHOD','2','0000-00-00 00:00:00','2024-11-25 18:31:40'),
 (239,NULL,NULL,'PS_SHOP_ACTIVITY','Animaux','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (240,NULL,NULL,'PS_LOGO','logo.png','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (241,NULL,NULL,'PS_FAVICON','favicon.ico','0000-00-00 00:00:00','0000-00-00 00:00:00'),
@@ -3846,11 +3851,11 @@ INSERT INTO `ps_configuration` VALUES
 (243,NULL,NULL,'PS_ROOT_CATEGORY','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (244,NULL,NULL,'PS_HOME_CATEGORY','2','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (245,NULL,NULL,'PS_CONFIGURATION_AGREMENT','1','0000-00-00 00:00:00','2024-11-24 06:19:37'),
-(246,NULL,NULL,'PS_MAIL_SERVER','smtp.','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(247,NULL,NULL,'PS_MAIL_USER','','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(248,NULL,NULL,'PS_MAIL_PASSWD','','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(249,NULL,NULL,'PS_MAIL_SMTP_ENCRYPTION','off','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(250,NULL,NULL,'PS_MAIL_SMTP_PORT','25','0000-00-00 00:00:00','0000-00-00 00:00:00'),
+(246,NULL,NULL,'PS_MAIL_SERVER','smtp.gmail.com','0000-00-00 00:00:00','2024-11-25 18:31:40'),
+(247,NULL,NULL,'PS_MAIL_USER','wloczkarniashop@gmail.com','0000-00-00 00:00:00','2024-11-25 18:31:40'),
+(248,NULL,NULL,'PS_MAIL_PASSWD','xfyewgsfouzzvfsa','0000-00-00 00:00:00','2024-11-25 18:31:40'),
+(249,NULL,NULL,'PS_MAIL_SMTP_ENCRYPTION','ssl','0000-00-00 00:00:00','2024-11-25 18:31:40'),
+(250,NULL,NULL,'PS_MAIL_SMTP_PORT','465','0000-00-00 00:00:00','2024-11-25 18:31:40'),
 (251,NULL,NULL,'PS_MAIL_COLOR','#db3484','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (252,NULL,NULL,'NW_SALT','y61w9KNkIqh5i7bt','0000-00-00 00:00:00','2024-11-24 06:19:47'),
 (253,NULL,NULL,'PS_PAYMENT_LOGO_CMS_ID','0','0000-00-00 00:00:00','0000-00-00 00:00:00'),
@@ -3871,7 +3876,7 @@ INSERT INTO `ps_configuration` VALUES
 (268,NULL,NULL,'PS_DETECT_LANG','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (269,NULL,NULL,'PS_DETECT_COUNTRY','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (270,NULL,NULL,'PS_ROUND_TYPE','2','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(271,NULL,NULL,'PS_LOG_EMAILS','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
+(271,NULL,NULL,'PS_LOG_EMAILS','1','0000-00-00 00:00:00','2024-11-25 18:31:40'),
 (272,NULL,NULL,'PS_CUSTOMER_OPTIN','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (273,NULL,NULL,'PS_CUSTOMER_BIRTHDATE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (274,NULL,NULL,'PS_PACK_STOCK_TYPE','0','0000-00-00 00:00:00','0000-00-00 00:00:00'),
@@ -4017,7 +4022,10 @@ INSERT INTO `ps_configuration` VALUES
 (423,NULL,NULL,'PS_LAYERED_FILTER_PRICE_ROUNDING','1','2024-11-24 06:20:26','2024-11-24 06:20:26'),
 (424,NULL,NULL,'PS_LAYERED_FILTER_SHOW_OUT_OF_STOCK_LAST','0','2024-11-24 06:20:26','2024-11-24 06:20:26'),
 (425,NULL,NULL,'PS_LAYERED_FILTER_BY_DEFAULT_CATEGORY','0','2024-11-24 06:20:26','2024-11-24 06:20:26'),
-(426,NULL,NULL,'PS_LAYERED_INDEXED','1','2024-11-24 06:20:26','2024-11-24 06:20:26');
+(426,NULL,NULL,'PS_LAYERED_INDEXED','1','2024-11-24 06:20:26','2024-11-24 06:20:26'),
+(427,NULL,NULL,'ONBOARDINGV2_SHUT_DOWN','1','2024-11-25 18:28:46','2024-11-25 18:28:46'),
+(428,NULL,NULL,'PS_MAIL_EMAIL_MESSAGE','2','2024-11-25 18:31:40','2024-11-25 18:31:40'),
+(429,NULL,NULL,'PS_MAIL_DOMAIN',NULL,'2024-11-25 18:31:40','2024-11-25 18:31:40');
 /*!40000 ALTER TABLE `ps_configuration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4179,7 +4187,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4190,7 +4198,8 @@ LOCK TABLES `ps_connections` WRITE;
 /*!40000 ALTER TABLE `ps_connections` DISABLE KEYS */;
 INSERT INTO `ps_connections` VALUES
 (1,1,1,1,1,2130706433,'2024-11-24 06:20:20','https://www.prestashop.com'),
-(2,1,1,3,1,2886860801,'2024-11-24 06:20:50','');
+(2,1,1,3,1,2886860801,'2024-11-24 06:20:50',''),
+(3,1,1,4,1,2886860801,'2024-11-25 18:28:36','');
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4238,7 +4247,7 @@ CREATE TABLE `ps_connections_source` (
   KEY `orderby` (`date_add`),
   KEY `http_referer` (`http_referer`),
   KEY `request_uri` (`request_uri`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4247,6 +4256,21 @@ CREATE TABLE `ps_connections_source` (
 
 LOCK TABLES `ps_connections_source` WRITE;
 /*!40000 ALTER TABLE `ps_connections_source` DISABLE KEYS */;
+INSERT INTO `ps_connections_source` VALUES
+(1,3,'http://localhost:8080/','localhost:8080/men/1-1-hummingbird-printed-t-shirt.html','','2024-11-25 18:31:56'),
+(2,3,'http://localhost:8080/','localhost:8080/logowanie?back=my-account','','2024-11-25 18:32:00'),
+(3,3,'http://localhost:8080/logowanie?back=my-account','localhost:8080/logowanie?create_account=1','','2024-11-25 18:32:02'),
+(4,3,'http://localhost:8080/logowanie?create_account=1','localhost:8080/','','2024-11-25 18:32:22'),
+(5,3,'http://localhost:8080/','localhost:8080/moje-konto','','2024-11-25 18:32:45'),
+(6,3,'http://localhost:8080/moje-konto','localhost:8080/dane-osobiste','','2024-11-25 18:32:49'),
+(7,3,'http://localhost:8080/','localhost:8080/moje-konto','','2024-11-25 18:32:50'),
+(8,3,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-25 18:32:51'),
+(9,3,'http://localhost:8080/','localhost:8080/art/3-13-the-best-is-yet-to-come-framed-poster.html','','2024-11-25 18:34:48'),
+(10,3,'http://localhost:8080/art/3-13-the-best-is-yet-to-come-framed-poster.html','localhost:8080/koszyk?action=show','','2024-11-25 18:34:50'),
+(11,3,'http://localhost:8080/koszyk?action=show','localhost:8080/zam%C3%B3wienie','','2024-11-25 18:34:51'),
+(12,3,'http://localhost:8080/zam%C3%B3wienie','localhost:8080/zam%C3%B3wienie','','2024-11-25 18:35:05'),
+(13,3,'http://localhost:8080/zam%C3%B3wienie','localhost:8080/zam%C3%B3wienie','','2024-11-25 18:35:07'),
+(14,3,'http://localhost:8080/zam%C3%B3wienie','localhost:8080/potwierdzenie-zamowienia?id_cart=6&id_module=14&id_order=6&key=de694223a21a4c1da442868fbf0afaab','','2024-11-25 18:35:14');
 /*!40000 ALTER TABLE `ps_connections_source` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5278,7 +5302,7 @@ CREATE TABLE `ps_customer` (
   KEY `id_gender` (`id_gender`),
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_shop` (`id_shop`,`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5289,7 +5313,8 @@ LOCK TABLES `ps_customer` WRITE;
 /*!40000 ALTER TABLE `ps_customer` DISABLE KEYS */;
 INSERT INTO `ps_customer` VALUES
 (1,1,1,1,3,1,0,'','','','Anonymous','Anonymous','anonymous@psgdpr.com','$2y$10$5CLF5NTMEfXfNBo8jdWnPu/oAedQr40vxuLiMubj5w5WHB1ODMzLW','2024-11-24 00:20:11','0000-00-00',0,'','0000-00-00 00:00:00',0,'',0.000000,0,0,'c8e747006fa7d1b86d0ddce09b66443d','',0,0,0,'2024-11-24 06:20:11','2024-11-24 06:20:11','','0000-00-00 00:00:00'),
-(2,1,1,1,3,1,0,'','','','John','DOE','pub@prestashop.com','e709ea22efbab4576799f95c3bc75193','2024-11-24 00:20:22','1970-01-15',1,'','2013-12-13 08:19:15',1,'',0.000000,0,0,'ede1b487313fdb58d991b3a5bde5a36f','',1,0,0,'2024-11-24 06:20:22','2024-11-24 06:20:22','','0000-00-00 00:00:00');
+(2,1,1,1,3,1,0,'','','','John','DOE','pub@prestashop.com','e709ea22efbab4576799f95c3bc75193','2024-11-24 00:20:22','1970-01-15',1,'','2013-12-13 08:19:15',1,'',0.000000,0,0,'ede1b487313fdb58d991b3a5bde5a36f','',1,0,0,'2024-11-24 06:20:22','2024-11-24 06:20:22','','0000-00-00 00:00:00'),
+(3,1,1,1,3,1,0,'','','','gsdsgd','dfsfsd','krzysztofgd23@wp.pl','$2y$10$FmL2v5kBbzpJm4XNARK9peca9Pipd04swt980N86A341gNyHlNnVa','2024-11-25 12:32:20','0000-00-00',0,'','0000-00-00 00:00:00',0,'',0.000000,0,0,'de694223a21a4c1da442868fbf0afaab','',1,0,0,'2024-11-25 18:32:20','2024-11-25 18:32:20','','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `ps_customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5317,7 +5342,8 @@ LOCK TABLES `ps_customer_group` WRITE;
 /*!40000 ALTER TABLE `ps_customer_group` DISABLE KEYS */;
 INSERT INTO `ps_customer_group` VALUES
 (1,3),
-(2,3);
+(2,3),
+(3,3);
 /*!40000 ALTER TABLE `ps_customer_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5389,7 +5415,7 @@ CREATE TABLE `ps_customer_session` (
   `id_customer` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_customer_session`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5398,6 +5424,8 @@ CREATE TABLE `ps_customer_session` (
 
 LOCK TABLES `ps_customer_session` WRITE;
 /*!40000 ALTER TABLE `ps_customer_session` DISABLE KEYS */;
+INSERT INTO `ps_customer_session` VALUES
+(1,3,'02319cec6896f0c51510ae056723218d56901f45');
 /*!40000 ALTER TABLE `ps_customer_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5712,7 +5740,7 @@ CREATE TABLE `ps_employee` (
 LOCK TABLES `ps_employee` WRITE;
 /*!40000 ALTER TABLE `ps_employee` DISABLE KEYS */;
 INSERT INTO `ps_employee` VALUES
-(1,1,1,'Doe','John','demo@prestashop.com','$2y$10$8HNbSXVEy240jsIAvYXZtOXO/WeoUrZPwHRscpkXFErnsOplpUmR2','2024-11-24 00:19:40','2024-10-24','2024-11-24','0000-00-00','0000-00-00',1,NULL,NULL,'default','theme.css',1,0,1,1,NULL,0,0,0,NULL,NULL,'0000-00-00 00:00:00',0);
+(1,1,1,'Doe','John','demo@prestashop.com','$2y$10$8HNbSXVEy240jsIAvYXZtOXO/WeoUrZPwHRscpkXFErnsOplpUmR2','2024-11-24 00:19:40','2024-10-24','2024-11-24','0000-00-00','0000-00-00',1,NULL,NULL,'default','theme.css',1,0,1,1,NULL,0,0,0,'2024-11-25',NULL,'0000-00-00 00:00:00',0);
 /*!40000 ALTER TABLE `ps_employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5728,7 +5756,7 @@ CREATE TABLE `ps_employee_session` (
   `id_employee` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_employee_session`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5737,6 +5765,8 @@ CREATE TABLE `ps_employee_session` (
 
 LOCK TABLES `ps_employee_session` WRITE;
 /*!40000 ALTER TABLE `ps_employee_session` DISABLE KEYS */;
+INSERT INTO `ps_employee_session` VALUES
+(1,1,'321524b4558a1bc326c4df2938737008552648fc');
 /*!40000 ALTER TABLE `ps_employee_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6245,7 +6275,7 @@ CREATE TABLE `ps_guest` (
   KEY `id_customer` (`id_customer`),
   KEY `id_operating_system` (`id_operating_system`),
   KEY `id_web_browser` (`id_web_browser`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6257,7 +6287,8 @@ LOCK TABLES `ps_guest` WRITE;
 INSERT INTO `ps_guest` VALUES
 (1,0,0,2,0,0,0,0,0,0,0,0,0,0,'',0),
 (2,0,0,0,0,0,0,0,0,0,0,0,0,0,'',0),
-(3,6,11,0,0,0,0,0,0,0,0,0,0,0,'pl',0);
+(3,6,11,0,0,0,0,0,0,0,0,0,0,0,'pl',0),
+(4,6,11,3,0,0,0,0,0,0,0,0,0,0,'en',0);
 /*!40000 ALTER TABLE `ps_guest` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -8565,7 +8596,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=229 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=344 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8802,7 +8833,122 @@ INSERT INTO `ps_log` VALUES
 (225,1,0,'Protect vendor folder in module blockreassurance','',0,1,NULL,1,0,1,'2024-11-24 06:20:14','2024-11-24 06:20:14'),
 (226,1,0,'Module blockreassurance has no vendor folder','',0,1,NULL,1,0,1,'2024-11-24 06:20:14','2024-11-24 06:20:14'),
 (227,1,0,'Protect vendor folder in module ps_facetedsearch','',0,1,NULL,1,0,1,'2024-11-24 06:20:26','2024-11-24 06:20:26'),
-(228,1,0,'Module ps_facetedsearch has no vendor folder','',0,1,NULL,1,0,1,'2024-11-24 06:20:26','2024-11-24 06:20:26');
+(228,1,0,'Module ps_facetedsearch has no vendor folder','',0,1,NULL,1,0,1,'2024-11-24 06:20:26','2024-11-24 06:20:26'),
+(229,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-25 18:28:45','2024-11-25 18:28:45'),
+(230,3,0,'No result was found for query although at least one row was expected.','',0,1,NULL,1,0,1,'2024-11-25 18:34:13','2024-11-25 18:34:13'),
+(231,3,0,'No result was found for query although at least one row was expected.','',0,1,NULL,1,0,1,'2024-11-25 18:34:13','2024-11-25 18:34:13'),
+(232,1,0,'Exporting mail with theme modern for language Polski (Polish)','',0,1,NULL,1,0,1,'2024-11-25 18:34:35','2024-11-25 18:34:35'),
+(233,1,0,'Core output folder: /var/www/html/mails','',0,1,NULL,1,0,1,'2024-11-25 18:34:35','2024-11-25 18:34:35'),
+(234,1,0,'Modules output folder: /var/www/html/modules/','',0,1,NULL,1,0,1,'2024-11-25 18:34:35','2024-11-25 18:34:35'),
+(235,1,0,'Generate html template account at /var/www/html/mails/pl/account.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:35','2024-11-25 18:34:35'),
+(236,1,0,'Generate txt template account at /var/www/html/mails/pl/account.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:35','2024-11-25 18:34:35'),
+(237,1,0,'Generate html template backoffice_order at /var/www/html/mails/pl/backoffice_order.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:35','2024-11-25 18:34:35'),
+(238,1,0,'Generate txt template backoffice_order at /var/www/html/mails/pl/backoffice_order.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:35','2024-11-25 18:34:35'),
+(239,1,0,'Generate html template bankwire at /var/www/html/mails/pl/bankwire.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:35','2024-11-25 18:34:35'),
+(240,1,0,'Generate txt template bankwire at /var/www/html/mails/pl/bankwire.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:35','2024-11-25 18:34:35'),
+(241,1,0,'Generate html template cheque at /var/www/html/mails/pl/cheque.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:35','2024-11-25 18:34:35'),
+(242,1,0,'Generate txt template cheque at /var/www/html/mails/pl/cheque.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:35','2024-11-25 18:34:35'),
+(243,1,0,'Generate html template contact at /var/www/html/mails/pl/contact.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:35','2024-11-25 18:34:35'),
+(244,1,0,'Generate txt template contact at /var/www/html/mails/pl/contact.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(245,1,0,'Generate html template contact_form at /var/www/html/mails/pl/contact_form.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(246,1,0,'Generate txt template contact_form at /var/www/html/mails/pl/contact_form.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(247,1,0,'Generate html template credit_slip at /var/www/html/mails/pl/credit_slip.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(248,1,0,'Generate txt template credit_slip at /var/www/html/mails/pl/credit_slip.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(249,1,0,'Generate html template download_product at /var/www/html/mails/pl/download_product.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(250,1,0,'Generate txt template download_product at /var/www/html/mails/pl/download_product.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(251,1,0,'Generate html template employee_password at /var/www/html/mails/pl/employee_password.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(252,1,0,'Generate txt template employee_password at /var/www/html/mails/pl/employee_password.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(253,1,0,'Generate html template forward_msg at /var/www/html/mails/pl/forward_msg.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(254,1,0,'Generate txt template forward_msg at /var/www/html/mails/pl/forward_msg.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(255,1,0,'Generate html template guest_to_customer at /var/www/html/mails/pl/guest_to_customer.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(256,1,0,'Generate txt template guest_to_customer at /var/www/html/mails/pl/guest_to_customer.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(257,1,0,'Generate html template import at /var/www/html/mails/pl/import.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(258,1,0,'Generate txt template import at /var/www/html/mails/pl/import.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(259,1,0,'Generate html template in_transit at /var/www/html/mails/pl/in_transit.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(260,1,0,'Generate txt template in_transit at /var/www/html/mails/pl/in_transit.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(261,1,0,'Generate html template log_alert at /var/www/html/mails/pl/log_alert.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(262,1,0,'Generate txt template log_alert at /var/www/html/mails/pl/log_alert.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(263,1,0,'Generate html template newsletter at /var/www/html/mails/pl/newsletter.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(264,1,0,'Generate txt template newsletter at /var/www/html/mails/pl/newsletter.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(265,1,0,'Generate html template order_canceled at /var/www/html/mails/pl/order_canceled.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(266,1,0,'Generate txt template order_canceled at /var/www/html/mails/pl/order_canceled.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(267,1,0,'Generate html template order_changed at /var/www/html/mails/pl/order_changed.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(268,1,0,'Generate txt template order_changed at /var/www/html/mails/pl/order_changed.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(269,1,0,'Generate html template order_conf at /var/www/html/mails/pl/order_conf.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(270,1,0,'Generate txt template order_conf at /var/www/html/mails/pl/order_conf.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(271,1,0,'Generate html template order_customer_comment at /var/www/html/mails/pl/order_customer_comment.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(272,1,0,'Generate txt template order_customer_comment at /var/www/html/mails/pl/order_customer_comment.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(273,1,0,'Generate html template order_merchant_comment at /var/www/html/mails/pl/order_merchant_comment.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(274,1,0,'Generate txt template order_merchant_comment at /var/www/html/mails/pl/order_merchant_comment.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(275,1,0,'Generate html template order_return_state at /var/www/html/mails/pl/order_return_state.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(276,1,0,'Generate txt template order_return_state at /var/www/html/mails/pl/order_return_state.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(277,1,0,'Generate html template outofstock at /var/www/html/mails/pl/outofstock.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(278,1,0,'Generate txt template outofstock at /var/www/html/mails/pl/outofstock.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(279,1,0,'Generate html template password at /var/www/html/mails/pl/password.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(280,1,0,'Generate txt template password at /var/www/html/mails/pl/password.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(281,1,0,'Generate html template password_query at /var/www/html/mails/pl/password_query.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(282,1,0,'Generate txt template password_query at /var/www/html/mails/pl/password_query.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(283,1,0,'Generate html template payment at /var/www/html/mails/pl/payment.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(284,1,0,'Generate txt template payment at /var/www/html/mails/pl/payment.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(285,1,0,'Generate html template payment_error at /var/www/html/mails/pl/payment_error.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(286,1,0,'Generate txt template payment_error at /var/www/html/mails/pl/payment_error.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(287,1,0,'Generate html template preparation at /var/www/html/mails/pl/preparation.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(288,1,0,'Generate txt template preparation at /var/www/html/mails/pl/preparation.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(289,1,0,'Generate html template productoutofstock at /var/www/html/mails/pl/productoutofstock.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(290,1,0,'Generate txt template productoutofstock at /var/www/html/mails/pl/productoutofstock.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(291,1,0,'Generate html template refund at /var/www/html/mails/pl/refund.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(292,1,0,'Generate txt template refund at /var/www/html/mails/pl/refund.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(293,1,0,'Generate html template reply_msg at /var/www/html/mails/pl/reply_msg.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(294,1,0,'Generate txt template reply_msg at /var/www/html/mails/pl/reply_msg.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(295,1,0,'Generate html template shipped at /var/www/html/mails/pl/shipped.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(296,1,0,'Generate txt template shipped at /var/www/html/mails/pl/shipped.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(297,1,0,'Generate html template test at /var/www/html/mails/pl/test.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(298,1,0,'Generate txt template test at /var/www/html/mails/pl/test.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(299,1,0,'Generate html template voucher at /var/www/html/mails/pl/voucher.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(300,1,0,'Generate txt template voucher at /var/www/html/mails/pl/voucher.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(301,1,0,'Generate html template voucher_new at /var/www/html/mails/pl/voucher_new.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(302,1,0,'Generate txt template voucher_new at /var/www/html/mails/pl/voucher_new.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(303,1,0,'Generate html template referralprogram-congratulations at /var/www/html/modules//referralprogram/mails/pl/referralprogram-congratulations.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(304,1,0,'Generate txt template referralprogram-congratulations at /var/www/html/modules//referralprogram/mails/pl/referralprogram-congratulations.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(305,1,0,'Generate html template referralprogram-invitation at /var/www/html/modules//referralprogram/mails/pl/referralprogram-invitation.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(306,1,0,'Generate txt template referralprogram-invitation at /var/www/html/modules//referralprogram/mails/pl/referralprogram-invitation.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(307,1,0,'Generate html template referralprogram-voucher at /var/www/html/modules//referralprogram/mails/pl/referralprogram-voucher.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(308,1,0,'Generate txt template referralprogram-voucher at /var/www/html/modules//referralprogram/mails/pl/referralprogram-voucher.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(309,1,0,'Generate html template followup_1 at /var/www/html/modules//ps_reminder/mails/pl/followup_1.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(310,1,0,'Generate txt template followup_1 at /var/www/html/modules//ps_reminder/mails/pl/followup_1.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(311,1,0,'Generate html template followup_2 at /var/www/html/modules//ps_reminder/mails/pl/followup_2.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(312,1,0,'Generate txt template followup_2 at /var/www/html/modules//ps_reminder/mails/pl/followup_2.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(313,1,0,'Generate html template followup_3 at /var/www/html/modules//ps_reminder/mails/pl/followup_3.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(314,1,0,'Generate txt template followup_3 at /var/www/html/modules//ps_reminder/mails/pl/followup_3.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(315,1,0,'Generate html template followup_4 at /var/www/html/modules//ps_reminder/mails/pl/followup_4.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(316,1,0,'Generate txt template followup_4 at /var/www/html/modules//ps_reminder/mails/pl/followup_4.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(317,1,0,'Generate html template customer_qty at /var/www/html/modules//ps_emailalerts/mails/pl/customer_qty.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(318,1,0,'Generate txt template customer_qty at /var/www/html/modules//ps_emailalerts/mails/pl/customer_qty.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(319,1,0,'Generate html template new_order at /var/www/html/modules//ps_emailalerts/mails/pl/new_order.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(320,1,0,'Generate txt template new_order at /var/www/html/modules//ps_emailalerts/mails/pl/new_order.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(321,1,0,'Generate html template order_changed at /var/www/html/modules//ps_emailalerts/mails/pl/order_changed.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(322,1,0,'Generate txt template order_changed at /var/www/html/modules//ps_emailalerts/mails/pl/order_changed.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(323,1,0,'Generate html template productcoverage at /var/www/html/modules//ps_emailalerts/mails/pl/productcoverage.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(324,1,0,'Generate txt template productcoverage at /var/www/html/modules//ps_emailalerts/mails/pl/productcoverage.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(325,1,0,'Generate html template productoutofstock at /var/www/html/modules//ps_emailalerts/mails/pl/productoutofstock.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(326,1,0,'Generate txt template productoutofstock at /var/www/html/modules//ps_emailalerts/mails/pl/productoutofstock.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(327,1,0,'Generate html template return_slip at /var/www/html/modules//ps_emailalerts/mails/pl/return_slip.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(328,1,0,'Generate txt template return_slip at /var/www/html/modules//ps_emailalerts/mails/pl/return_slip.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(329,1,0,'Generate html template newsletter_conf at /var/www/html/modules//ps_emailsubscription/mails/pl/newsletter_conf.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(330,1,0,'Generate txt template newsletter_conf at /var/www/html/modules//ps_emailsubscription/mails/pl/newsletter_conf.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(331,1,0,'Generate html template newsletter_verif at /var/www/html/modules//ps_emailsubscription/mails/pl/newsletter_verif.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(332,1,0,'Generate txt template newsletter_verif at /var/www/html/modules//ps_emailsubscription/mails/pl/newsletter_verif.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(333,1,0,'Generate html template newsletter_voucher at /var/www/html/modules//ps_emailsubscription/mails/pl/newsletter_voucher.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(334,1,0,'Generate txt template newsletter_voucher at /var/www/html/modules//ps_emailsubscription/mails/pl/newsletter_voucher.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(335,1,0,'Generate html template followup_1 at /var/www/html/modules//followup/mails/pl/followup_1.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(336,1,0,'Generate txt template followup_1 at /var/www/html/modules//followup/mails/pl/followup_1.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(337,1,0,'Generate html template followup_2 at /var/www/html/modules//followup/mails/pl/followup_2.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(338,1,0,'Generate txt template followup_2 at /var/www/html/modules//followup/mails/pl/followup_2.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(339,1,0,'Generate html template followup_3 at /var/www/html/modules//followup/mails/pl/followup_3.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(340,1,0,'Generate txt template followup_3 at /var/www/html/modules//followup/mails/pl/followup_3.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(341,1,0,'Generate html template followup_4 at /var/www/html/modules//followup/mails/pl/followup_4.html','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(342,1,0,'Generate txt template followup_4 at /var/www/html/modules//followup/mails/pl/followup_4.txt','',0,1,NULL,1,0,1,'2024-11-25 18:34:36','2024-11-25 18:34:36'),
+(343,1,0,'Frontcontroller::init - Cart cannot be loaded or an order has already been placed using this cart','Cart',6,1,NULL,1,0,0,'2024-11-25 18:35:14','2024-11-25 18:35:14');
 /*!40000 ALTER TABLE `ps_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -8822,7 +8968,7 @@ CREATE TABLE `ps_mail` (
   `date_add` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id_mail`),
   KEY `recipient` (`recipient`(10))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8831,6 +8977,10 @@ CREATE TABLE `ps_mail` (
 
 LOCK TABLES `ps_mail` WRITE;
 /*!40000 ALTER TABLE `ps_mail` DISABLE KEYS */;
+INSERT INTO `ps_mail` VALUES
+(1,'krzysztofgd23@wp.pl','account','[PrestaShop] Witaj !',1,'2024-11-25 18:32:22'),
+(2,'krzysztofgd23@wp.pl','cheque','[PrestaShop] Oczekiwanie na płatność czekiem',1,'2024-11-25 18:35:11'),
+(3,'krzysztofgd23@wp.pl','order_conf','[PrestaShop] Potwierdzenie zamówienia',1,'2024-11-25 18:35:14');
 /*!40000 ALTER TABLE `ps_mail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -10184,7 +10334,7 @@ CREATE TABLE `ps_order_carrier` (
   KEY `id_order` (`id_order`),
   KEY `id_carrier` (`id_carrier`),
   KEY `id_order_invoice` (`id_order_invoice`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10198,7 +10348,8 @@ INSERT INTO `ps_order_carrier` VALUES
 (2,2,2,0,0.000000,7.000000,8.400000,'','2024-11-24 06:20:21'),
 (3,3,2,0,0.000000,7.000000,8.400000,'','2024-11-24 06:20:21'),
 (4,4,2,0,0.000000,7.000000,8.400000,'','2024-11-24 06:20:21'),
-(5,5,2,0,0.000000,7.000000,8.400000,'','2024-11-24 06:20:21');
+(5,5,2,0,0.000000,7.000000,8.400000,'','2024-11-24 06:20:21'),
+(6,6,1,0,0.300000,0.000000,0.000000,'','2024-11-25 18:35:10');
 /*!40000 ALTER TABLE `ps_order_carrier` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -10297,7 +10448,7 @@ CREATE TABLE `ps_order_detail` (
   KEY `product_attribute_id` (`product_attribute_id`),
   KEY `id_tax_rules_group` (`id_tax_rules_group`),
   KEY `id_order_id_order_detail` (`id_order`,`id_order_detail`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10313,7 +10464,8 @@ INSERT INTO `ps_order_detail` VALUES
 (4,2,0,0,1,8,0,0,'Mug Today is a good day',1,1,0,0,0,11.900000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','demo_13','',0.000000,0,0,'',0.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',11.900000,11.900000,11.900000,11.900000,0.000000,0.000000,0.000000,11.900000,0.000000,0.000000,0.000000),
 (5,3,0,0,1,16,28,0,'Mountain fox notebook Style : Ruled',1,1,0,0,0,12.900000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','demo_8','',0.000000,0,0,'',0.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',12.900000,12.900000,12.900000,12.900000,0.000000,0.000000,0.000000,12.900000,0.000000,0.000000,0.000000),
 (6,4,0,0,1,16,29,0,'Mountain fox notebook Style : Plain',1,1,0,0,0,12.900000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','demo_8','',0.000000,0,0,'',0.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',12.900000,12.900000,12.900000,12.900000,0.000000,0.000000,0.000000,12.900000,0.000000,0.000000,0.000000),
-(7,5,0,0,1,10,25,0,'Brown bear cushion Color : Black',1,1,0,0,0,18.900000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','demo_16','',0.000000,0,0,'',0.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',18.900000,18.900000,18.900000,18.900000,0.000000,0.000000,0.000000,18.900000,0.000000,0.000000,0.000000);
+(7,5,0,0,1,10,25,0,'Brown bear cushion Color : Black',1,1,0,0,0,18.900000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','demo_16','',0.000000,0,0,'',0.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',18.900000,18.900000,18.900000,18.900000,0.000000,0.000000,0.000000,18.900000,0.000000,0.000000,0.000000),
+(8,6,0,0,1,3,13,0,'The best is yet to come\' Framed poster (Dimension: 40x60cm)',1,1,0,0,0,29.000000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','demo_6','demo_6_70',0.300000,1,0,'PTU PL 23%',23.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',35.670000,29.000000,35.670000,29.000000,0.000000,0.000000,5.490000,29.000000,0.000000,0.000000,0.000000);
 /*!40000 ALTER TABLE `ps_order_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -10340,6 +10492,8 @@ CREATE TABLE `ps_order_detail_tax` (
 
 LOCK TABLES `ps_order_detail_tax` WRITE;
 /*!40000 ALTER TABLE `ps_order_detail_tax` DISABLE KEYS */;
+INSERT INTO `ps_order_detail_tax` VALUES
+(8,1,6.670000,6.670000);
 /*!40000 ALTER TABLE `ps_order_detail_tax` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -10360,7 +10514,7 @@ CREATE TABLE `ps_order_history` (
   KEY `order_history_order` (`id_order`),
   KEY `id_employee` (`id_employee`),
   KEY `id_order_state` (`id_order_state`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10376,7 +10530,8 @@ INSERT INTO `ps_order_history` VALUES
 (4,0,4,1,'2024-11-24 06:20:21'),
 (5,0,5,10,'2024-11-24 06:20:21'),
 (6,1,1,6,'2024-11-24 06:20:21'),
-(7,1,3,8,'2024-11-24 06:20:21');
+(7,1,3,8,'2024-11-24 06:20:21'),
+(8,0,6,1,'2024-11-25 18:35:10');
 /*!40000 ALTER TABLE `ps_order_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -10906,7 +11061,7 @@ CREATE TABLE `ps_orders` (
   KEY `current_state` (`current_state`),
   KEY `id_shop` (`id_shop`),
   KEY `date_add` (`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10920,7 +11075,8 @@ INSERT INTO `ps_orders` VALUES
 (2,'OHSATSERP',1,1,2,1,2,2,1,5,5,1,'b44a6d9efd7a0076a0fbce6b15eaf3b1','Payment by check',1.000000,'ps_checkpayment',0,0,'',0,'',0.000000,0.000000,0.000000,169.900000,169.900000,169.900000,0.000000,169.900000,169.900000,0.000000,0.000000,0.000000,0.000,0.000000,0.000000,0.000000,0,0,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2024-11-24 06:20:21','2024-11-24 06:20:21',''),
 (3,'UOYEVOLI',1,1,2,1,2,3,1,5,5,8,'b44a6d9efd7a0076a0fbce6b15eaf3b1','Payment by check',1.000000,'ps_checkpayment',0,0,'',0,'',0.000000,0.000000,0.000000,14.900000,21.300000,19.900000,0.000000,12.900000,12.900000,7.000000,8.400000,7.000000,0.000,0.000000,0.000000,0.000000,0,0,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2024-11-24 06:20:21','2024-11-24 06:20:21',''),
 (4,'FFATNOMMJ',1,1,2,1,2,4,1,5,5,1,'b44a6d9efd7a0076a0fbce6b15eaf3b1','Payment by check',1.000000,'ps_checkpayment',0,0,'',0,'',0.000000,0.000000,0.000000,14.900000,21.300000,19.900000,0.000000,12.900000,12.900000,7.000000,8.400000,7.000000,0.000,0.000000,0.000000,0.000000,0,0,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2024-11-24 06:20:21','2024-11-24 06:20:21',''),
-(5,'KHWLILZLL',1,1,2,1,2,5,1,5,5,10,'b44a6d9efd7a0076a0fbce6b15eaf3b1','Bank wire',1.000000,'ps_wirepayment',0,0,'',0,'',0.000000,0.000000,0.000000,20.900000,27.300000,25.900000,0.000000,18.900000,18.900000,7.000000,8.400000,7.000000,0.000,0.000000,0.000000,0.000000,0,0,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2024-11-24 06:20:21','2024-11-24 06:20:21','');
+(5,'KHWLILZLL',1,1,2,1,2,5,1,5,5,10,'b44a6d9efd7a0076a0fbce6b15eaf3b1','Bank wire',1.000000,'ps_wirepayment',0,0,'',0,'',0.000000,0.000000,0.000000,20.900000,27.300000,25.900000,0.000000,18.900000,18.900000,7.000000,8.400000,7.000000,0.000,0.000000,0.000000,0.000000,0,0,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2024-11-24 06:20:21','2024-11-24 06:20:21',''),
+(6,'DEKITJZIT',1,1,1,1,3,6,1,7,7,1,'de694223a21a4c1da442868fbf0afaab','Czek',1.000000,'ps_checkpayment',0,0,'',0,'',0.000000,0.000000,0.000000,35.670000,35.670000,29.000000,0.000000,29.000000,35.670000,0.000000,0.000000,0.000000,23.000,0.000000,0.000000,0.000000,2,2,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2024-11-25 18:35:10','2024-11-25 18:35:10','');
 /*!40000 ALTER TABLE `ps_orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -12306,7 +12462,7 @@ CREATE TABLE `ps_psgdpr_log` (
   PRIMARY KEY (`id_gdpr_log`),
   KEY `id_customer` (`id_customer`),
   KEY `idx_id_customer` (`id_customer`,`id_guest`,`client_name`,`id_module`,`date_add`,`date_upd`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12315,6 +12471,8 @@ CREATE TABLE `ps_psgdpr_log` (
 
 LOCK TABLES `ps_psgdpr_log` WRITE;
 /*!40000 ALTER TABLE `ps_psgdpr_log` DISABLE KEYS */;
+INSERT INTO `ps_psgdpr_log` VALUES
+(1,3,0,'gsdsgd dfsfsd',0,1,'2024-11-25 18:32:22','2024-11-25 18:32:22');
 /*!40000 ALTER TABLE `ps_psgdpr_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -14521,7 +14679,7 @@ LOCK TABLES `ps_stock_available` WRITE;
 INSERT INTO `ps_stock_available` VALUES
 (1,1,0,1,0,2400,0,0,0,2,''),
 (2,2,0,1,0,2100,0,0,0,2,''),
-(3,3,0,1,0,1500,0,0,0,2,''),
+(3,3,0,1,0,1499,1499,0,0,2,''),
 (4,4,0,1,0,1500,0,0,0,2,''),
 (5,5,0,1,0,900,0,0,0,2,''),
 (6,6,0,1,0,300,0,0,0,2,''),
@@ -14550,9 +14708,9 @@ INSERT INTO `ps_stock_available` VALUES
 (29,2,10,1,0,300,0,0,0,2,''),
 (30,2,11,1,0,300,0,0,0,2,''),
 (31,2,12,1,0,300,0,0,0,2,''),
-(32,3,13,1,0,900,0,0,0,2,''),
-(33,3,14,1,0,300,0,0,0,2,''),
-(34,3,15,1,0,300,0,0,0,2,''),
+(32,3,13,1,0,899,900,1,0,2,''),
+(33,3,14,1,0,300,300,0,0,2,''),
+(34,3,15,1,0,300,300,0,0,2,''),
 (35,4,16,1,0,900,0,0,0,2,''),
 (36,4,17,1,0,300,0,0,0,2,''),
 (37,4,18,1,0,300,0,0,0,2,''),
@@ -16491,7 +16649,7 @@ CREATE TABLE `ps_translation` (
   PRIMARY KEY (`id_translation`),
   KEY `IDX_ADEBEB36BA299860` (`id_lang`),
   KEY `key` (`domain`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -16500,6 +16658,9 @@ CREATE TABLE `ps_translation` (
 
 LOCK TABLES `ps_translation` WRITE;
 /*!40000 ALTER TABLE `ps_translation` DISABLE KEYS */;
+INSERT INTO `ps_translation` VALUES
+(1,1,'Recycled packaging:','Opakowanie z wtórnego użytku:','EmailsBody',NULL),
+(2,1,'Review this credit slip and download it on our shop, go to the <a href=\"{order_slip_url}\" target=\"_blank\">%credit_slips_label%</a> section of your customer account.','Sprawdź dowód wpłaty i pobierz go z naszego sklepu, przejdź do <a href=\"{order_slip_url}\" target=\"_blank\">%credit_slips_label%</a> sekcji twojego konta.','EmailsBody',NULL);
 /*!40000 ALTER TABLE `ps_translation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -16745,7 +16906,7 @@ CREATE TABLE `ps_wishlist` (
   `date_upd` datetime NOT NULL,
   `default` int(10) unsigned DEFAULT 0,
   PRIMARY KEY (`id_wishlist`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -16754,6 +16915,8 @@ CREATE TABLE `ps_wishlist` (
 
 LOCK TABLES `ps_wishlist` WRITE;
 /*!40000 ALTER TABLE `ps_wishlist` DISABLE KEYS */;
+INSERT INTO `ps_wishlist` VALUES
+(1,3,1,1,'05EA85AD64D3B82F','My wishlist',NULL,'2024-11-25 18:32:22','2024-11-25 18:32:22',1);
 /*!40000 ALTER TABLE `ps_wishlist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -16883,4 +17046,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-11-24  5:23:55
+-- Dump completed on 2024-11-25 17:36:51

@@ -1,0 +1,13 @@
+ 
+
+{shop_url}
+
+Witaj {firstname} {lastname},
+
+To jest testowy  e-mail z Twojego sklepu.
+
+Jeśli potrafisz to przeczytać, oznacza to, że test się powiódł!
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

@@ -1,0 +1,20 @@
+ 
+
+{shop_url}
+
+Witaj {firstname} {lastname},
+
+Twoje konto gościa zostało przekształcone w konto klienta
+
+Gratulacja, Twoje konto gościa w {shop_name} zostało przekształcone w konto klienta!
+
+Adres e-mail: {email}
+
+Kliknij w poniższy link aby ustalić swoje hasło:
+{url}
+
+Możesz uzyskać dostęp do konta klienta w naszym sklepie: [{shop_name}]({shop_url})
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

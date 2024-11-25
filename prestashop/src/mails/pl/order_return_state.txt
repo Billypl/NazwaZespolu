@@ -1,0 +1,15 @@
+ 
+
+{shop_url}
+
+Witaj {firstname} {lastname},
+
+Zwrot zamówienia #{id_order_return} - Aktualizacja
+
+Zaktualizowaliśmy postęp w sprawie Twojego zwrotu #{id_order_return}, nowy status to: "{state_order_return}".
+
+Śledź status swojego zamówienia i pobierz fakturę w naszym sklepie, na stronie [Historia i szczegóły zamówień]({history_url}) w sekcji konta klienta.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

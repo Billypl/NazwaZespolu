@@ -1,0 +1,15 @@
+ 
+
+{shop_url}
+
+Witaj {firstname} {lastname},
+
+Numer zamówienia {order_name} - Pokwitowanie - korekta kredytowa
+
+W Twoim imieniu został wygenerowany kupon na zamówienie o numerze {order_name}.
+
+Przejrzyj ten rachunek i pobierz fakturę w naszym sklepie, przejdź do sekcji[Moje pokwitowania - korekty płatności]({history_url}) konta klienta.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

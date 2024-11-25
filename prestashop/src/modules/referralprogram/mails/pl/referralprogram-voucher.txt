@@ -1,0 +1,16 @@
+ 
+
+{shop_url}
+
+Witaj {firstname} {lastname},
+
+Program sponsorski
+
+Stworzyliśmy kupon w Twoim imieniu za polecenie przyjaciela.
+Oto kod Twojego bonu: {voucher_num}, z ilością {voucher_num}
+
+Po prostu skopiuj/wklej ten kod podczas procesu płatności dla następnego zamówienia.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)
