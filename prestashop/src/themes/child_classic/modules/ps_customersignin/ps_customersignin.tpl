@@ -49,7 +49,7 @@
         rel="nofollow"
       >
         <i class="material-icons">&#xE7FF;</i>
-        <p class="hidden-sm-down">{l s='Sign in' d='Shop.Theme.Actions'}</p>
+        <p class="hidden-sm-down signin">{l s='Sign in' d='Shop.Theme.Actions'}</p>
       </a>
     {/if}
   </div>
