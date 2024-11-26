@@ -99,3 +99,13 @@ input{
 .cart-products-count{
     margin-left: 0.15rem;
 }
+
+#footer {
+    padding-top: 0rem;
+}
+
+#products .products-section-title, .featured-products .products-section-title, .product-accessories .products-section-title {
+    margin-bottom: 4rem;
+    margin-top: 0;
+    font-size: 1.5rem;
+}
