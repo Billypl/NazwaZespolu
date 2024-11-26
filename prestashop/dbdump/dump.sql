@@ -4254,7 +4254,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4277,7 +4277,9 @@ INSERT INTO `ps_connections` VALUES
 (11,1,1,6,1,2886860801,'2024-11-26 13:30:50',''),
 (12,1,1,6,1,2886860801,'2024-11-26 14:04:01',''),
 (13,1,1,6,1,2886860801,'2024-11-26 14:37:45',''),
-(14,1,1,6,1,2886860801,'2024-11-26 15:10:23','');
+(14,1,1,6,1,2886860801,'2024-11-26 15:10:23',''),
+(15,1,1,6,1,2886860801,'2024-11-26 16:43:51',''),
+(16,1,1,6,1,2886860801,'2024-11-26 21:05:09','');
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -17395,4 +17397,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-11-26 14:34:03
+-- Dump completed on 2024-11-26 20:08:22
