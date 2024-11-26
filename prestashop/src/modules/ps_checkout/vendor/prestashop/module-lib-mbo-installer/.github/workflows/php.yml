@@ -1,0 +1,118 @@
+name: PHP tests
+on: [push, pull_request]
+jobs:
+  php-linter:
+    name: PHP Syntax check 5.6|7.2|7.3|8.0|8.1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: PHP syntax checker 5.6
+        uses: prestashop/github-action-php-lint/5.6@master
+        with:
+          folder-to-exclude: "! -path \"./tests/*\""
+
+      - name: PHP syntax checker 7.2
+        uses: prestashop/github-action-php-lint/7.2@master
+
+      - name: PHP syntax checker 8.0
+        uses: prestashop/github-action-php-lint/8.0@master
+
+      - name: PHP syntax checker 8.1
+        uses: prestashop/github-action-php-lint/8.1@master
+
+  php-cs-fixer:
+    name: PHP-CS-Fixer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache vendor folder
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+      - name: Cache composer folder
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache
+          key: php-composer-cache
+
+      - run: composer install
+
+      - name: Run PHP-CS-Fixer
+        run: vendor/bin/php-cs-fixer fix --diff --dry-run
+
+  phpstan:
+    name: PHPStan
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        prestashop_version: [
+          "https://github.com/PrestaShop/PrestaShop/releases/download/8.0.0/prestashop_8.0.0.zip",
+          "https://github.com/PrestaShop/PrestaShop/releases/download/1.7.4.4/prestashop_1.7.4.4.zip",
+        ]
+    steps:
+      - name: Download PrestaShop code source
+        run: |
+          wget -O /tmp/prestashop.zip ${{ matrix.prestashop_version }}
+          unzip -o /tmp/prestashop.zip -d /tmp
+          unzip -o /tmp/prestashop.zip -d /tmp/prestashop
+
+      - name: Setup PHP with tools
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache vendor folder
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+      - name: Cache composer folder
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache
+          key: php-composer-cache
+
+      - run: composer install
+
+      - name: Run PHPStan
+        env:
+          _PS_ROOT_DIR_: /tmp/prestashop
+        run: vendor/bin/phpstan
+
+  phpunit:
+    name: PHPUnit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cache vendor folder
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: php-${{ hashFiles('composer.lock') }}
+
+      - name: Cache composer folder
+        uses: actions/cache@v3
+        with:
+          path: ~/.composer/cache
+          key: php-composer-cache
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: PHPUnit tests 1.7
+        run: DOCKER_INTERNAL="1.7" make phpunit
+
+      - name: PHPUnit tests with PS 8
+        run: DOCKER_INTERNAL=8 make phpunit

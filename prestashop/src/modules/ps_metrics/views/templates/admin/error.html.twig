@@ -1,0 +1,112 @@
+{#**
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License version 3.0
+ * that is bundled with this package in the file LICENSE.md.
+ * It is also available through the world-wide-web at this URL:
+ * https://opensource.org/licenses/AFL-3.0
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@prestashop.com so we can send you a copy immediately.
+ *
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
+ * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+ *#}
+ 
+ {% block content %}
+    <div id="error-loading-app-content">
+        <div id="error-loading-app-content-icon"> ! </div>
+        <h2> Oops, an error occured... </h2>
+        <p> We are currently unable to display your KPI's. </p>
+        <p> Please make sure you are using the latest version of PrestaShop Metrics. </p>
+        <p> If the problem persist, please contact our support team: <b><a href="mailto:support-ps-metrics@prestashop.com" target="_blank">support-ps-metrics@prestashop.com</a></b>.</p>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        #error-loading-app {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #error-loading-app-content{
+            margin: 200px auto;
+            display: flex;
+            flex-direction: column;
+            background-color: #FAFAFB;
+            border-radius: 5px;
+            padding: 50px;
+            border: 2px solid #C8D7E4;
+            text-align: center;
+        }
+        #error-loading-app-content-icon{
+            font-size: 30px;
+            text-align: center;
+            color: #FFFFFF;
+            background-color: #DADADA;
+            border-radius: 50%;
+            height: 45px;
+            width: 45px;
+            margin: auto;
+            line-height: 1.4em;
+
+        }
+        #error-loading-app-content h2{
+            margin: 10px 20px 20px;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 30px;
+        }
+        #error-loading-app-content p{
+            margin-bottom: 5px;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        (() => {
+            let appIsLoaded = false;
+            let currentRecursion = 0;
+            let maxRecursion = 150;
+
+            const checkAppIsloaded = () => {
+                currentRecursion++;
+
+                if (currentRecursion === maxRecursion) {
+                // show error block and hide metrics
+                document.getElementById('error-loading-app').classList.add('show');
+                document.getElementById('error-loading-app').classList.remove('hide');
+
+                document.getElementById('metrics-app').classList.add('hide');
+                document.getElementById('metrics-app').classList.remove('show');
+                return;
+                }
+
+                if (typeof(window.appIsLoaded) === 'undefined') {
+                setTimeout(() => {
+                    checkAppIsloaded();
+                }, 100);
+                }
+            }
+
+            checkAppIsloaded();
+        })();
+    </script>
+{% endblock %}

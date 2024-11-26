@@ -1,0 +1,65 @@
+@import "~bourbon/core/bourbon";
+@import "settings";
+
+@import 'advancement';
+@import 'navbar';
+@import 'tooltip';
+@import 'popup';
+
+#onboarding-welcome {
+  .final-link {
+    display: block;
+    border: 1px solid #BBCDD2;
+    border-radius: 3px;
+    padding: 1.25rem;
+    margin: 0.4375rem 0;
+    text-decoration: none;
+
+    > i {
+      color: #BBCDD2;
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.btn {
+  &.with-spinner {
+    position: relative;
+  }
+  &.with-spinner.animated {
+    border-color: white;
+    background: white;
+    outline-color: white;
+
+    &:hover {
+      border-color: white;
+      background: white;
+    }
+
+    &:after {
+      position: absolute;
+      width: 1.875rem;
+      height: 1.875rem;
+      left: 50%;
+      top: 50%;
+      margin: {
+        top: -0.9375rem;
+        left: -0.9375rem;
+      }
+      display: block;
+      border: 3px solid $primary-color;
+      border-top-color: transparent;
+      border-radius: 3.125rem;
+      background: transparent;
+      content: '';
+      -webkit-animation:spin 4s linear infinite;
+      -moz-animation:spin 4s linear infinite;
+      animation:spin 4s linear infinite;
+    }
+  }
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

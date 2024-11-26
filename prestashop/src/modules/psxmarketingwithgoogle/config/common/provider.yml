@@ -1,0 +1,35 @@
+services:
+  PrestaShop\Module\PsxMarketingWithGoogle\Provider\PurchaseEventDataProvider:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Provider\PurchaseEventDataProvider
+    public: true
+    arguments:
+      - '@PrestaShop\Module\PsxMarketingWithGoogle\Provider\ProductDataProvider'
+      - '@psxmarketingwithgoogle.context'
+      - '@PrestaShop\Module\PsxMarketingWithGoogle\Adapter\ConfigurationAdapter'
+      - '@PrestaShop\Module\PsxMarketingWithGoogle\Repository\LanguageRepository'
+      - '@PrestaShop\Module\PsxMarketingWithGoogle\Repository\CountryRepository'
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Provider\CartEventDataProvider:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Provider\CartEventDataProvider
+    public: true
+    arguments:
+      - '@psxmarketingwithgoogle.context'
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Provider\ProductDataProvider:
+    class: 'PrestaShop\Module\PsxMarketingWithGoogle\Provider\ProductDataProvider'
+    public: true
+    arguments:
+      - '@psxmarketingwithgoogle.context'
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Provider\PageViewEventDataProvider:
+    class: 'PrestaShop\Module\PsxMarketingWithGoogle\Provider\PageViewEventDataProvider'
+    public: true
+    arguments:
+      - '@psxmarketingwithgoogle.context'
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Provider\VerificationTagDataProvider:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Provider\VerificationTagDataProvider
+    public: true
+    arguments:
+      - '@PrestaShop\Module\PsxMarketingWithGoogle\Adapter\ConfigurationAdapter'
+      - '@PrestaShop\Module\PsxMarketingWithGoogle\Repository\VerificationTagRepository'

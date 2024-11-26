@@ -1,0 +1,34 @@
+metrics_page:
+  path: metrics
+  methods: [GET]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_metrics\Controller\Admin\MetricsController::renderApp'
+    _legacy_controller: "AdminMetricsController"
+    _legacy_link: "AdminMetricsController"
+
+metrics_api_resolver:
+  path: metrics/api/{query}
+  methods: [GET, POST]
+  defaults:
+    query: ""
+    _controller: 'PrestaShop\Module\Ps_metrics\Controller\Admin\MetricsResolverController::resolve'
+
+metrics_api_legacy_stats:
+  path: metrics/legacy/stats
+  methods: [GET]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_metrics\Controller\Admin\MetricsLegacyStatsController::redirectToLegacyStats'
+    _legacy_controller: "AdminMetricsLegacyStatsController"
+    _legacy_link: "AdminMetricsLegacyStatsController"
+
+metrics_oauth:
+  path: metrics/oauth
+  methods: [GET, POST]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_metrics\Controller\Admin\MetricsOauthController::oauth'
+
+metrics_graphql:
+  path: metrics/graphql
+  methods: [GET, POST]
+  defaults:
+    _controller: 'PrestaShop\Module\Ps_metrics\Controller\Admin\MetricsGraphqlController::execute'

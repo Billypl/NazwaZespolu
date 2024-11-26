@@ -1,0 +1,7 @@
+services:
+  ps_metrics.provider.analyticsaccountslist:
+    class: 'PrestaShop\Module\Ps_metrics\Provider\AnalyticsAccountsListProvider'
+    public: true
+    arguments:
+      - "@ps_metrics.repository.configuration"
+      - "@ps_metrics.api.analytics"

@@ -1,0 +1,56 @@
+services:
+  ps_metrics.helper.number:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\NumberHelper'
+    public: true
+
+  ps_metrics.helper.module:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\ModuleHelper'
+    arguments:
+      - "@ps_metrics.module"
+    public: true
+
+  ps_metrics.helper.tools:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\ToolsHelper'
+    public: true
+
+  ps_metrics.helper.shop:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\ShopHelper'
+    public: true
+    arguments:
+      - "@ps_metrics.helper.tools"
+
+  ps_metrics.adapter.logger:
+    class: 'PrestaShop\Module\Ps_metrics\Adapter\LoggerAdapter'
+    public: true
+
+  ps_metrics.helper.segment:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\SegmentHelper'
+    public: true
+    arguments:
+      - "@ps_metrics.helper.config"
+
+  ps_metrics.helper.api:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\ApiHelper'
+    public: true
+
+  ps_metrics.helper.json:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\JsonHelper'
+    public: true
+
+  ps_metrics.helper.db:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\DbHelper'
+    public: true
+
+  ps_metrics.helper.prestashop:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\PrestaShopHelper'
+    public: true
+
+  ps_metrics.helper.multishop:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\MultishopHelper'
+    public: true
+
+  ps_metrics.helper.config:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\ConfigHelper'
+    public: true
+    arguments:
+      - "@ps_metrics.config.env"

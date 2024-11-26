@@ -1,0 +1,4 @@
+services:
+  ps_metrics.validation.processselectaccountanalytics:
+    class: 'PrestaShop\Module\Ps_metrics\Validation\SelectAccountAnalytics'
+    public: true

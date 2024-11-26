@@ -1,0 +1,96 @@
+@import "settings";
+
+.onboarding-advancement {
+  font-family: Open Sans,sans-serif; // Forced because of old theme
+  font-weight: normal; // Forced because of old theme
+  position: fixed;
+  background: $background-color;
+  height: 6.875rem;
+
+  bottom: 0;
+  right: 0;
+  left: 13.125rem;
+
+  z-index: $minimum-z-index - 1;
+
+  .btn-primary {
+    background: $primary-color;
+    background: $primary-color !important; // Forced because of old theme
+  }
+
+  .col-md-8 { // Forced because of old theme
+    padding-left: 0.9375rem;
+  }
+
+  .group-title {
+    font-weight: bold; // Forced because of old theme
+    font-family: Open Sans,sans-serif; // Forced because of old theme
+    color: $dark-color;
+    font-size: 1rem;
+    margin-top: 0.625rem;
+  }
+
+  .step-title {
+    font-size: 0.875rem; // Forced because of old theme
+    line-height: 1.25rem; // Forced because of old theme
+    .material-icons {
+      color: $primary-color;
+      font-size: 1.125rem;
+      vertical-align: bottom;
+      margin-bottom: 1px;
+    }
+  }
+
+  .onboarding-button-next {
+    position: absolute;
+    right: 0.625rem;
+    top: 1.25rem;
+  }
+
+  .onboarding-button-shut-down {
+    position: absolute;
+    right: 0.625rem;
+    bottom: 1.875rem;
+    color: $dark-color;
+    font-size: 0.6875rem;
+    cursor: pointer;
+  }
+
+  > .advancement-groups {
+    width: 100%;
+
+    > .group {
+      float: left;
+      height: 0.625rem;
+      background: $dark-color;
+      position: relative;
+    }
+
+    > .group > .advancement {
+      height: 0.625rem;
+      background: $primary-color;
+      transition: all 0.8s;
+    }
+
+    > .group > .id {
+      position: absolute;
+      box-sizing: border-box;
+      background-color: $dark-color;
+      border: 1px solid $background-color;
+      border-radius: 1.25rem;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 1.25rem;
+      height: 1.25rem;
+      width: 1.25rem;
+      color: white;
+      font-size: 0.75rem;
+      right: -1px;
+      top: -5px;
+      z-index: 1;
+    }
+    > .group > .id.-done {
+      background-color: $primary-color;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+includes:
+  - %currentWorkingDirectory%/vendor/prestashop/php-dev-tools/phpstan/ps-module-extension.neon
+
+parameters:
+	paths:
+		- src
+	bootstrapFiles:
+		- vendor/autoload.php
+	reportUnmatchedIgnoredErrors: false
+	ignoreErrors:
+		- '#Method PrestaShop\\PrestaShop\\Core\\Addon\\Module\\ModuleManager::install\(\) invoked with 2 parameters, 1 required.#'
+		- '#Call to function is_null\(\) with PrestaShop\\PrestaShop\\Core\\Addon\\Module\\ModuleManager will always evaluate to false.#'
+		- '#Call to function is_null\(\) with PrestaShop\\PrestaShop\\Core\\Module\\ModuleManager will always evaluate to false.#'
+		- '#Property Prestashop\\ModuleLibMboInstaller\\Installer::\$moduleManager has unknown class PrestaShop\\PrestaShop\\Core\\Addon\\Module\\ModuleManager as its type.#'
+		- '#Property Prestashop\\ModuleLibMboInstaller\\Installer::\$moduleManager has unknown class PrestaShop\\PrestaShop\\Core\\Module\\ModuleManager as its type.#'
+		- '#Call to method install\(\) on an unknown class PrestaShop\\PrestaShop\\Core\\Addon\\Module\\ModuleManager.#'
+		- '#Call to method install\(\) on an unknown class PrestaShop\\PrestaShop\\Core\\Module\\ModuleManager.#'
+		- '#Call to method enable\(\) on an unknown class PrestaShop\\PrestaShop\\Core\\Addon\\Module\\ModuleManager.#'
+		- '#Call to method enable\(\) on an unknown class PrestaShop\\PrestaShop\\Core\\Module\\ModuleManager.#'
+
+	level: max

@@ -1,0 +1,12 @@
+services:
+  ps_accounts.installer:
+    class: 'ps_metrics_module_v4_0_9\PrestaShop\PsAccountsInstaller\Installer\Installer'
+    public: true
+    arguments:
+      - "5.0"
+
+  ps_accounts.facade:
+    class: 'ps_metrics_module_v4_0_9\PrestaShop\PsAccountsInstaller\Installer\Facade\PsAccounts'
+    public: true
+    arguments:
+      - "@ps_accounts.installer"

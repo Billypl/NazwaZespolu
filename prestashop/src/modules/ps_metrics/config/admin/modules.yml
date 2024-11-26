@@ -1,0 +1,31 @@
+services:
+  ps_metrics.module.install:
+    class: 'PrestaShop\Module\Ps_metrics\Module\Install'
+    public: true
+    arguments:
+      - "@ps_metrics.module"
+      - "@ps_metrics.repository.configuration"
+      - "@ps_metrics.repository.hookmodule"
+
+  ps_metrics.module.upgrade:
+    class: 'PrestaShop\Module\Ps_metrics\Module\Upgrade'
+    public: true
+    arguments:
+      - "@ps_metrics.module"
+
+  ps_metrics.module.uninstall:
+    class: 'PrestaShop\Module\Ps_metrics\Module\Uninstall'
+    public: true
+    arguments:
+      - "@ps_accounts.facade"
+      - "@ps_metrics.repository.configuration"
+      - "@ps_metrics.api.analytics"
+
+  ps_metrics.module.gainstaller:
+    class: 'PrestaShop\Module\Ps_metrics\Module\GAInstaller'
+    public: true
+    arguments:
+      - "@ps_metrics.module"
+      - "@ps_metrics.helper.module"
+      - "@ps_metrics.helper.tools"
+      - "@ps_metrics.helper.prestashop"

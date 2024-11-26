@@ -1,0 +1,23 @@
+imports:
+  - { resource: admin/accounts.yml }
+  - { resource: admin/adapters.yml }
+  - { resource: admin/config.yml }
+  - { resource: admin/controllers.yml }
+  - { resource: admin/handlers.yml }
+  - { resource: admin/helpers.yml }
+  - { resource: admin/middlewares.yml }
+  - { resource: admin/modules.yml }
+  - { resource: admin/presenters.yml }
+  - { resource: admin/providers.yml }
+  - { resource: admin/trackers.yml }
+  - { resource: admin/validators.yml }
+
+services:
+  _defaults:
+    public: true
+
+  ps_metrics.module:
+    class: "Ps_metrics"
+    factory: ["Module", "getInstanceByName"]
+    arguments:
+      - "ps_metrics"

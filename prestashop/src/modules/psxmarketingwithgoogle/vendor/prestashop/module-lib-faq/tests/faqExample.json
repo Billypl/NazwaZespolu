@@ -1,0 +1,129 @@
+{
+    "id_faq": 117,
+    "module_key": "82bc76354cfef947e06f1cc78f5efe2e",
+    "id_product": 46347,
+    "categories": [
+        {
+            "id_faq_category": 136,
+            "position": 0,
+            "id_faq": 117,
+            "title": "",
+            "blocks": [
+                {
+                    "id_faq_block": 516,
+                    "question": "Pourquoi le moyen de paiement par Carte de Crédit est limité à 500$ ?",
+                    "answer": "Si le moyen de paiement \"Carte de crédit & de débit\" est indiqué come \"Limité à 500$\", cela signifie que votre compte n'est pas totalement validé.\nVous avez surement reçu un mail pour vous le préciser : il faut fournir plus d'informations dans votre compte PayPal pour lever cette limite. Ces informations complémentaires peuvent être : une carte bancaire pour prélever de l'argent si besoin, un compte banciare à créditer si besoin, une pièce d'identité pour des vérifications suplémentaires, ... Rendez vous sur votre compte PayPal sur www.paypal.com et regardez les notifications sur la cloche en haut à droite et suivez les instructions.\n\nNe tardez pas, après avoir fourni ces informations supplémentaires, les équipes PayPal léveront la limite sous 72h pour vous permettre de recevoir des paiement par carte sans limité.\nAvant cette levée de limite vous ne pourrez pas retirer l'argent de votre compte ni en virer, vous pouvez uniquement créditer votre compte PayPal avec les paiements de vos clients.\nSi vous recevez plus que 500$ de commandes par carte, le moyen de paiement par carte sera désactivé jusqu'à validation totale de votre compte.\nEn attendant, vous pouvez toujours recevoir des paiements via PayPal sans limite.",
+                    "version_min": "",
+                    "version_max": ""
+                },
+                {
+                    "id_faq_block": 519,
+                    "question": "Comment activer les moyens de paiement locaux ?",
+                    "answer": "La simple création d'un compte PayPal avec le module PrestaShop Checkout suffit pour activer les moyens de paiements locaux. Vous n'aurez pas besoin de créer d'autres comptes marchands pour chacun des moyens de paiement.",
+                    "version_min": "",
+                    "version_max": ""
+                },
+                {
+                    "id_faq_block": 520,
+                    "question": "Comment passer du module Paypal ou Stripe à PrestaShop Checkout ? ",
+                    "answer": "\"1 - Dans l'espace \"\"Personnaliser\"\" dans l'interface d’administration de votre boutique, cliquez sur \"\"Paiement\"\" > \"\"Modes de paiement\"\".  L'ensemble des modules de paiement qui sont activés s'affichent.  Cherchez le module \"\"PrestaShop Checkout\"\" et cliquez sur \"\"Configurer\"\". \n\n2 - Suivez les étapes d'onboarding de PrestaShop Checkout : compte PrestaShop Checkout et compte PayPal\n\n3 - Quand les moyens de paiement sont activés (Stripe, Paypal ...) et que vous les retrouvez dans votre parcours d'achat de votre boutique, allez dans “Moyen de Paiement” de votre back-office et désactivez les autres modules de paiement.  \"\n",
+                    "version_min": "",
+                    "version_max": ""
+                },
+                {
+                    "id_faq_block": 523,
+                    "question": "Quelles sont les commissions du module “PrestaShop Checkout” ?",
+                    "answer": "Ces tarifications sont disponibles via ce lien:  https://www.prestashop.com/fr/prestashop-checkout ",
+                    "version_min": "",
+                    "version_max": ""
+                },
+                {
+                    "id_faq_block": 524,
+                    "question": "Je suis déjà marchand avec un compte PayPal business, puis-je garder ma tarification actuelle ?",
+                    "answer": "Les tarifications de PrestaShop Checkout sont uniformisées pour tous les utilisateurs mais vous pouvez contacter PayPal pour ajuster la tarification à votre utilisation et conserver votre tarification actuelle.\n\nPour cela, allez dans la rubrique \"Contactez nous\" sur paypal.com pour communiquer avec un conseiller PayPal.",
+                    "version_min": "",
+                    "version_max": ""
+                },
+                {
+                    "id_faq_block": 537,
+                    "question": "Lorsque je lie mon compte PayPal, je clique sur Retourner à la boutique, la fenêtre PayPal se ferme mais rien ne se passe et mon compte PayPal n'est pas lié. Que puis-je faire ? ",
+                    "answer": "Si le compte PayPal n'est pas lié, même après avoir fini le parcours de connexion PayPal, vérifiez que votre serveur ou back-office n'est protégé par un htaccess ou un VPN. Si c'est le cas, le module ne pourra pas recevoir de webhook pour mettre à jour votre identifiant PayPal et lier le compte.\nÇa ne devrait pas être le cas pour une configuration classique de serveur mais si c'est le cas, pas de souci, veuillez whitelister l'adresse IP pour l'URL suivante a minima :  https://YOURSTORE.com/shop/index.php?fc=module&module=ps_checkout&controller=DispatchWebHook.\n\nL'adresse IP publique à whitelister si besoin : 35.195.228.149.",
+                    "version_min": "",
+                    "version_max": ""
+                }
+            ]
+        },
+        {
+            "id_faq_category": 142,
+            "position": 1,
+            "id_faq": 117,
+            "title": "Questions à propos des paiements",
+            "blocks": [
+                {
+                    "id_faq_block": 522,
+                    "question": "Est-ce que mes clients verront le moyen de paiement PrestaShop Checkout ?",
+                    "answer": "Non, PrestaShop Checkout est le nom du service et du module. Vos clients ne verront que les moyens de paiement qu'ils connaissent : par carte de crédit, par PayPal ou autre moyen de paiement incontournable dans leur pays.",
+                    "version_min": "",
+                    "version_max": ""
+                },
+                {
+                    "id_faq_block": 525,
+                    "question": "Pourquoi certains achats aboutissent dans l'état ",
+                    "answer": "\"Les commandes passées dans une devise non configurée dans le compte PayPal sont soient converties automatiquement soient en attente de validation manuelle depuis l'interface PayPal, selon la configuration.\n\nSi vous souhaitez accepter automatiquement les achats de certaines devises sans les valider à la main vous pouvez soit :\n\n- Ajouter cette devise dans la liste des devises supportées par votre compte PayPal:\n\nDepuis votre compte PayPal (www.paypal.com) > Paramètres de Compte > Profil Professionnel > Argent, cartes et comptes bancaires\n\n- Activer les conversions automatiques :\n\nDepuis votre compte PayPal (www.paypal.com)Paramètres de Compte > Compte et Sécurité > Préférences de Paiement > Bloquer les paiements > Mettre à jour > Préférence de réception de paiements\"",
+                    "version_min": "",
+                    "version_max": ""
+                },
+                {
+                    "id_faq_block": 527,
+                    "question": "Quelles sont les commissions du module “PrestaShop Checkout” ?",
+                    "answer": "Ces tarifications sont affichées via ce lien:  https://www.prestashop.com/fr/prestashop-checkout \n\nCe sont les seules commissions existantes, appliquées seulement sur les transaction validées, il n'y a pas de coûts additionnels ou d'abonnement à payer à PayPal ou PrestaShop.",
+                    "version_min": "",
+                    "version_max": ""
+                },
+                {
+                    "id_faq_block": 528,
+                    "question": "PrestaShop Checkout est-il compatible avec les réglementations Européennes DSP  ? ",
+                    "answer": "PrestaShop Checkout est dès à présent compatible avec les réglementations DSP 2 entrant en vigueur en septembre.\n\nLe paiement par carte est compatible avec le 3DSecure et les clés digitales des différentes banques. \n",
+                    "version_min": "",
+                    "version_max": ""
+                },
+                {
+                    "id_faq_block": 529,
+                    "question": "Quels sont les différents statuts de transactions du module PrestaShop Checkout?",
+                    "answer": "Une commande peut être :\n\n- En attente de paiement (par Carte Bancaire ou par PayPal)\n\n- Paiement accepté,\n\n- Remboursé,\n\n- Remboursement Partiel,\n\n- Erreur de Paiement.",
+                    "version_min": "",
+                    "version_max": ""
+                },
+                {
+                    "id_faq_block": 530,
+                    "question": "Est ce que le paiement par carte est compatible avec tous types de cartes et tous les navigateurs internet ?",
+                    "answer": "Vos clients pourront finaliser leur commande quelque soit leur carte de crédit avec PrestaShop Checkout.\nDe plus, tous les navigateurs peuvent être utilisés par vos visiteurs, sauf Internet Explorer, qui n'est plus maintenu par Microsoft, et dont l'utilisation se fait de plus en plus rare.",
+                    "version_min": "",
+                    "version_max": ""
+                },
+                {
+                    "id_faq_block": 536,
+                    "question": "Comment sont mises à jours les commandes si la configuration de ma boutique crée des commandes ",
+                    "answer": "Si certains paniers génèrent différentes commandes (pour répartir les produits sur différents transporteurs ou pour des raisons de stockage dans différents entrepôts par exemple) seule la commande \"parent\" sera mise à jour pour des changements de statut arrivant après la finalisation de commande. Il est possible de mettre à jour les commandes \"enfants\" à la main si besoin. ",
+                    "version_min": "",
+                    "version_max": ""
+                }
+            ]
+        },
+        {
+            "id_faq_category": 141,
+            "position": 2,
+            "id_faq": 117,
+            "title": "Questions à propos des remboursements",
+            "blocks": [
+                {
+                    "id_faq_block": 521,
+                    "question": "J'essaye de faire un remboursement sur ma commande PrestaShop, mais un message d'erreur me dit que je n'ai pas les fonds suffisants ",
+                    "answer": "Pour les remboursements d'une commande faite dans une monnaie différente que celles disponibles sur votre compte PayPal, vous avez 2 choix :\n\n- Ajouter toutes les monnaies de votre boutique dans votre compte PayPal, pour éviter de refuser les transactions cross-monnaie ou les problèmes de remboursements.\n\nPour cela, rendez-vous sur paypal.com > Login > Settings > My Money > Currencies management > Add a currency\n\n- Contacter PayPal et leur demander d'activer l'option de remboursement cross-monnaie. (onglet \"\"Nous contacter\"\" sur paypal.com).",
+                    "version_min": "",
+                    "version_max": ""
+                }
+            ]
+        }
+    ]
+}

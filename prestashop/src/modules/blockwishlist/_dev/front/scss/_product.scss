@@ -1,0 +1,12 @@
+.products {
+  article {
+    .wishlist {
+      &-button-add {
+        position: absolute;
+        top: 0.635rem;
+        right: 0.635rem;
+        z-index: 10;
+      }
+    }
+  }
+}

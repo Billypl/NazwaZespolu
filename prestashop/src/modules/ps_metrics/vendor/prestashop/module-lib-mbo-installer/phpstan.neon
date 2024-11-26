@@ -1,0 +1,13 @@
+includes:
+  - %currentWorkingDirectory%/vendor/prestashop/php-dev-tools/phpstan/ps-module-extension.neon
+
+parameters:
+	paths:
+		- src
+	bootstrapFiles:
+		- vendor/autoload.php
+	reportUnmatchedIgnoredErrors: false
+	ignoreErrors:
+		- '#Method PrestaShop\\PrestaShop\\Core\\Addon\\Module\\ModuleManager::install\(\) invoked with 2 parameters, 1 required.#'
+
+	level: max

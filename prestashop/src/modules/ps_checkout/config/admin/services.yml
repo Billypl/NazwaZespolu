@@ -1,0 +1,14 @@
+imports:
+  - { resource: ../common.yml }
+
+services:
+  ps_checkout.logger.file.finder:
+    class: 'PrestaShop\Module\PrestashopCheckout\Logger\LoggerFileFinder'
+    public: true
+    arguments:
+      - '@ps_checkout.logger.directory'
+      - '@ps_checkout.logger.filename'
+
+  ps_checkout.logger.file.reader:
+    class: 'PrestaShop\Module\PrestashopCheckout\Logger\LoggerFileReader'
+    public: true
