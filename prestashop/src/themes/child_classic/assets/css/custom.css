@@ -25,10 +25,6 @@ body {
     color: black;
 }
 
-#header a {
-    color: #333f4f;
-}
-
 .top-menu a[data-depth="0"] {
     font-size: 0.96rem;
     font-weight: 80;
@@ -43,7 +39,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-  }
+    margin-top: 0.3rem;
+}
 
 #search_widget{
     margin-right: 17rem;
@@ -92,6 +89,11 @@ input{
 
 #_desktop_user_info{
     margin-right: 2rem;
+    margin-top: 1rem
+}
+
+#_desktop_cart{
+    margin-top: 1rem;
 }
 
 .cart-products-count{
