@@ -1,0 +1,74 @@
+imports:
+  - { resource: ../common.yml }
+
+services:
+  ps_metrics.statstab.manager:
+    class: 'PrestaShop\Module\Ps_metrics\StatsTabManager'
+    public: true
+    arguments:
+      - "@ps_metrics.module"
+      - "@ps_accounts.facade"
+
+  ps_metrics.legacy.installer:
+    class: 'PrestaShop\Module\Ps_metrics\LegacyModuleInstaller'
+    public: true
+    arguments:
+      - "@ps_metrics.module"
+
+  ps_metrics.repository.configuration:
+    class: 'PrestaShop\Module\Ps_metrics\Repository\ConfigurationRepository'
+    public: true
+    arguments:
+      - "@ps_metrics.helper.prestashop"
+
+  ps_metrics.repository.hookmodule:
+    class: 'PrestaShop\Module\Ps_metrics\Repository\HookModuleRepository'
+    public: true
+
+  ps_metrics.api.client.factory:
+    class: 'PrestaShop\Module\Ps_metrics\Api\Client\ClientManager'
+    public: true
+    arguments:
+      - "@ps_metrics.middleware.response.default"
+      - "@ps_metrics.middleware.log"
+      - "@ps_metrics.middleware.sentry"
+      - "@ps_metrics.middleware.response"
+      - "@ps_metrics.handler.guzzleapi"
+
+  ps_metrics.api.client.http:
+    class: 'PrestaShop\Module\Ps_metrics\Api\Client\HttpClient'
+    public: true
+    arguments:
+      - "@ps_metrics.middleware.response.default"
+      - "@ps_metrics.middleware.log"
+      - "@ps_metrics.middleware.sentry"
+      - "@ps_metrics.middleware.response"
+      - "@ps_metrics.handler.guzzleapi"
+
+  ps_metrics.api.client.analytics:
+    class: 'PrestaShop\Module\Ps_metrics\Api\Client\AnalyticsClient'
+    public: true
+    arguments:
+      - "@ps_accounts.facade"
+      - "@ps_metrics.middleware.response.default"
+      - "@ps_metrics.middleware.log"
+      - "@ps_metrics.middleware.sentry"
+      - "@ps_metrics.middleware.response"
+      - "@ps_metrics.handler.guzzleapi"
+
+  ps_metrics.api.manager:
+    class: 'PrestaShop\Module\Ps_metrics\Api\ApiManager'
+    public: true
+
+  ps_metrics.api.analytics:
+    class: 'PrestaShop\Module\Ps_metrics\Api\AnalyticsApi'
+    public: true
+    arguments:
+      - "@ps_metrics.api.client.analytics"
+      - "@ps_metrics.helper.config"
+
+  ps_metrics.api.http:
+    class: 'PrestaShop\Module\Ps_metrics\Api\HttpApi'
+    public: true
+    arguments:
+      - "@ps_metrics.api.client.http"

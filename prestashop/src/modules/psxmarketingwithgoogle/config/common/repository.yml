@@ -1,0 +1,73 @@
+services:
+  PrestaShop\Module\PsxMarketingWithGoogle\Repository\TabRepository:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Repository\TabRepository
+    public: true
+
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Repository\CarrierRepository:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Repository\CarrierRepository
+    public: true
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Repository\AttributesRepository:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Repository\AttributesRepository
+    public: true
+    arguments:
+      - '@psxmarketingwithgoogle.context'
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Repository\CategoryRepository:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Repository\CategoryRepository
+    public: true
+    arguments:
+      - '@psxmarketingwithgoogle.context'
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Repository\CountryRepository:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Repository\CountryRepository
+    public: true
+    arguments:
+      - '@psxmarketingwithgoogle.db'
+      - '@psxmarketingwithgoogle.context'
+      - '@psxmarketingwithgoogle.country'
+      - '@PrestaShop\Module\PsxMarketingWithGoogle\Adapter\ConfigurationAdapter'
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Repository\CurrencyRepository:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Repository\CurrencyRepository
+    public: true
+    arguments:
+      - '@psxmarketingwithgoogle.currency'
+      - '@psxmarketingwithgoogle.context'
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Repository\LanguageRepository:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Repository\LanguageRepository
+    public: true
+    arguments:
+      - '@=service("psxmarketingwithgoogle.shop").id'
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Repository\ManufacturerRepository:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Repository\ManufacturerRepository
+    public: true
+    arguments:
+      - '@psxmarketingwithgoogle.context'
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Repository\ProductRepository:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Repository\ProductRepository
+    public: true
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Repository\StateRepository:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Repository\StateRepository
+    public: true
+    arguments:
+      - '@psxmarketingwithgoogle.db'
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Repository\TaxRepository:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Repository\TaxRepository
+    public: true
+    arguments:
+      - '@psxmarketingwithgoogle.db'
+      - '@psxmarketingwithgoogle.context'
+
+  PrestaShop\Module\PsxMarketingWithGoogle\Repository\VerificationTagRepository:
+    class: PrestaShop\Module\PsxMarketingWithGoogle\Repository\VerificationTagRepository
+    public: true
+    arguments:
+      - '@psxmarketingwithgoogle.db'
+      - '@psxmarketingwithgoogle.context'

@@ -1,0 +1,40 @@
+{
+    "name": "prestashopcorp\/ps_metrics",
+    "description": "Optimize your business with a data-driven approach by gaining a complete view of your business in real time.",
+    "license": "AFL-3.0",
+    "author": "PrestaShop",
+    "minimum-stability": "dev",
+    "config": {
+        "preferred-install": "dist",
+        "classmap-authoritative": true,
+        "optimize-autoloader": true,
+        "prepend-autoloader": false,
+        "platform": {
+            "php": "7.1"
+        },
+        "platform-check": false
+    },
+    "require": {
+        "php": ">=7.1",
+        "vlucas\/phpdotenv": "^3.6",
+        "segmentio\/analytics-php": "^1.5",
+        "prestashop\/prestashop-accounts-installer": "1.0.1",
+        "prestashop\/module-lib-guzzle-adapter": "^0.6",
+        "prestashop\/module-lib-service-container": "^2.0",
+        "prestashop\/module-lib-mbo-installer": "^0.1.0"
+    },
+    "require-dev": {
+        "prestashop\/php-dev-tools": "^4.2",
+        "phpstan\/phpstan": "^1.10"
+    },
+    "autoload": {
+        "classmap": [
+            "ps_metrics.php"
+        ],
+        "psr-4": {
+            "PrestaShop\\Module\\Ps_metrics\\": "src\/",
+            "ps_metrics_module_v4_0_9\\exclude-from-classmap": []
+        }
+    },
+    "type": "prestashop-module"
+}

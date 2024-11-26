@@ -1,0 +1,10 @@
+services:
+  ps_metrics.handler.guzzleapi:
+    class: 'PrestaShop\Module\Ps_metrics\Handler\GuzzleApiResponseExceptionHandler'
+    public: true
+
+  ps_metrics.handler.native.stats:
+    class: 'PrestaShop\Module\Ps_metrics\Handler\NativeStatsHandler'
+    public: true
+    arguments:
+      - "@ps_metrics.module"

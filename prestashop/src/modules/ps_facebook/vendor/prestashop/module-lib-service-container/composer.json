@@ -1,0 +1,49 @@
+{
+    "name": "prestashop/module-lib-service-container",
+    "description": "Service container to use on prestashop modules",
+    "keywords": ["prestashop", "modules", "composer", "package"],
+    "license": "AFL-3.0",
+    "authors": [
+        {
+            "name": "PrestaShop SA",
+            "email": "contact@prestashop.com"
+        }
+    ],
+    "type": "library",
+    "config": {
+        "platform": {
+            "php": "5.6.0"
+        }
+    },
+    "require": {
+        "php": ">=5.6.0",
+        "prestashop/module-lib-cache-directory-provider": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.7"
+    },
+    "suggest": {
+        "symfony/config": "Needed when the running PrestaShop does not already run with Symfony",
+        "symfony/dependency-injection": "Needed when the running PrestaShop does not already run with Symfony",
+        "symfony/expression-language": "Needed when the running PrestaShop does not already run with Symfony",
+        "symfony/yaml": "Needed when the running PrestaShop does not already run with Symfony"
+    },
+    "autoload": {
+        "psr-4": {
+            "PrestaShop\\ModuleLibServiceContainer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "phpstan-sf3": "tests/Symfony3/vendor/bin/phpstan analyze -c tests/Symfony3/phpstan.neon",
+        "phpstan-sf4": "tests/Symfony4/vendor/bin/phpstan analyze -c tests/Symfony4/phpstan.neon",
+        "phpstan": [
+            "@phpstan-sf3",
+            "@phpstan-sf4"
+        ]
+    }
+}

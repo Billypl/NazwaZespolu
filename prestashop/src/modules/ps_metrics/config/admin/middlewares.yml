@@ -1,0 +1,24 @@
+services:
+  ps_metrics.middleware:
+    class: 'PrestaShop\Module\Ps_metrics\Middleware\Middleware'
+    public: true
+
+  ps_metrics.middleware.sentry:
+    class: 'PrestaShop\Module\Ps_metrics\Middleware\SentryMiddleware'
+    public: true
+
+  ps_metrics.middleware.response:
+    class: 'PrestaShop\Module\Ps_metrics\Middleware\ResponseMiddleware'
+    public: true
+
+  ps_metrics.middleware.log:
+    class: 'PrestaShop\Module\Ps_metrics\Middleware\LogMiddleware'
+    public: true
+    arguments:
+      - "@ps_metrics.adapter.logger"
+
+  ps_metrics.middleware.response.default:
+    class: 'PrestaShop\Module\Ps_metrics\Middleware\CheckResponseMiddleware'
+    public: true
+    arguments:
+      - "@ps_metrics.helper.json"

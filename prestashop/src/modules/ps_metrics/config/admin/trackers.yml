@@ -1,0 +1,8 @@
+services:
+  ps_metrics.tracker.segment:
+    class: 'PrestaShop\Module\Ps_metrics\Tracker\Segment'
+    public: true
+    arguments:
+      - "@ps_metrics.helper.segment"
+      - "@ps_metrics.helper.prestashop"
+      - "@ps_metrics.helper.shop"

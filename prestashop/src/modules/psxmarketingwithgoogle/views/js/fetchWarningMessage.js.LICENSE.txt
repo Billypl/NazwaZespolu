@@ -1,0 +1,49 @@
+/*!
+  * core-base v9.2.2
+  * (c) 2022 kazuya kawaguchi
+  * Released under the MIT License.
+  */
+
+/*!
+  * devtools-if v9.2.2
+  * (c) 2022 kazuya kawaguchi
+  * Released under the MIT License.
+  */
+
+/*!
+  * message-compiler v9.2.2
+  * (c) 2022 kazuya kawaguchi
+  * Released under the MIT License.
+  */
+
+/*!
+  * shared v9.2.2
+  * (c) 2022 kazuya kawaguchi
+  * Released under the MIT License.
+  */
+
+/*!
+  * vue-i18n v9.2.2
+  * (c) 2022 kazuya kawaguchi
+  * Released under the MIT License.
+  */
+
+/*! #__NO_SIDE_EFFECTS__ */
+
+/**
+* @vue/compiler-core v3.4.15
+* (c) 2018-present Yuxi (Evan) You and Vue contributors
+* @license MIT
+**/
+
+/**
+* @vue/shared v3.4.15
+* (c) 2018-present Yuxi (Evan) You and Vue contributors
+* @license MIT
+**/
+
+/**
+* vue v3.4.15
+* (c) 2018-present Yuxi (Evan) You and Vue contributors
+* @license MIT
+**/

@@ -1,0 +1,5 @@
+services:
+  ps_metrics.config.env:
+    class: PrestaShop\Module\Ps_metrics\Config\Env
+    arguments:
+      - "@ps_metrics.module"

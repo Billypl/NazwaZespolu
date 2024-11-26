@@ -1,0 +1,24 @@
+services:
+  _defaults:
+    public: true
+
+  ps_metrics.presenter.faq:
+    class: 'PrestaShop\Module\Ps_metrics\Presenter\FaqPresenter'
+    arguments:
+      - "@ps_metrics.helper.json"
+      - "@ps_metrics.module"
+      - "@ps_metrics.helper.prestashop"
+      - "@ps_metrics.api.http"
+
+  ps_metrics.presenter.shopData:
+    class: PrestaShop\Module\Ps_metrics\Presenter\ShopDataPresenter
+    arguments:
+      - "@ps_metrics.module"
+      - "@ps_metrics.helper.prestashop"
+      - "@ps_metrics.repository.configuration"
+      - "@ps_metrics.helper.shop"
+      - "@ps_metrics.provider.analyticsaccountslist"
+      - "@ps_metrics.module.gainstaller"
+      - "@ps_accounts.facade"
+      - "@ps_metrics.helper.tools"
+      - "@ps_metrics.helper.multishop"

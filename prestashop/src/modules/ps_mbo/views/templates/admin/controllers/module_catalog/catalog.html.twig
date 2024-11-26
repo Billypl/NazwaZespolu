@@ -1,0 +1,91 @@
+{#**
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License version 3.0
+ * that is bundled with this package in the file LICENSE.md.
+ * It is also available through the world-wide-web at this URL:
+ * https://opensource.org/licenses/AFL-3.0
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@prestashop.com so we can send you a copy immediately.
+ *
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
+ * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+ *#}
+{% extends '@PrestaShop/Admin/Module/common.html.twig' %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script type="application/javascript" src="{{ cdc_error_templating_url }}"></script>
+
+  {% if cdc_script_not_found is defined and cdc_script_not_found is same as(true) %}
+    <script type="application/javascript" src="{{ cdc_error_url }}"></script>
+  {% endif %}
+
+  {% if urlAccountsCdn is defined and urlAccountsCdn is not empty %}
+    {# PrestaShop Account #}
+    <script src="{{ urlAccountsCdn }}" rel=preload></script>
+    <script>
+      if (window?.psaccountsVue) {
+        window?.psaccountsVue?.init();
+        {% set shop_context = shop_context|merge({'accounts_component_loaded': true}) %}
+      }
+    </script>
+  {% endif %}
+
+  <script>
+    function addOrUpdateUrlParam(name, value)
+    {
+      var href = window.location.href;
+      var regex = new RegExp("[&\\?]" + name + "=");
+      if(regex.test(href))
+      {
+        regex = new RegExp("([&\\?])" + name + "=\\d+");
+        window.location.href = href.replace(regex, "$1" + name + "=" + value);
+      }
+      else
+      {
+        if(href.indexOf("?") > -1)
+          window.location.href = href + "&" + name + "=" + value;
+        else
+          window.location.href = href + "?" + name + "=" + value;
+      }
+    }
+
+    if (typeof window.mboCdc == undefined || typeof window.mboCdc == "undefined") {
+      if (typeof renderCdcError === 'function') {
+        window.$(document).ready(function() {
+          renderCdcError($('#cdc-container'));
+        });
+      }
+    } else {
+      const currentUrl = new URL(window.location.href)
+      if (currentUrl.searchParams.has('filterCategoryRef') && !currentUrl.searchParams.has('mbo_cdc_path')) {
+        addOrUpdateUrlParam('mbo_cdc_path', encodeURIComponent('/#/modules'));
+      } else {
+        const renderModules = window.mboCdc.renderModules
+
+        const context = {{ shop_context|json_encode()|raw }};
+
+        renderModules(context, '#cdc-container')
+      }
+    }
+  </script>
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ cdc_error_templating_css }}" type="text/css" media="all">
+{% endblock %}
+
+{% block content %}
+  <prestashop-accounts style="display: none;"></prestashop-accounts>
+
+  <div class="mbo-catalog-wrapper cdc-container" id="cdc-container" data-error-path="{{ path('admin_mbo_module_cdc_error') }}"></div>
+
+  {% include '@Modules/ps_mbo/views/templates/admin/controllers/module_catalog/Includes/modal_import.html.twig' with { 'level' : level, 'errorMessage' : errorMessage } %}
+{% endblock %}

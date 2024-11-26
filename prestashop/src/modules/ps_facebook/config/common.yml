@@ -1,0 +1,25 @@
+imports:
+  - { resource: common/accounts.yml }
+  - { resource: common/billing.yml}
+  - { resource: common/adapter.yml }
+  - { resource: common/api.yml }
+  - { resource: common/buffer.yml }
+  - { resource: common/cache.yml }
+  - { resource: common/config.yml }
+  - { resource: common/context.yml }
+  - { resource: common/dispatcher.yml }
+  - { resource: common/factory.yml }
+  - { resource: common/handler.yml }
+  - { resource: common/presenter.yml }
+  - { resource: common/provider.yml }
+  - { resource: common/repository.yml }
+  - { resource: common/manager.yml }
+  - { resource: common/segment.yml }
+
+services:
+  ps_facebook:
+    class: 'Ps_facebook'
+    public: true
+    factory: ['Module', 'getInstanceByName']
+    arguments:
+      - 'ps_facebook'
