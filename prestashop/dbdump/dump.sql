@@ -1629,7 +1629,7 @@ CREATE TABLE `ps_authorization_role` (
   `slug` varchar(191) NOT NULL,
   PRIMARY KEY (`id_authorization_role`),
   UNIQUE KEY `slug` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=865 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=869 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1743,6 +1743,10 @@ INSERT INTO `ps_authorization_role` VALUES
 (588,'ROLE_MOD_MODULE_PS_EMAILSUBSCRIPTION_DELETE'),
 (586,'ROLE_MOD_MODULE_PS_EMAILSUBSCRIPTION_READ'),
 (587,'ROLE_MOD_MODULE_PS_EMAILSUBSCRIPTION_UPDATE'),
+(865,'ROLE_MOD_MODULE_PS_EVENTBUS_CREATE'),
+(868,'ROLE_MOD_MODULE_PS_EVENTBUS_DELETE'),
+(866,'ROLE_MOD_MODULE_PS_EVENTBUS_READ'),
+(867,'ROLE_MOD_MODULE_PS_EVENTBUS_UPDATE'),
 (813,'ROLE_MOD_MODULE_PS_FACEBOOK_CREATE'),
 (816,'ROLE_MOD_MODULE_PS_FACEBOOK_DELETE'),
 (814,'ROLE_MOD_MODULE_PS_FACEBOOK_READ'),
@@ -4216,8 +4220,8 @@ INSERT INTO `ps_configuration_lang` VALUES
 (283,1,'',NULL),
 (284,1,'',NULL),
 (285,1,'Obecnie brak na stanie',NULL),
-(294,1,'My wishlists','2024-11-24 06:19:43'),
-(295,1,'My wishlist','2024-11-24 06:19:43'),
+(294,1,'Listy zakupowe','2024-11-26 13:18:17'),
+(295,1,'Listy zakupowe','2024-11-26 13:18:17'),
 (296,1,'Create new list','2024-11-24 06:19:43'),
 (317,1,'sale70.png','2024-11-24 06:19:46'),
 (318,1,'','2024-11-24 06:19:46'),
@@ -4249,7 +4253,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4268,7 +4272,10 @@ INSERT INTO `ps_connections` VALUES
 (7,1,1,5,1,2886860801,'2024-11-25 20:15:47',''),
 (8,1,1,5,2,2886860801,'2024-11-25 20:46:40',''),
 (9,1,1,5,2,2886860801,'2024-11-25 23:01:00',''),
-(10,1,1,5,2,2886860801,'2024-11-25 23:31:23','');
+(10,1,1,5,2,2886860801,'2024-11-25 23:31:23',''),
+(11,1,1,6,1,2886860801,'2024-11-26 13:30:50',''),
+(12,1,1,6,1,2886860801,'2024-11-26 14:04:01',''),
+(13,1,1,6,1,2886860801,'2024-11-26 14:37:45','');
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4316,7 +4323,7 @@ CREATE TABLE `ps_connections_source` (
   KEY `orderby` (`date_add`),
   KEY `http_referer` (`http_referer`),
   KEY `request_uri` (`request_uri`)
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4403,7 +4410,9 @@ INSERT INTO `ps_connections_source` VALUES
 (75,7,'http://localhost:8080/3-clothes','localhost:8080/3-clothes','','2024-11-25 23:31:50'),
 (76,7,'http://localhost:8080/3-clothes','localhost:8080/3-clothes','','2024-11-25 23:32:16'),
 (77,7,'http://localhost:8080/3-clothes','localhost:8080/3-clothes','','2024-11-25 23:33:16'),
-(78,7,'http://localhost:8080/3-clothes','localhost:8080/3-clothes','','2024-11-25 23:33:32');
+(78,7,'http://localhost:8080/3-clothes','localhost:8080/3-clothes','','2024-11-25 23:33:32'),
+(79,11,'http://localhost:8080/','localhost:8080/favicon.ico','','2024-11-26 13:51:46'),
+(80,12,'http://localhost:8080/','localhost:8080/art/3-13-the-best-is-yet-to-come-framed-poster.html','','2024-11-26 14:20:03');
 /*!40000 ALTER TABLE `ps_connections_source` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5954,6 +5963,128 @@ INSERT INTO `ps_employee_shop` VALUES
 UNLOCK TABLES;
 
 --
+-- Table structure for table `ps_eventbus_deleted_objects`
+--
+
+DROP TABLE IF EXISTS `ps_eventbus_deleted_objects`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_eventbus_deleted_objects` (
+  `type` varchar(50) NOT NULL,
+  `id_object` int(10) unsigned NOT NULL,
+  `id_shop` int(10) unsigned NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`type`,`id_object`,`id_shop`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ps_eventbus_deleted_objects`
+--
+
+LOCK TABLES `ps_eventbus_deleted_objects` WRITE;
+/*!40000 ALTER TABLE `ps_eventbus_deleted_objects` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ps_eventbus_deleted_objects` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ps_eventbus_incremental_sync`
+--
+
+DROP TABLE IF EXISTS `ps_eventbus_incremental_sync`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_eventbus_incremental_sync` (
+  `type` varchar(50) NOT NULL,
+  `id_object` int(10) unsigned NOT NULL,
+  `id_shop` int(10) unsigned NOT NULL,
+  `lang_iso` varchar(3) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`type`,`id_object`,`id_shop`,`lang_iso`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ps_eventbus_incremental_sync`
+--
+
+LOCK TABLES `ps_eventbus_incremental_sync` WRITE;
+/*!40000 ALTER TABLE `ps_eventbus_incremental_sync` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ps_eventbus_incremental_sync` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ps_eventbus_job`
+--
+
+DROP TABLE IF EXISTS `ps_eventbus_job`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_eventbus_job` (
+  `job_id` varchar(200) NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ps_eventbus_job`
+--
+
+LOCK TABLES `ps_eventbus_job` WRITE;
+/*!40000 ALTER TABLE `ps_eventbus_job` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ps_eventbus_job` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ps_eventbus_live_sync`
+--
+
+DROP TABLE IF EXISTS `ps_eventbus_live_sync`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_eventbus_live_sync` (
+  `shop_content` varchar(50) NOT NULL,
+  `last_change_at` datetime NOT NULL,
+  PRIMARY KEY (`shop_content`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ps_eventbus_live_sync`
+--
+
+LOCK TABLES `ps_eventbus_live_sync` WRITE;
+/*!40000 ALTER TABLE `ps_eventbus_live_sync` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ps_eventbus_live_sync` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ps_eventbus_type_sync`
+--
+
+DROP TABLE IF EXISTS `ps_eventbus_type_sync`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_eventbus_type_sync` (
+  `type` varchar(50) NOT NULL,
+  `offset` int(10) unsigned NOT NULL DEFAULT 0,
+  `id_shop` int(10) unsigned NOT NULL,
+  `lang_iso` varchar(3) DEFAULT NULL,
+  `full_sync_finished` tinyint(1) NOT NULL DEFAULT 0,
+  `last_sync_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ps_eventbus_type_sync`
+--
+
+LOCK TABLES `ps_eventbus_type_sync` WRITE;
+/*!40000 ALTER TABLE `ps_eventbus_type_sync` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ps_eventbus_type_sync` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `ps_fb_category_match`
 --
 
@@ -6559,7 +6690,7 @@ CREATE TABLE `ps_hook` (
   `position` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_hook`),
   UNIQUE KEY `hook_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=762 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=810 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7326,7 +7457,55 @@ INSERT INTO `ps_hook` VALUES
 (758,'actionObjectEmployeeDeleteAfter','actionObjectEmployeeDeleteAfter','',1,1),
 (759,'actionObjectShopDeleteBefore','actionObjectShopDeleteBefore','',1,1),
 (760,'actionObjectShopUpdateAfter','actionObjectShopUpdateAfter','',1,1),
-(761,'displayBackOfficeEmployeeMenu','displayBackOfficeEmployeeMenu','',1,1);
+(761,'displayBackOfficeEmployeeMenu','displayBackOfficeEmployeeMenu','',1,1),
+(762,'actionObjectCarrierAddAfter','actionObjectCarrierAddAfter','',1,1),
+(763,'actionObjectCarrierDeleteAfter','actionObjectCarrierDeleteAfter','',1,1),
+(764,'actionObjectCarrierUpdateAfter','actionObjectCarrierUpdateAfter','',1,1),
+(765,'actionObjectCartAddAfter','actionObjectCartAddAfter','',1,1),
+(766,'actionObjectCartUpdateAfter','actionObjectCartUpdateAfter','',1,1),
+(767,'actionObjectCartRuleAddAfter','actionObjectCartRuleAddAfter','',1,1),
+(768,'actionObjectCartRuleDeleteAfter','actionObjectCartRuleDeleteAfter','',1,1),
+(769,'actionObjectCartRuleUpdateAfter','actionObjectCartRuleUpdateAfter','',1,1),
+(770,'actionObjectCombinationDeleteAfter','actionObjectCombinationDeleteAfter','',1,1),
+(771,'actionObjectCountryAddAfter','actionObjectCountryAddAfter','',1,1),
+(772,'actionObjectCountryDeleteAfter','actionObjectCountryDeleteAfter','',1,1),
+(773,'actionObjectCountryUpdateAfter','actionObjectCountryUpdateAfter','',1,1),
+(774,'actionObjectCurrencyAddAfter','actionObjectCurrencyAddAfter','',1,1),
+(775,'actionObjectCurrencyUpdateAfter','actionObjectCurrencyUpdateAfter','',1,1),
+(776,'actionObjectCustomerAddAfter','actionObjectCustomerAddAfter','',1,1),
+(777,'actionObjectCustomerDeleteAfter','actionObjectCustomerDeleteAfter','',1,1),
+(778,'actionObjectCustomerUpdateAfter','actionObjectCustomerUpdateAfter','',1,1),
+(779,'actionObjectImageAddAfter','actionObjectImageAddAfter','',1,1),
+(780,'actionObjectImageDeleteAfter','actionObjectImageDeleteAfter','',1,1),
+(781,'actionObjectImageUpdateAfter','actionObjectImageUpdateAfter','',1,1),
+(782,'actionObjectLanguageDeleteAfter','actionObjectLanguageDeleteAfter','',1,1),
+(783,'actionObjectLanguageUpdateAfter','actionObjectLanguageUpdateAfter','',1,1),
+(784,'actionObjectOrderAddAfter','actionObjectOrderAddAfter','',1,1),
+(785,'actionObjectOrderUpdateAfter','actionObjectOrderUpdateAfter','',1,1),
+(786,'actionObjectSpecificPriceAddAfter','actionObjectSpecificPriceAddAfter','',1,1),
+(787,'actionObjectSpecificPriceDeleteAfter','actionObjectSpecificPriceDeleteAfter','',1,1),
+(788,'actionObjectSpecificPriceUpdateAfter','actionObjectSpecificPriceUpdateAfter','',1,1),
+(789,'actionObjectStateAddAfter','actionObjectStateAddAfter','',1,1),
+(790,'actionObjectStateDeleteAfter','actionObjectStateDeleteAfter','',1,1),
+(791,'actionObjectStateUpdateAfter','actionObjectStateUpdateAfter','',1,1),
+(792,'actionObjectStockAddAfter','actionObjectStockAddAfter','',1,1),
+(793,'actionObjectStockUpdateAfter','actionObjectStockUpdateAfter','',1,1),
+(794,'actionObjectStoreAddAfter','actionObjectStoreAddAfter','',1,1),
+(795,'actionObjectStoreDeleteAfter','actionObjectStoreDeleteAfter','',1,1),
+(796,'actionObjectStoreUpdateAfter','actionObjectStoreUpdateAfter','',1,1),
+(797,'actionObjectTaxAddAfter','actionObjectTaxAddAfter','',1,1),
+(798,'actionObjectTaxDeleteAfter','actionObjectTaxDeleteAfter','',1,1),
+(799,'actionObjectTaxRulesGroupAddAfter','actionObjectTaxRulesGroupAddAfter','',1,1),
+(800,'actionObjectTaxRulesGroupDeleteAfter','actionObjectTaxRulesGroupDeleteAfter','',1,1),
+(801,'actionObjectTaxRulesGroupUpdateAfter','actionObjectTaxRulesGroupUpdateAfter','',1,1),
+(802,'actionObjectTaxUpdateAfter','actionObjectTaxUpdateAfter','',1,1),
+(803,'actionObjectWishlistAddAfter','actionObjectWishlistAddAfter','',1,1),
+(804,'actionObjectWishlistDeleteAfter','actionObjectWishlistDeleteAfter','',1,1),
+(805,'actionObjectWishlistUpdateAfter','actionObjectWishlistUpdateAfter','',1,1),
+(806,'actionObjectZoneAddAfter','actionObjectZoneAddAfter','',1,1),
+(807,'actionObjectZoneDeleteAfter','actionObjectZoneDeleteAfter','',1,1),
+(808,'actionObjectZoneUpdateAfter','actionObjectZoneUpdateAfter','',1,1),
+(809,'actionObjectEmployeeAddAfter','actionObjectEmployeeAddAfter','',1,1);
 /*!40000 ALTER TABLE `ps_hook` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7605,6 +7784,55 @@ INSERT INTO `ps_hook_module` VALUES
 (63,1,759,1),
 (63,1,760,1),
 (63,1,761,1),
+(64,1,316,1),
+(64,1,762,1),
+(64,1,763,1),
+(64,1,764,1),
+(64,1,765,1),
+(64,1,766,1),
+(64,1,767,1),
+(64,1,768,1),
+(64,1,769,1),
+(64,1,770,1),
+(64,1,771,1),
+(64,1,772,1),
+(64,1,773,1),
+(64,1,774,1),
+(64,1,775,1),
+(64,1,776,1),
+(64,1,777,1),
+(64,1,778,1),
+(64,1,779,1),
+(64,1,780,1),
+(64,1,781,1),
+(64,1,782,1),
+(64,1,783,1),
+(64,1,784,1),
+(64,1,785,1),
+(64,1,786,1),
+(64,1,787,1),
+(64,1,788,1),
+(64,1,789,1),
+(64,1,790,1),
+(64,1,791,1),
+(64,1,792,1),
+(64,1,793,1),
+(64,1,794,1),
+(64,1,795,1),
+(64,1,796,1),
+(64,1,797,1),
+(64,1,798,1),
+(64,1,799,1),
+(64,1,800,1),
+(64,1,801,1),
+(64,1,802,1),
+(64,1,803,1),
+(64,1,804,1),
+(64,1,805,1),
+(64,1,806,1),
+(64,1,807,1),
+(64,1,808,1),
+(64,1,809,1),
 (3,1,682,2),
 (4,1,688,2),
 (5,1,689,2),
@@ -7639,6 +7867,22 @@ INSERT INTO `ps_hook_module` VALUES
 (63,1,740,2),
 (63,1,742,2),
 (63,1,743,2),
+(64,1,144,2),
+(64,1,696,2),
+(64,1,718,2),
+(64,1,719,2),
+(64,1,720,2),
+(64,1,724,2),
+(64,1,725,2),
+(64,1,726,2),
+(64,1,727,2),
+(64,1,728,2),
+(64,1,729,2),
+(64,1,730,2),
+(64,1,731,2),
+(64,1,732,2),
+(64,1,739,2),
+(64,1,758,2),
 (4,1,682,3),
 (5,1,688,3),
 (6,1,689,3),
@@ -8779,7 +9023,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=235 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=237 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -9022,7 +9266,9 @@ INSERT INTO `ps_log` VALUES
 (231,1,0,'Module ps_mainmenu has no vendor folder','',0,1,NULL,1,0,1,'2024-11-24 19:06:29','2024-11-24 19:06:29'),
 (232,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-25 17:23:06','2024-11-25 17:23:06'),
 (233,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-25 20:32:42','2024-11-25 20:32:42'),
-(234,1,0,'Protect vendor folder in module ps_accounts','',0,1,NULL,1,0,1,'2024-11-25 20:32:48','2024-11-25 20:32:48');
+(234,1,0,'Protect vendor folder in module ps_accounts','',0,1,NULL,1,0,1,'2024-11-25 20:32:48','2024-11-25 20:32:48'),
+(235,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-26 13:30:54','2024-11-26 13:30:54'),
+(236,1,0,'Protect vendor folder in module ps_eventbus','',0,1,NULL,1,0,1,'2024-11-26 14:16:12','2024-11-26 14:16:12');
 /*!40000 ALTER TABLE `ps_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9367,7 +9613,7 @@ CREATE TABLE `ps_module` (
   PRIMARY KEY (`id_module`),
   UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -9438,7 +9684,8 @@ INSERT INTO `ps_module` VALUES
 (60,'psxmarketingwithgoogle',1,'1.74.10'),
 (61,'blockreassurance',1,'5.1.4'),
 (62,'ps_facetedsearch',1,'3.14.1'),
-(63,'ps_accounts',1,'7.0.8');
+(63,'ps_accounts',1,'7.0.8'),
+(64,'ps_eventbus',1,'3.2.1');
 /*!40000 ALTER TABLE `ps_module` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9710,7 +9957,11 @@ INSERT INTO `ps_module_access` VALUES
 (1,857),
 (1,858),
 (1,859),
-(1,860);
+(1,860),
+(1,865),
+(1,866),
+(1,867),
+(1,868);
 /*!40000 ALTER TABLE `ps_module_access` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -10214,7 +10465,10 @@ INSERT INTO `ps_module_group` VALUES
 (62,1,3),
 (63,1,1),
 (63,1,2),
-(63,1,3);
+(63,1,3),
+(64,1,1),
+(64,1,2),
+(64,1,3);
 /*!40000 ALTER TABLE `ps_module_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -10232,7 +10486,7 @@ CREATE TABLE `ps_module_history` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10246,7 +10500,8 @@ INSERT INTO `ps_module_history` VALUES
 (2,1,26,'2024-11-24 18:44:24','2024-11-24 18:44:24'),
 (3,1,29,'2024-11-24 18:50:45','2024-11-24 19:11:25'),
 (4,1,15,'2024-11-24 19:08:05','2024-11-24 19:08:05'),
-(5,1,32,'2024-11-24 19:12:01','2024-11-24 19:17:47');
+(5,1,32,'2024-11-24 19:12:01','2024-11-24 19:17:47'),
+(6,1,1,'2024-11-26 14:17:53','2024-11-26 14:17:53');
 /*!40000 ALTER TABLE `ps_module_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -10361,7 +10616,8 @@ INSERT INTO `ps_module_shop` VALUES
 (60,1,7),
 (61,1,7),
 (62,1,7),
-(63,1,7);
+(63,1,7),
+(64,1,7);
 /*!40000 ALTER TABLE `ps_module_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -14673,7 +14929,7 @@ CREATE TABLE `ps_statssearch` (
   `results` int(6) NOT NULL DEFAULT 0,
   `date_add` datetime NOT NULL,
   PRIMARY KEY (`id_statssearch`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14682,6 +14938,9 @@ CREATE TABLE `ps_statssearch` (
 
 LOCK TABLES `ps_statssearch` WRITE;
 /*!40000 ALTER TABLE `ps_statssearch` DISABLE KEYS */;
+INSERT INTO `ps_statssearch` VALUES
+(1,1,1,'fdhdr',4,'2024-11-26 13:44:22'),
+(2,1,1,'fdhdrfweafwa',0,'2024-11-26 13:44:24');
 /*!40000 ALTER TABLE `ps_statssearch` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -17130,4 +17389,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-11-25 22:34:00
+-- Dump completed on 2024-11-26 14:08:56
