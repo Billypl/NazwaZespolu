@@ -2,13 +2,13 @@
 
 {shop_url}
 
-Hi {firstname} {lastname},
+Witaj {firstname} {lastname},
 
-Order return #{id_order_return} - Update
+Zwrot zamówienia #{id_order_return} - Aktualizacja
 
-We have updated the progress on your return #{id_order_return}, the new status is: "{state_order_return}".
+Zaktualizowaliśmy postęp w sprawie Twojego zwrotu #{id_order_return}, nowy status to: "{state_order_return}".
 
-Follow your order and download your invoice on our shop, go to the [Order history and details]({history_url}) section of your customer account.
+Śledź status swojego zamówienia i pobierz fakturę w naszym sklepie, na stronie [Historia i szczegóły zamówień]({history_url}) w sekcji konta klienta.
 
 [{shop_name}]({shop_url})
 

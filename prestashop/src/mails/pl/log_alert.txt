@@ -2,13 +2,13 @@
 
 {shop_url}
 
-Hi,
+Witaj,
 
-New alert message saved
+Nowa wiadomość ostrzegawcza została zapisana
 
-WARNING: you have received a new log alert in your back office.
+Uwaga: otrzymałeś nowy alert w logach w panelu administracyjnym.
 
-You can check for it in the Advanced Parameters > Logs section of your back office.
+Możesz to sprawdzić w sekcji Zaawansowane > Logi swojego panelu administracyjnego.
 
 [{shop_name}]({shop_url})
 

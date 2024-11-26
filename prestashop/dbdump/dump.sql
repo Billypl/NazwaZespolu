@@ -8572,7 +8572,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=230 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=343 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8810,7 +8810,120 @@ INSERT INTO `ps_log` VALUES
 (226,1,0,'Module blockreassurance has no vendor folder','',0,1,NULL,1,0,1,'2024-11-24 06:20:14','2024-11-24 06:20:14'),
 (227,1,0,'Protect vendor folder in module ps_facetedsearch','',0,1,NULL,1,0,1,'2024-11-24 06:20:26','2024-11-24 06:20:26'),
 (228,1,0,'Module ps_facetedsearch has no vendor folder','',0,1,NULL,1,0,1,'2024-11-24 06:20:26','2024-11-24 06:20:26'),
-(229,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-26 12:08:05','2024-11-26 12:08:05');
+(229,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-26 12:08:05','2024-11-26 12:08:05'),
+(230,3,0,'No result was found for query although at least one row was expected.','',0,1,NULL,1,0,1,'2024-11-26 12:12:31','2024-11-26 12:12:31'),
+(231,3,0,'No result was found for query although at least one row was expected.','',0,1,NULL,1,0,1,'2024-11-26 12:12:31','2024-11-26 12:12:31'),
+(232,1,0,'Exporting mail with theme modern for language Polski (Polish)','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(233,1,0,'Core output folder: /var/www/html/mails','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(234,1,0,'Modules output folder: /var/www/html/modules/','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(235,1,0,'Generate html template account at /var/www/html/mails/pl/account.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(236,1,0,'Generate txt template account at /var/www/html/mails/pl/account.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(237,1,0,'Generate html template backoffice_order at /var/www/html/mails/pl/backoffice_order.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(238,1,0,'Generate txt template backoffice_order at /var/www/html/mails/pl/backoffice_order.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(239,1,0,'Generate html template bankwire at /var/www/html/mails/pl/bankwire.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(240,1,0,'Generate txt template bankwire at /var/www/html/mails/pl/bankwire.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(241,1,0,'Generate html template cheque at /var/www/html/mails/pl/cheque.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(242,1,0,'Generate txt template cheque at /var/www/html/mails/pl/cheque.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(243,1,0,'Generate html template contact at /var/www/html/mails/pl/contact.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(244,1,0,'Generate txt template contact at /var/www/html/mails/pl/contact.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(245,1,0,'Generate html template contact_form at /var/www/html/mails/pl/contact_form.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(246,1,0,'Generate txt template contact_form at /var/www/html/mails/pl/contact_form.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(247,1,0,'Generate html template credit_slip at /var/www/html/mails/pl/credit_slip.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(248,1,0,'Generate txt template credit_slip at /var/www/html/mails/pl/credit_slip.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(249,1,0,'Generate html template download_product at /var/www/html/mails/pl/download_product.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(250,1,0,'Generate txt template download_product at /var/www/html/mails/pl/download_product.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(251,1,0,'Generate html template employee_password at /var/www/html/mails/pl/employee_password.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(252,1,0,'Generate txt template employee_password at /var/www/html/mails/pl/employee_password.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(253,1,0,'Generate html template forward_msg at /var/www/html/mails/pl/forward_msg.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(254,1,0,'Generate txt template forward_msg at /var/www/html/mails/pl/forward_msg.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(255,1,0,'Generate html template guest_to_customer at /var/www/html/mails/pl/guest_to_customer.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(256,1,0,'Generate txt template guest_to_customer at /var/www/html/mails/pl/guest_to_customer.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(257,1,0,'Generate html template import at /var/www/html/mails/pl/import.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(258,1,0,'Generate txt template import at /var/www/html/mails/pl/import.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(259,1,0,'Generate html template in_transit at /var/www/html/mails/pl/in_transit.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(260,1,0,'Generate txt template in_transit at /var/www/html/mails/pl/in_transit.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(261,1,0,'Generate html template log_alert at /var/www/html/mails/pl/log_alert.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(262,1,0,'Generate txt template log_alert at /var/www/html/mails/pl/log_alert.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(263,1,0,'Generate html template newsletter at /var/www/html/mails/pl/newsletter.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(264,1,0,'Generate txt template newsletter at /var/www/html/mails/pl/newsletter.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(265,1,0,'Generate html template order_canceled at /var/www/html/mails/pl/order_canceled.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(266,1,0,'Generate txt template order_canceled at /var/www/html/mails/pl/order_canceled.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(267,1,0,'Generate html template order_changed at /var/www/html/mails/pl/order_changed.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(268,1,0,'Generate txt template order_changed at /var/www/html/mails/pl/order_changed.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(269,1,0,'Generate html template order_conf at /var/www/html/mails/pl/order_conf.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(270,1,0,'Generate txt template order_conf at /var/www/html/mails/pl/order_conf.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(271,1,0,'Generate html template order_customer_comment at /var/www/html/mails/pl/order_customer_comment.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(272,1,0,'Generate txt template order_customer_comment at /var/www/html/mails/pl/order_customer_comment.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(273,1,0,'Generate html template order_merchant_comment at /var/www/html/mails/pl/order_merchant_comment.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(274,1,0,'Generate txt template order_merchant_comment at /var/www/html/mails/pl/order_merchant_comment.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(275,1,0,'Generate html template order_return_state at /var/www/html/mails/pl/order_return_state.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(276,1,0,'Generate txt template order_return_state at /var/www/html/mails/pl/order_return_state.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(277,1,0,'Generate html template outofstock at /var/www/html/mails/pl/outofstock.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(278,1,0,'Generate txt template outofstock at /var/www/html/mails/pl/outofstock.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(279,1,0,'Generate html template password at /var/www/html/mails/pl/password.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(280,1,0,'Generate txt template password at /var/www/html/mails/pl/password.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(281,1,0,'Generate html template password_query at /var/www/html/mails/pl/password_query.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(282,1,0,'Generate txt template password_query at /var/www/html/mails/pl/password_query.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(283,1,0,'Generate html template payment at /var/www/html/mails/pl/payment.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(284,1,0,'Generate txt template payment at /var/www/html/mails/pl/payment.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(285,1,0,'Generate html template payment_error at /var/www/html/mails/pl/payment_error.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(286,1,0,'Generate txt template payment_error at /var/www/html/mails/pl/payment_error.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:49','2024-11-26 12:12:49'),
+(287,1,0,'Generate html template preparation at /var/www/html/mails/pl/preparation.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(288,1,0,'Generate txt template preparation at /var/www/html/mails/pl/preparation.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(289,1,0,'Generate html template productoutofstock at /var/www/html/mails/pl/productoutofstock.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(290,1,0,'Generate txt template productoutofstock at /var/www/html/mails/pl/productoutofstock.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(291,1,0,'Generate html template refund at /var/www/html/mails/pl/refund.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(292,1,0,'Generate txt template refund at /var/www/html/mails/pl/refund.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(293,1,0,'Generate html template reply_msg at /var/www/html/mails/pl/reply_msg.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(294,1,0,'Generate txt template reply_msg at /var/www/html/mails/pl/reply_msg.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(295,1,0,'Generate html template shipped at /var/www/html/mails/pl/shipped.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(296,1,0,'Generate txt template shipped at /var/www/html/mails/pl/shipped.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(297,1,0,'Generate html template test at /var/www/html/mails/pl/test.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(298,1,0,'Generate txt template test at /var/www/html/mails/pl/test.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(299,1,0,'Generate html template voucher at /var/www/html/mails/pl/voucher.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(300,1,0,'Generate txt template voucher at /var/www/html/mails/pl/voucher.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(301,1,0,'Generate html template voucher_new at /var/www/html/mails/pl/voucher_new.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(302,1,0,'Generate txt template voucher_new at /var/www/html/mails/pl/voucher_new.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(303,1,0,'Generate html template referralprogram-congratulations at /var/www/html/modules//referralprogram/mails/pl/referralprogram-congratulations.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(304,1,0,'Generate txt template referralprogram-congratulations at /var/www/html/modules//referralprogram/mails/pl/referralprogram-congratulations.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(305,1,0,'Generate html template referralprogram-invitation at /var/www/html/modules//referralprogram/mails/pl/referralprogram-invitation.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(306,1,0,'Generate txt template referralprogram-invitation at /var/www/html/modules//referralprogram/mails/pl/referralprogram-invitation.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(307,1,0,'Generate html template referralprogram-voucher at /var/www/html/modules//referralprogram/mails/pl/referralprogram-voucher.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(308,1,0,'Generate txt template referralprogram-voucher at /var/www/html/modules//referralprogram/mails/pl/referralprogram-voucher.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(309,1,0,'Generate html template followup_1 at /var/www/html/modules//ps_reminder/mails/pl/followup_1.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(310,1,0,'Generate txt template followup_1 at /var/www/html/modules//ps_reminder/mails/pl/followup_1.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(311,1,0,'Generate html template followup_2 at /var/www/html/modules//ps_reminder/mails/pl/followup_2.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(312,1,0,'Generate txt template followup_2 at /var/www/html/modules//ps_reminder/mails/pl/followup_2.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(313,1,0,'Generate html template followup_3 at /var/www/html/modules//ps_reminder/mails/pl/followup_3.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(314,1,0,'Generate txt template followup_3 at /var/www/html/modules//ps_reminder/mails/pl/followup_3.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(315,1,0,'Generate html template followup_4 at /var/www/html/modules//ps_reminder/mails/pl/followup_4.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(316,1,0,'Generate txt template followup_4 at /var/www/html/modules//ps_reminder/mails/pl/followup_4.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(317,1,0,'Generate html template customer_qty at /var/www/html/modules//ps_emailalerts/mails/pl/customer_qty.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(318,1,0,'Generate txt template customer_qty at /var/www/html/modules//ps_emailalerts/mails/pl/customer_qty.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(319,1,0,'Generate html template new_order at /var/www/html/modules//ps_emailalerts/mails/pl/new_order.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(320,1,0,'Generate txt template new_order at /var/www/html/modules//ps_emailalerts/mails/pl/new_order.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(321,1,0,'Generate html template order_changed at /var/www/html/modules//ps_emailalerts/mails/pl/order_changed.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(322,1,0,'Generate txt template order_changed at /var/www/html/modules//ps_emailalerts/mails/pl/order_changed.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(323,1,0,'Generate html template productcoverage at /var/www/html/modules//ps_emailalerts/mails/pl/productcoverage.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(324,1,0,'Generate txt template productcoverage at /var/www/html/modules//ps_emailalerts/mails/pl/productcoverage.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(325,1,0,'Generate html template productoutofstock at /var/www/html/modules//ps_emailalerts/mails/pl/productoutofstock.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(326,1,0,'Generate txt template productoutofstock at /var/www/html/modules//ps_emailalerts/mails/pl/productoutofstock.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(327,1,0,'Generate html template return_slip at /var/www/html/modules//ps_emailalerts/mails/pl/return_slip.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(328,1,0,'Generate txt template return_slip at /var/www/html/modules//ps_emailalerts/mails/pl/return_slip.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(329,1,0,'Generate html template newsletter_conf at /var/www/html/modules//ps_emailsubscription/mails/pl/newsletter_conf.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(330,1,0,'Generate txt template newsletter_conf at /var/www/html/modules//ps_emailsubscription/mails/pl/newsletter_conf.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(331,1,0,'Generate html template newsletter_verif at /var/www/html/modules//ps_emailsubscription/mails/pl/newsletter_verif.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(332,1,0,'Generate txt template newsletter_verif at /var/www/html/modules//ps_emailsubscription/mails/pl/newsletter_verif.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(333,1,0,'Generate html template newsletter_voucher at /var/www/html/modules//ps_emailsubscription/mails/pl/newsletter_voucher.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(334,1,0,'Generate txt template newsletter_voucher at /var/www/html/modules//ps_emailsubscription/mails/pl/newsletter_voucher.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(335,1,0,'Generate html template followup_1 at /var/www/html/modules//followup/mails/pl/followup_1.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(336,1,0,'Generate txt template followup_1 at /var/www/html/modules//followup/mails/pl/followup_1.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(337,1,0,'Generate html template followup_2 at /var/www/html/modules//followup/mails/pl/followup_2.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(338,1,0,'Generate txt template followup_2 at /var/www/html/modules//followup/mails/pl/followup_2.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(339,1,0,'Generate html template followup_3 at /var/www/html/modules//followup/mails/pl/followup_3.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(340,1,0,'Generate txt template followup_3 at /var/www/html/modules//followup/mails/pl/followup_3.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(341,1,0,'Generate html template followup_4 at /var/www/html/modules//followup/mails/pl/followup_4.html','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50'),
+(342,1,0,'Generate txt template followup_4 at /var/www/html/modules//followup/mails/pl/followup_4.txt','',0,1,NULL,1,0,1,'2024-11-26 12:12:50','2024-11-26 12:12:50');
 /*!40000 ALTER TABLE `ps_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -16499,7 +16612,7 @@ CREATE TABLE `ps_translation` (
   PRIMARY KEY (`id_translation`),
   KEY `IDX_ADEBEB36BA299860` (`id_lang`),
   KEY `key` (`domain`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -16508,6 +16621,9 @@ CREATE TABLE `ps_translation` (
 
 LOCK TABLES `ps_translation` WRITE;
 /*!40000 ALTER TABLE `ps_translation` DISABLE KEYS */;
+INSERT INTO `ps_translation` VALUES
+(1,1,'Recycled packaging:','Opakowanie z wtórnego obiegu:','EmailsBody',NULL),
+(2,1,'Review this credit slip and download it on our shop, go to the <a href=\"{order_slip_url}\" target=\"_blank\">%credit_slips_label%</a> section of your customer account.','Przejrzyj dowód wpłaty i pobierz go w naszym sklepie, przejdź do <a href=\"{order_slip_url}\" target=\"_blank\">%credit_slips_label%</a> sekcji twojego konta.','EmailsBody',NULL);
 /*!40000 ALTER TABLE `ps_translation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -16891,4 +17007,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-11-26 11:10:08
+-- Dump completed on 2024-11-26 11:14:27
