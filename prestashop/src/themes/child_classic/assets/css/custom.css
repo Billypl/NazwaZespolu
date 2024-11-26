@@ -20,3 +20,35 @@
     padding-top: 1.563rem;
     background: white;
 }
+
+.header-top-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+#search_widget{
+    margin-right: 10rem;
+    min-width: 25rem;
+}
+
+#header .menu{
+    display: flex;
+    padding: 5px 10px 8px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    justify-content: center;
+}
+
+#search_widget form input {
+    padding: 10px 20px 10px 40px;
+    outline: none;
+    background-color: white;
+    border-bottom: 1px solid;
+    border-top: none;
+    border-left: none;
+    border-color: black;
+    border-right: none;
+    border-radius: 0;
+}
