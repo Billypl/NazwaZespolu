@@ -3906,7 +3906,7 @@ INSERT INTO `ps_configuration` VALUES
 (251,NULL,NULL,'PS_MAIL_COLOR','#db3484','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (252,NULL,NULL,'NW_SALT','y61w9KNkIqh5i7bt','0000-00-00 00:00:00','2024-11-24 06:19:47'),
 (253,NULL,NULL,'PS_PAYMENT_LOGO_CMS_ID','0','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(254,NULL,NULL,'HOME_FEATURED_NBR','4','0000-00-00 00:00:00','2024-11-26 15:28:19'),
+(254,NULL,NULL,'HOME_FEATURED_NBR','8','0000-00-00 00:00:00','2024-11-27 20:01:35'),
 (255,NULL,NULL,'SEK_MIN_OCCURENCES','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (256,NULL,NULL,'SEK_FILTER_KW','','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (257,NULL,NULL,'PS_ALLOW_MOBILE_DEVICE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
@@ -4014,7 +4014,7 @@ INSERT INTO `ps_configuration` VALUES
 (368,NULL,NULL,'PSGDPR_CUSTOMER_FORM',NULL,'2024-11-24 06:20:11','2024-11-24 06:20:11'),
 (369,NULL,NULL,'PSGDPR_ANONYMOUS_CUSTOMER','1','2024-11-24 06:20:11','2024-11-24 06:20:11'),
 (370,NULL,NULL,'PSGDPR_ANONYMOUS_ADDRESS','1','2024-11-24 06:20:11','2024-11-24 06:20:11'),
-(371,NULL,NULL,'PS_MBO_SHOP_ADMIN_UUID','a902043b-19d5-4c60-b8b0-e8061b17cdd6','2024-11-24 06:20:11','2024-11-24 18:43:23'),
+(371,NULL,NULL,'PS_MBO_SHOP_ADMIN_UUID','ce3c71e8-ad70-46a1-b403-7cff56ee3104','2024-11-24 06:20:11','2024-11-27 20:01:23'),
 (372,NULL,NULL,'CONF_PS_CHECKOUT_FIXED','0.2','2024-11-24 06:20:11','2024-11-24 06:20:11'),
 (373,NULL,NULL,'CONF_PS_CHECKOUT_VAR','2','2024-11-24 06:20:11','2024-11-24 06:20:11'),
 (374,NULL,NULL,'CONF_PS_CHECKOUT_FIXED_FOREIGN','0.2','2024-11-24 06:20:11','2024-11-24 06:20:11'),
@@ -4092,7 +4092,7 @@ INSERT INTO `ps_configuration` VALUES
 (446,NULL,NULL,'PS_PSX_FIREBASE_REFRESH_DATE','2024-11-25 20:32:49','2024-11-25 20:32:49','2024-11-25 20:32:49'),
 (447,NULL,NULL,'PS_ACCOUNTS_FIREBASE_ID_TOKEN',NULL,'2024-11-25 20:32:49','2024-11-25 20:32:49'),
 (448,NULL,NULL,'PS_ACCOUNTS_ACCESS_TOKEN',NULL,'2024-11-25 20:32:49','2024-11-25 20:32:49'),
-(449,NULL,NULL,'PS_ACCOUNTS_FIREBASE_REFRESH_TOKEN',NULL,'2024-11-26 13:30:55','2024-11-27 13:00:23');
+(449,NULL,NULL,'PS_ACCOUNTS_FIREBASE_REFRESH_TOKEN',NULL,'2024-11-26 13:30:55','2024-11-27 19:53:19');
 /*!40000 ALTER TABLE `ps_configuration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4224,7 +4224,7 @@ INSERT INTO `ps_configuration_lang` VALUES
 (294,1,'Listy zakupowe','2024-11-26 13:18:17'),
 (295,1,'Listy zakupowe','2024-11-26 13:18:17'),
 (296,1,'Create new list','2024-11-24 06:19:43'),
-(317,1,'sale70.png','2024-11-24 06:19:46'),
+(317,1,'2605a0ee72f3d48782d662e63cc80e05.jpg','2024-11-27 19:33:37'),
 (318,1,'','2024-11-24 06:19:46'),
 (319,1,'','2024-11-24 06:19:46'),
 (328,1,'The personal data you provide is used to answer queries, process orders or allow access to specific information. You have the right to modify and delete all the personal information found in the \"My Account\" page.','2024-11-24 06:19:47'),
@@ -4254,7 +4254,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4280,7 +4280,9 @@ INSERT INTO `ps_connections` VALUES
 (14,1,1,6,1,2886860801,'2024-11-26 15:10:23',''),
 (15,1,1,6,1,2886860801,'2024-11-26 16:43:51',''),
 (16,1,1,6,1,2886860801,'2024-11-26 21:05:09',''),
-(17,1,1,6,1,2886860801,'2024-11-27 12:55:11','');
+(17,1,1,6,1,2886860801,'2024-11-27 12:55:11',''),
+(18,1,1,6,1,2886860801,'2024-11-27 19:48:47',''),
+(19,1,1,6,1,2886860801,'2024-11-27 20:19:49','');
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5936,7 +5938,7 @@ CREATE TABLE `ps_employee_session` (
   `id_employee` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_employee_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5949,7 +5951,8 @@ INSERT INTO `ps_employee_session` VALUES
 (2,1,'60cf3a59d1293badd3893ec8398ff2131fc81064'),
 (3,1,'39e738f64ca445c91a267a07fa8a3f564925ef29'),
 (5,1,'9e343bdcdf6e2fcf22eeed43ecd3b00da889a78c'),
-(6,1,'f1d8e5a2c61db76303845cf15d15b85fdae5284c');
+(6,1,'f1d8e5a2c61db76303845cf15d15b85fdae5284c'),
+(7,1,'ab375d848c7e2410ad476c04d07cd6310513b5ad');
 /*!40000 ALTER TABLE `ps_employee_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7710,7 +7713,6 @@ INSERT INTO `ps_hook_module` VALUES
 (25,1,19,1),
 (25,1,20,1),
 (25,1,82,1),
-(25,1,707,1),
 (25,1,716,1),
 (25,1,717,1),
 (25,1,753,1),
@@ -7770,6 +7772,7 @@ INSERT INTO `ps_hook_module` VALUES
 (59,1,750,1),
 (61,1,22,1),
 (61,1,26,1),
+(61,1,707,1),
 (61,1,751,1),
 (61,1,752,1),
 (62,1,81,1),
@@ -7870,6 +7873,7 @@ INSERT INTO `ps_hook_module` VALUES
 (26,1,706,2),
 (29,1,26,2),
 (29,1,82,2),
+(33,1,707,2),
 (35,1,7,2),
 (36,1,55,2),
 (53,1,71,2),
@@ -7879,7 +7883,6 @@ INSERT INTO `ps_hook_module` VALUES
 (59,1,46,2),
 (59,1,735,2),
 (60,1,746,2),
-(61,1,707,2),
 (62,1,14,2),
 (63,1,140,2),
 (63,1,740,2),
@@ -7904,6 +7907,7 @@ INSERT INTO `ps_hook_module` VALUES
 (4,1,682,3),
 (5,1,688,3),
 (6,1,689,3),
+(12,1,15,3),
 (15,1,41,3),
 (19,1,705,3),
 (22,1,685,3),
@@ -7911,7 +7915,6 @@ INSERT INTO `ps_hook_module` VALUES
 (30,1,16,3),
 (32,1,25,3),
 (33,1,683,3),
-(33,1,707,3),
 (35,1,697,3),
 (37,1,55,3),
 (54,1,122,3),
@@ -9040,7 +9043,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=239 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=240 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -9287,7 +9290,8 @@ INSERT INTO `ps_log` VALUES
 (235,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-26 13:30:54','2024-11-26 13:30:54'),
 (236,1,0,'Protect vendor folder in module ps_eventbus','',0,1,NULL,1,0,1,'2024-11-26 14:16:12','2024-11-26 14:16:12'),
 (237,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-26 15:23:11','2024-11-26 15:23:11'),
-(238,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-27 12:55:32','2024-11-27 12:55:32');
+(238,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-27 12:55:32','2024-11-27 12:55:32'),
+(239,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-27 19:53:16','2024-11-27 19:53:16');
 /*!40000 ALTER TABLE `ps_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -10515,13 +10519,13 @@ CREATE TABLE `ps_module_history` (
 LOCK TABLES `ps_module_history` WRITE;
 /*!40000 ALTER TABLE `ps_module_history` DISABLE KEYS */;
 INSERT INTO `ps_module_history` VALUES
-(1,1,12,'2024-11-24 18:44:04','2024-11-24 18:44:04'),
+(1,1,12,'2024-11-24 18:44:04','2024-11-27 20:33:22'),
 (2,1,26,'2024-11-24 18:44:24','2024-11-24 18:44:24'),
 (3,1,29,'2024-11-24 18:50:45','2024-11-24 19:11:25'),
 (4,1,15,'2024-11-24 19:08:05','2024-11-24 19:08:05'),
 (5,1,32,'2024-11-24 19:12:01','2024-11-24 19:17:47'),
 (6,1,1,'2024-11-26 14:17:53','2024-11-26 14:17:53'),
-(7,1,25,'2024-11-26 15:28:12','2024-11-26 15:28:12');
+(7,1,25,'2024-11-26 15:28:12','2024-11-27 20:01:30');
 /*!40000 ALTER TABLE `ps_module_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -17409,4 +17413,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-11-27 12:06:10
+-- Dump completed on 2024-11-27 19:39:42

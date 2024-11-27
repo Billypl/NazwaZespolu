@@ -22,21 +22,10 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-
-{capture assign="productClasses"}{if !empty($productClass)}{$productClass}{else}col-xs-12 col-sm-6 col-xl-4{/if}{/capture}
-
-<div class="products{if !empty($cssClass)} {$cssClass}{/if}">
-    {foreach from=$products item="product" key="position"}
-        {if $position <= ceil(count($products) / 2 - 1)}
-        {include file="catalog/_partials/miniatures/product.tpl" product=$product position=$position productClasses=$productClasses}
-        {/if}
-        {if $position == ceil(count($products) / 2 - 1)}
-              <h2 class="h2 products-section-title text-uppercase">
-                {l s='Bestsellery' d='Shop.Theme.Catalog'}
-              </h2>
-        {/if}
-        {if $position > ceil(count($products) / 2 - 1)}
-            {include file="catalog/_partials/miniatures/product.tpl" product=$product position=$position productClasses=$productClasses}
-        {/if}
-    {/foreach}
-</div>
+<a class="banner" href="{$banner_link}" title="{$banner_desc}">
+  {if isset($banner_img)}
+    <img src="{$banner_img}" alt="{$banner_desc}" title="{$banner_desc}" class="img-fluid" loading="lazy" width="1170" height="200">
+  {else}
+    <span>{$banner_desc}</span>
+  {/if}
+</a>
