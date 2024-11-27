@@ -3643,7 +3643,7 @@ CREATE TABLE `ps_configuration` (
   KEY `name` (`name`),
   KEY `id_shop` (`id_shop`),
   KEY `id_shop_group` (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=449 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=450 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4092,7 +4092,7 @@ INSERT INTO `ps_configuration` VALUES
 (446,NULL,NULL,'PS_PSX_FIREBASE_REFRESH_DATE','2024-11-25 20:32:49','2024-11-25 20:32:49','2024-11-25 20:32:49'),
 (447,NULL,NULL,'PS_ACCOUNTS_FIREBASE_ID_TOKEN',NULL,'2024-11-25 20:32:49','2024-11-25 20:32:49'),
 (448,NULL,NULL,'PS_ACCOUNTS_ACCESS_TOKEN',NULL,'2024-11-25 20:32:49','2024-11-25 20:32:49'),
-(449,NULL,NULL,'PS_ACCOUNTS_FIREBASE_REFRESH_TOKEN',NULL,'2024-11-26 13:30:55','2024-11-26 15:23:13');
+(449,NULL,NULL,'PS_ACCOUNTS_FIREBASE_REFRESH_TOKEN',NULL,'2024-11-26 13:30:55','2024-11-27 13:00:23');
 /*!40000 ALTER TABLE `ps_configuration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4254,7 +4254,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4279,7 +4279,8 @@ INSERT INTO `ps_connections` VALUES
 (13,1,1,6,1,2886860801,'2024-11-26 14:37:45',''),
 (14,1,1,6,1,2886860801,'2024-11-26 15:10:23',''),
 (15,1,1,6,1,2886860801,'2024-11-26 16:43:51',''),
-(16,1,1,6,1,2886860801,'2024-11-26 21:05:09','');
+(16,1,1,6,1,2886860801,'2024-11-26 21:05:09',''),
+(17,1,1,6,1,2886860801,'2024-11-27 12:55:11','');
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4327,7 +4328,7 @@ CREATE TABLE `ps_connections_source` (
   KEY `orderby` (`date_add`),
   KEY `http_referer` (`http_referer`),
   KEY `request_uri` (`request_uri`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4418,7 +4419,15 @@ INSERT INTO `ps_connections_source` VALUES
 (79,11,'http://localhost:8080/','localhost:8080/favicon.ico','','2024-11-26 13:51:46'),
 (80,12,'http://localhost:8080/','localhost:8080/art/3-13-the-best-is-yet-to-come-framed-poster.html','','2024-11-26 14:20:03'),
 (81,14,'http://localhost:8080/','localhost:8080/2-strona-glowna','','2024-11-26 15:29:41'),
-(82,14,'http://localhost:8080/','localhost:8080/2-strona-glowna','','2024-11-26 15:30:29');
+(82,14,'http://localhost:8080/','localhost:8080/2-strona-glowna','','2024-11-26 15:30:29'),
+(83,17,'http://localhost:8080/','localhost:8080/modules/ps_imageslider/images/58c3822ad2e328c22d65051f9f6f508a0e788c2a_sample-1.jpg','','2024-11-27 12:55:11'),
+(84,17,'http://localhost:8080/','localhost:8080/modules/ps_imageslider/images/58c3822ad2e328c22d65051f9f6f508a0e788c2a_sample-1.jpg','','2024-11-27 12:55:19'),
+(85,17,'http://localhost:8080/','localhost:8080/modules/ps_imageslider/images/58c3822ad2e328c22d65051f9f6f508a0e788c2a_sample-1.jpg','','2024-11-27 12:55:20'),
+(86,17,'http://localhost:8080/','localhost:8080/modules/ps_imageslider/images/58c3822ad2e328c22d65051f9f6f508a0e788c2a_sample-1.jpg','','2024-11-27 12:55:22'),
+(87,17,'http://localhost:8080/','localhost:8080/modules/ps_imageslider/images/58c3822ad2e328c22d65051f9f6f508a0e788c2a_sample-1.jpg','','2024-11-27 12:55:23'),
+(88,17,'http://localhost:8080/','localhost:8080/modules/ps_imageslider/images/e360f0996af086b3db55b9f52dd66fc5c5d50dbb_sample-2.jpg','','2024-11-27 12:55:28'),
+(89,17,'http://localhost:8080/admin-dev/index.php/improve/design/themes/?_token=XcRpSBZSWrW8E4gpDaGBKNCXmXa1vFu1gnlNuu0R3TA','localhost:8080/img/logo-1732466154.jpg','','2024-11-27 12:55:53'),
+(90,17,'http://localhost:8080/','localhost:8080/modules/ps_imageslider/images/58c3822ad2e328c22d65051f9f6f508a0e788c2a_sample-1.jpg','','2024-11-27 12:56:16');
 /*!40000 ALTER TABLE `ps_connections_source` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5884,7 +5893,7 @@ CREATE TABLE `ps_employee` (
 LOCK TABLES `ps_employee` WRITE;
 /*!40000 ALTER TABLE `ps_employee` DISABLE KEYS */;
 INSERT INTO `ps_employee` VALUES
-(1,1,1,'Doe','John','demo@prestashop.com','$2y$10$8HNbSXVEy240jsIAvYXZtOXO/WeoUrZPwHRscpkXFErnsOplpUmR2','2024-11-24 00:19:40','2024-10-24','2024-11-24','0000-00-00','0000-00-00',1,NULL,NULL,'default','theme.css',1,0,1,1,NULL,0,0,0,'2024-11-24',NULL,'0000-00-00 00:00:00',0);
+(1,1,1,'Doe','John','demo@prestashop.com','$2y$10$8HNbSXVEy240jsIAvYXZtOXO/WeoUrZPwHRscpkXFErnsOplpUmR2','2024-11-24 00:19:40','2024-10-24','2024-11-24','0000-00-00','0000-00-00',1,NULL,NULL,'default','theme.css',1,0,1,1,NULL,0,0,0,'2024-11-27',NULL,'0000-00-00 00:00:00',0);
 /*!40000 ALTER TABLE `ps_employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5927,7 +5936,7 @@ CREATE TABLE `ps_employee_session` (
   `id_employee` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_employee_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5939,7 +5948,8 @@ LOCK TABLES `ps_employee_session` WRITE;
 INSERT INTO `ps_employee_session` VALUES
 (2,1,'60cf3a59d1293badd3893ec8398ff2131fc81064'),
 (3,1,'39e738f64ca445c91a267a07fa8a3f564925ef29'),
-(5,1,'9e343bdcdf6e2fcf22eeed43ecd3b00da889a78c');
+(5,1,'9e343bdcdf6e2fcf22eeed43ecd3b00da889a78c'),
+(6,1,'f1d8e5a2c61db76303845cf15d15b85fdae5284c');
 /*!40000 ALTER TABLE `ps_employee_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6570,7 +6580,7 @@ CREATE TABLE `ps_guest` (
   KEY `id_customer` (`id_customer`),
   KEY `id_operating_system` (`id_operating_system`),
   KEY `id_web_browser` (`id_web_browser`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6584,7 +6594,8 @@ INSERT INTO `ps_guest` VALUES
 (2,0,0,0,0,0,0,0,0,0,0,0,0,0,'',0),
 (3,6,11,0,0,0,0,0,0,0,0,0,0,0,'pl',0),
 (4,6,11,0,0,0,0,0,0,0,0,0,0,0,'en',0),
-(5,6,11,0,0,0,0,0,0,0,0,0,0,0,'en',0);
+(5,6,11,0,0,0,0,0,0,0,0,0,0,0,'en',0),
+(6,6,11,0,0,0,0,0,0,0,0,0,0,0,'en',0);
 /*!40000 ALTER TABLE `ps_guest` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9029,7 +9040,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=238 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=239 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -9275,7 +9286,8 @@ INSERT INTO `ps_log` VALUES
 (234,1,0,'Protect vendor folder in module ps_accounts','',0,1,NULL,1,0,1,'2024-11-25 20:32:48','2024-11-25 20:32:48'),
 (235,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-26 13:30:54','2024-11-26 13:30:54'),
 (236,1,0,'Protect vendor folder in module ps_eventbus','',0,1,NULL,1,0,1,'2024-11-26 14:16:12','2024-11-26 14:16:12'),
-(237,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-26 15:23:11','2024-11-26 15:23:11');
+(237,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-26 15:23:11','2024-11-26 15:23:11'),
+(238,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-27 12:55:32','2024-11-27 12:55:32');
 /*!40000 ALTER TABLE `ps_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -17397,4 +17409,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-11-26 20:08:22
+-- Dump completed on 2024-11-27 12:06:10
