@@ -25,7 +25,7 @@
 <section class="featured-products">
   <a href="{$allProductsLink}">
   <h2 class="h2 products-section-title text-uppercase">
-    {l s='Popular Products' d='Shop.Theme.Catalog'}
+    {l s='Nowości' d='Shop.Theme.Catalog'}
   </h2>
   </a>
   {include file="catalog/_partials/productlist.tpl" products=$products cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-4 col-xl-3"}
