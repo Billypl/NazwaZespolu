@@ -2,11 +2,11 @@
 
 {shop_url}
 
-Hi {firstname} {lastname},
+Witaj {firstname} {lastname},
 
-Here is a test email from your shop.
+To jest testowy  e-mail z Twojego sklepu.
 
-If you can read this, it means the test is successful!
+Jeśli potrafisz to przeczytać, oznacza to, że test się powiódł!
 
 [{shop_name}]({shop_url})
 

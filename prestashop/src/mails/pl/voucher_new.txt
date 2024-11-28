@@ -2,13 +2,13 @@
 
 {shop_url}
 
-Hi {firstname} {lastname},
+Witaj {firstname} {lastname},
 
-Voucher code has been generated
+Wygenerowano kod kuponu
 
-Here is your new voucher code: {voucher_num}
+Oto twój nowy kod kuponu: {voucher_num}
 
-In order to use it, just copy/paste this code during check out.
+Aby go użyć, po prostu skopiuj/wklej ten kod podczas zamawiania.
 
 [{shop_name}]({shop_url})
 
