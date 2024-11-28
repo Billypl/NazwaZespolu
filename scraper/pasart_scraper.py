@@ -2,10 +2,16 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-PASART_PL_URL = "https://www.pasart.pl/pl"
+PASART_URL = "https://www.pasart.pl"
+PASART_PL_URL = PASART_URL + "/pl"
 PASART_SEARCH_URL = PASART_PL_URL + "/search"
 PASART_CATEGORIES_URL = PASART_PL_URL + "/categories"
-SCRAPING_OUTPUT_DIRECTORY = '../resources/scraping_results'
+PASART_NEWPRODUCTS_URL = PASART_PL_URL + "/newproducts/nowosc"
+PASART_BESTSELLERS_URL = PASART_PL_URL + "/bestsellers/bestseller"
+PASART_PROMOTIONS_URL = PASART_PL_URL + "/menu/promocje-2311"
+
+
+SCRAPING_OUTPUT_DIRECTORY = '../resources/'
 PRODUCTS_OUTPUT_FILE = SCRAPING_OUTPUT_DIRECTORY + 'products.json'
 CATEGORIES_OUTPUT_FILE = SCRAPING_OUTPUT_DIRECTORY + 'categories.json'
 
@@ -13,7 +19,7 @@ CATEGORIES_OUTPUT_FILE = SCRAPING_OUTPUT_DIRECTORY + 'categories.json'
 IMAGE_SIZE_LINK_INDEX = 6
 
 
-def extract_product_info(product_url):
+def extract_product_info(product_url, special_categories_product_list):
     response = requests.get(product_url)
     soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -31,9 +37,10 @@ def extract_product_info(product_url):
         # Extract important information
         product_info = {
             "name": json_data.get("name", ""),
-            "description": json_data.get("description", ""),
+            # "description": json_data.get("description", ""),
             "productID": json_data.get("productID", "").replace("mpn:", ""), # Don't know if it should stay with mpn: or not
-            "categories": "",
+            "categories": {},
+            "special_categories": [],
             "properties": [],
             "rating": json_data.get("aggregateRating", {}).get("ratingValue", None),
             "rating_count": json_data.get("aggregateRating", {}).get("reviewCount", None),  
@@ -41,7 +48,7 @@ def extract_product_info(product_url):
             "offers": [],
             "images": []
         }
-
+        
 
         # Extract individual reviews
         reviews = json_data.get("review", [])
@@ -57,25 +64,28 @@ def extract_product_info(product_url):
         offers = json_data.get("offers", [])
         for offer in offers:
             offer_details = {
-                "availability": offer.get("availability", ""),
-                "url": offer.get("url", ""),
-                "price": None,
-                "sale_price": None,
-                "valid_through": None
+                # "availability": offer.get("availability", ""),
+                # "url": offer.get("url", ""),
+                "price": offer.get("price", ""),
+                # "eligibleQuantity": offer.get("eligibleQuantity", {}).get("value", ""),
             }
+
+            hasSpecs = False
 
             # Extract price specifications
             price_specifications = offer.get("priceSpecification", [])
             for spec in price_specifications:
-                if spec.get("@type") == "PriceSpecification":
-                    offer_details["price"] = spec.get("price", "")
-                elif spec.get("@type") == "UnitPriceSpecification":
-                    offer_details["sale_price"] = spec.get("price", "")
-                    offer_details["valid_through"] = spec.get("validThrough", "")
+                offer_details = {}
+                hasSpecs = True
+                offer_details["price"] = spec.get("price", "")
+                # offer_details["valid_through"] = spec.get("validThrough", "")
+                product_info["offers"].append(offer_details)
 
-            product_info["offers"].append(offer_details)
+            if not hasSpecs:
+                product_info["offers"].append(offer_details)
     else:
         print(f"\033Coudn't find product info script: {product_url} \033[0m")
+        return None
 
     # Extract product categories
     breadcrumbs_navigation = soup.find('div', id='breadcrumbs')
@@ -85,12 +95,20 @@ def extract_product_info(product_url):
         breadcrumbs_elements = breadcrumbs_list.find_all('li', recursive=False)
 
         categories = {}
+        
         for index, category in enumerate(breadcrumbs_elements[2:-1], start=1):
             categories[f'level{index}'] = category.find('a').get_text()
         product_info['categories'] = categories
-
     else:
         print(f"\033Coudn't find any categories: {product_url}\033[0m")
+        return None
+        
+    # Set special product categories
+    product_info["special_categories"] = []
+    for special_category_name, product_list in special_categories_product_list.items():
+        if product_url in product_list:
+            product_info["special_categories"].append(special_category_name)
+        
 
     # Extract product properties
     projector_dictionary = soup.find('section', id='projector_dictionary').find('div')
@@ -108,6 +126,7 @@ def extract_product_info(product_url):
 
     else:
         print(f"\033Coudn't find any product properties: {product_url}\033[0m")
+        return None
 
 
     # Extract photos links
@@ -121,7 +140,14 @@ def extract_product_info(product_url):
             
             if img_tag and 'src' in img_tag.attrs:
                 img_src = img_tag['src']
+                size_chars = ['s', 'm', 'l']
+
                 
+                product_info['images'].append(
+                    PASART_URL + img_src[:IMAGE_SIZE_LINK_INDEX] + size_chars[2] + img_src[IMAGE_SIZE_LINK_INDEX + 1:]
+                )
+                
+                """
                 # Generate medium and full-size image sources by replacing the size character
                 sizes = ['thumbnail', 'medium', 'full_size']
                 size_chars = ['s', 'm', 'l']
@@ -133,8 +159,10 @@ def extract_product_info(product_url):
                             "data-src": PASART_PL_URL + img_src[:IMAGE_SIZE_LINK_INDEX] + size_chars[i] + img_src[IMAGE_SIZE_LINK_INDEX + 1:]
                         }
                     )
+                """
     else:
         print(f"\033Coudn't find any photos: {product_url}\033[0m")
+        return None
 
 
     return product_info
@@ -163,9 +191,42 @@ def get_all_products_links(max_page_count):
     return all_products_links
 
 
+def extract_special_category_product_connections():
+    special_categories_product_list = {
+        "Nowości": [],
+        "Bestsellery": [],
+        "Promocje": []
+    }  
+    
+    categories_urls = [PASART_NEWPRODUCTS_URL, PASART_BESTSELLERS_URL, PASART_PROMOTIONS_URL]
+    
+    category_id = 0
+    for category, product_urls in special_categories_product_list.items():
+        page_num = 0
+        isFinished = False
+
+        while not isFinished:
+            response = requests.get(categories_urls[category_id] + "?counter=" + str(page_num))
+            soup = BeautifulSoup(response.text, 'html.parser')
+
+            products_section = soup.find('section', id='search')
+
+            if products_section:
+                products_tiles = products_section.find_all('div', recursive=False)
+
+                for product_tile in products_tiles:
+                    product_urls.append(product_tile.find('a')['href'])
+            else:
+                isFinished = True   
+            page_num += 1
+        category_id += 1
+
+    return special_categories_product_list
+       
 
 def extract_and_save_products(max_page_count = 1e6):
     all_products_links = get_all_products_links(max_page_count)
+    special_categories_product_list = extract_special_category_product_connections()
 
     with open(PRODUCTS_OUTPUT_FILE, 'w', encoding='utf-8') as f:
         f.write('[')  # Start the JSON array
@@ -173,7 +234,7 @@ def extract_and_save_products(max_page_count = 1e6):
 
         for product_link in all_products_links:
             print(product_link)
-            product_info = extract_product_info(product_link)
+            product_info = extract_product_info(product_link, special_categories_product_list)
             if product_info is None:
                 continue
 
@@ -182,6 +243,7 @@ def extract_and_save_products(max_page_count = 1e6):
                 f.write(',')  # Add a comma before the next entry
             else:
                 first_entry = False
+
             
             json.dump(product_info, f, ensure_ascii=False)
             # json.dump(product_info, f, ensure_ascii=False, indent=4) # Formatted file
