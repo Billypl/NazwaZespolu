@@ -22,7 +22,20 @@ CART_LINK_CLASSNAME = "blockcart.cart-preview.active"
 PRODUCT_QUANTITY_CLASSNAME = "js-cart-line-product-quantity.form-control"
 PRODUCT_QUANTITY_CLASSNAME_XPATH = "js-cart-line-product-quantity form-control"
 DELETE_PRODUCT_LINK_CLASSNAME_XPATH = "remove-from-cart"
-REGISTER_LINK = "user-info"
+LOGIN_LINK_CLASSNAME = "user-info"
+REGISTER_LINK_CLASSNAME = "no-account"
+REGISTER_MALE_GENDER_ID = "field-id_gender-1"
+REGISTER_NAME_INPUT_ID = "field-firstname"
+REGISTER_SURNAME_INPUT_ID = "field-lastname"
+REGISTER_EMAIL_INPUT_ID = "field-email"
+REGISTER_PASSWORD_INPUT_ID = "field-password"
+REGISTER_BIRTHDATE_INPUT_ID = "field-birthday"
+REGISTER_CHECKBOX1_NAME = "optin"
+REGISTER_CHECKBOX2_NAME = "customer_privacy"
+REGISTER_CHECKBOX3_NAME = "newsletter"
+REGISTER_CHECKBOX4_NAME = "psgdpr"
+REGISTER_SUBMIT_BUTTON_CLASSNAME = "btn.btn-primary.form-control-submit.float-xs-right"
+LOGOUT_LINK_CLASSNAME = "logout.hidden-sm-down"
 
 
 # Add 10 products (with random quantity) from 2 categories to cart
@@ -127,12 +140,51 @@ def delete_products_from_cart_test(total_cart_quantity):
     check_cart_count_number(total_cart_quantity)
     print("TEST - Deleting 3 products from cart - has completed successfully!")
 
+# Register new user
 def register_test():
     WebDriverWait(driver, TIMEOUT_TIME_SEC).until(
-        EC.presence_of_element_located((By.CLASS_NAME, REGISTER_LINK))
+        EC.presence_of_element_located((By.CLASS_NAME, LOGIN_LINK_CLASSNAME))
     )
-    register_link = driver.find_element(By.CLASS_NAME, REGISTER_LINK)
+    login_link = driver.find_element(By.CLASS_NAME, LOGIN_LINK_CLASSNAME)
+    login_link.click()
+
+    WebDriverWait(driver, TIMEOUT_TIME_SEC).until(
+        EC.presence_of_element_located((By.CLASS_NAME, REGISTER_LINK_CLASSNAME))
+    )
+    register_link = driver.find_element(By.CLASS_NAME, REGISTER_LINK_CLASSNAME)
     register_link.click()
+
+    WebDriverWait(driver, TIMEOUT_TIME_SEC).until(
+        EC.presence_of_element_located((By.ID, REGISTER_MALE_GENDER_ID))
+    )
+    male_radio_button = driver.find_element(By.ID, REGISTER_MALE_GENDER_ID)
+    male_radio_button.click()
+    name_input = driver.find_element(By.ID, REGISTER_NAME_INPUT_ID)
+    name_input.send_keys("Jan")
+    surname_input = driver.find_element(By.ID, REGISTER_SURNAME_INPUT_ID)
+    surname_input.send_keys("Rogowski")
+    email_input = driver.find_element(By.ID, REGISTER_EMAIL_INPUT_ID)
+    email_input.send_keys("s193126@student.pg.edu.pl")
+    password_input = driver.find_element(By.ID, REGISTER_PASSWORD_INPUT_ID)
+    password_input.send_keys("kocham-prestashopa")
+    birthdate_input = driver.find_element(By.ID, REGISTER_BIRTHDATE_INPUT_ID)
+    birthdate_input.send_keys("1970-05-31")
+    checkbox1 = driver.find_element(By.NAME, REGISTER_CHECKBOX1_NAME)
+    checkbox1.click()
+    checkbox2 = driver.find_element(By.NAME, REGISTER_CHECKBOX2_NAME)
+    checkbox2.click()
+    checkbox3 = driver.find_element(By.NAME, REGISTER_CHECKBOX3_NAME)
+    checkbox3.click()
+    checkbox4 = driver.find_element(By.NAME, REGISTER_CHECKBOX4_NAME)
+    checkbox4.click()
+    submit_button = driver.find_element(By.CLASS_NAME, REGISTER_SUBMIT_BUTTON_CLASSNAME)
+    submit_button.click()
+
+    WebDriverWait(driver, TIMEOUT_TIME_SEC).until(
+        EC.presence_of_element_located((By.CLASS_NAME, LOGOUT_LINK_CLASSNAME))
+    )
+
+    print("TEST - Registering new account - has completed successfully!")
 
 
 # Create Google Chrome webdriver to perform test actions
@@ -143,9 +195,9 @@ driver.get("http://localhost:8080/")
 # Theoretical number of products which should be in the cart
 total_cart_quantity = [0]
 # Tests
-#products_to_cart_test(total_cart_quantity)
-#search_and_add_product_to_cart_test("czarny", total_cart_quantity)
-#delete_products_from_cart_test(total_cart_quantity)
+products_to_cart_test(total_cart_quantity)
+search_and_add_product_to_cart_test("czarny", total_cart_quantity)
+delete_products_from_cart_test(total_cart_quantity)
 register_test()
 time.sleep(7)
 
