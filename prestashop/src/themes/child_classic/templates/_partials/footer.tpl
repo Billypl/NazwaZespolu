@@ -22,35 +22,31 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-<div id="_desktop_user_info">
-  <div class="user-info">
-    {if $logged}
-      <a
-        class="logout hidden-sm-down"
-        href="{$urls.actions.logout}"
-        rel="nofollow"
-      >
-        <i class="material-icons log_icon">&#xE7FF;</i>
-        {l s='Sign out' d='Shop.Theme.Actions'}
-      </a>
-      <a
-        class="account"
-        href="{$urls.pages.my_account}"
-        title="{l s='View my customer account' d='Shop.Theme.Customeraccount'}"
-        rel="nofollow"
-      >
-        <i class="material-icons hidden-md-up logged log_icon">&#xE7FF;</i>
-        <p class="hidden-sm-down">{$customerName}</p>
-      </a>
-    {else}
-      <a
-        href="{$urls.pages.my_account}"
-        title="{l s='Log in to your customer account' d='Shop.Theme.Customeraccount'}"
-        rel="nofollow"
-      >
-        <i class="material-icons log_icon">&#xE7FF;</i>
-        <p class="hidden-sm-down signin">{l s='Sign in' d='Shop.Theme.Actions'}</p>
-      </a>
-    {/if}
+<div class="container">
+  <div class="row">
+    {block name='hook_footer_before'}
+      {hook h='displayFooterBefore'}
+    {/block}
+  </div>
+</div>
+<div class="footer-container">
+  <div class="container">
+    <div class="row">
+      {block name='hook_footer'}
+        {hook h='displayFooter'}
+      {/block}
+    </div>
+    <div class="row">
+      {block name='hook_footer_after'}
+        {hook h='displayFooterAfter'}
+      {/block}
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-sm-center low_footer">
+          ♡ Sklep przyjazny rękodzielnikom ♡ Darmowa dostawa od 199zł ♡ Wysyłka w 24h ♡14 dni na zwrot ♡ Zniżki do -90%
+        </p>
+      </div>
+    </div>
   </div>
 </div>
