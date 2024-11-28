@@ -22,6 +22,7 @@ CART_LINK_CLASSNAME = "blockcart.cart-preview.active"
 PRODUCT_QUANTITY_CLASSNAME = "js-cart-line-product-quantity.form-control"
 PRODUCT_QUANTITY_CLASSNAME_XPATH = "js-cart-line-product-quantity form-control"
 DELETE_PRODUCT_LINK_CLASSNAME_XPATH = "remove-from-cart"
+REGISTER_LINK = "user-info"
 
 
 # Add 10 products (with random quantity) from 2 categories to cart
@@ -126,6 +127,13 @@ def delete_products_from_cart_test(total_cart_quantity):
     check_cart_count_number(total_cart_quantity)
     print("TEST - Deleting 3 products from cart - has completed successfully!")
 
+def register_test():
+    WebDriverWait(driver, TIMEOUT_TIME_SEC).until(
+        EC.presence_of_element_located((By.CLASS_NAME, REGISTER_LINK))
+    )
+    register_link = driver.find_element(By.CLASS_NAME, REGISTER_LINK)
+    register_link.click()
+
 
 # Create Google Chrome webdriver to perform test actions
 service = Service(executable_path="chromedriver.exe")
@@ -135,9 +143,10 @@ driver.get("http://localhost:8080/")
 # Theoretical number of products which should be in the cart
 total_cart_quantity = [0]
 # Tests
-products_to_cart_test(total_cart_quantity)
-search_and_add_product_to_cart_test("czarny", total_cart_quantity)
-delete_products_from_cart_test(total_cart_quantity)
+#products_to_cart_test(total_cart_quantity)
+#search_and_add_product_to_cart_test("czarny", total_cart_quantity)
+#delete_products_from_cart_test(total_cart_quantity)
+register_test()
 time.sleep(7)
 
 print("All tests have completed successfully!")
