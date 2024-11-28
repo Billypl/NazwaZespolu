@@ -43,8 +43,8 @@ body {
 }
 
 #search_widget{
-    margin-right: 17rem;
-    margin-left: 3rem;
+    margin-right: 7rem;
+    margin-left: 4rem;
     min-width: 28rem;
     color: black;
 }
@@ -70,7 +70,7 @@ body {
 }
 
 #search_widget form i {
-    margin-left: -2rem;
+    margin-left: -2.5rem;
 }
 
 .container {
@@ -79,25 +79,30 @@ body {
 }
 
 input{
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: black;
 }
 
 .signin{
-    margin-left: -1.4rem;
+    margin-left: -1rem;
+    color: #333f4f;
+    font-size: 0.8rem;
 }
 
 #_desktop_user_info{
-    margin-right: 2rem;
+    margin-right: 3rem;
     margin-top: 1rem
 }
 
 #_desktop_cart{
     margin-top: 1rem;
+    margin-right: 0.5rem;
 }
 
 .cart-products-count{
-    margin-left: 0.15rem;
+    margin-left: 0.2rem;
+    color: #333f4f;
+    font-size: 0.8rem;
 }
 
 #footer {
@@ -113,4 +118,30 @@ input{
 
 .products-section-title:hover{
     color: #b13f81;
+}
+
+#_favorites{
+    margin-top: 1rem;
+    margin-right: 4rem;
+}
+
+.favorite_label{
+    color: #333f4f;
+    font-size: 0.8rem;
+}
+
+.favorite_icon{
+    margin-left: 2.1rem;
+    color: #333f4f;
+}
+
+.log_icon{
+    font-size: 28px;
+    color: #333f4f;
+}
+
+.low_footer{
+    color: #333f4f;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
 }
