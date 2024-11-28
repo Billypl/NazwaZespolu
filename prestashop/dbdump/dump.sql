@@ -2778,7 +2778,7 @@ CREATE TABLE `ps_cart` (
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_shop_2` (`id_shop`,`date_upd`),
   KEY `id_shop` (`id_shop`,`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2792,7 +2792,10 @@ INSERT INTO `ps_cart` VALUES
 (2,1,1,2,'{\"3\":\"2,\"}',1,5,5,1,2,1,'b44a6d9efd7a0076a0fbce6b15eaf3b1',0,0,'',0,0,'2024-11-24 06:20:19','2024-11-24 06:20:19',NULL),
 (3,1,1,2,'{\"3\":\"2,\"}',1,5,5,1,2,1,'b44a6d9efd7a0076a0fbce6b15eaf3b1',0,0,'',0,0,'2024-11-24 06:20:19','2024-11-24 06:20:19',NULL),
 (4,1,1,2,'{\"3\":\"2,\"}',1,5,5,1,2,1,'b44a6d9efd7a0076a0fbce6b15eaf3b1',0,0,'',0,0,'2024-11-24 06:20:19','2024-11-24 06:20:19',NULL),
-(5,1,1,2,'{\"3\":\"2,\"}',1,5,5,1,2,1,'b44a6d9efd7a0076a0fbce6b15eaf3b1',0,0,'',0,0,'2024-11-24 06:20:19','2024-11-24 06:20:19',NULL);
+(5,1,1,2,'{\"3\":\"2,\"}',1,5,5,1,2,1,'b44a6d9efd7a0076a0fbce6b15eaf3b1',0,0,'',0,0,'2024-11-24 06:20:19','2024-11-24 06:20:19',NULL),
+(6,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-28 22:18:36','2024-11-28 22:19:56',NULL),
+(7,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-28 22:20:01','2024-11-28 22:23:55',NULL),
+(8,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-28 22:24:50','2024-11-28 22:35:30',NULL);
 /*!40000 ALTER TABLE `ps_cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2855,7 +2858,9 @@ INSERT INTO `ps_cart_product` VALUES
 (2,8,3,1,0,0,1,'0000-00-00 00:00:00'),
 (3,16,3,1,28,0,1,'0000-00-00 00:00:00'),
 (4,16,3,1,29,0,1,'0000-00-00 00:00:00'),
-(5,10,3,1,25,0,1,'0000-00-00 00:00:00');
+(5,10,3,1,25,0,1,'0000-00-00 00:00:00'),
+(8,2,0,1,9,0,1,'2024-11-28 22:25:48'),
+(8,7,0,1,0,0,1,'2024-11-28 22:26:07');
 /*!40000 ALTER TABLE `ps_cart_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4093,7 +4098,7 @@ INSERT INTO `ps_configuration` VALUES
 (446,NULL,NULL,'PS_PSX_FIREBASE_REFRESH_DATE','2024-11-25 20:32:49','2024-11-25 20:32:49','2024-11-25 20:32:49'),
 (447,NULL,NULL,'PS_ACCOUNTS_FIREBASE_ID_TOKEN',NULL,'2024-11-25 20:32:49','2024-11-25 20:32:49'),
 (448,NULL,NULL,'PS_ACCOUNTS_ACCESS_TOKEN',NULL,'2024-11-25 20:32:49','2024-11-25 20:32:49'),
-(449,NULL,NULL,'PS_ACCOUNTS_FIREBASE_REFRESH_TOKEN',NULL,'2024-11-26 13:30:55','2024-11-28 13:29:00');
+(449,NULL,NULL,'PS_ACCOUNTS_FIREBASE_REFRESH_TOKEN',NULL,'2024-11-26 13:30:55','2024-11-28 20:46:44');
 /*!40000 ALTER TABLE `ps_configuration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4255,7 +4260,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4290,7 +4295,13 @@ INSERT INTO `ps_connections` VALUES
 (23,1,1,6,1,2886860801,'2024-11-28 00:00:02',''),
 (24,1,1,6,1,2886860801,'2024-11-28 13:00:06',''),
 (25,1,1,6,2,2886860801,'2024-11-28 13:35:53',''),
-(26,1,1,6,1,2886860801,'2024-11-28 14:06:28','');
+(26,1,1,6,1,2886860801,'2024-11-28 14:06:28',''),
+(27,1,1,6,1,2886860801,'2024-11-28 20:46:34',''),
+(28,1,1,6,1,2886860801,'2024-11-28 21:17:20',''),
+(29,1,1,6,1,2886860801,'2024-11-28 21:49:35',''),
+(30,1,1,6,1,2886860801,'2024-11-28 22:19:59','http://localhost:8080/'),
+(31,1,1,6,4,2886860801,'2024-11-28 22:23:57','http://localhost:8080/moje-konto'),
+(32,1,1,9,1,2886860801,'2024-11-28 22:35:35','http://localhost:8080/');
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4338,7 +4349,7 @@ CREATE TABLE `ps_connections_source` (
   KEY `orderby` (`date_add`),
   KEY `http_referer` (`http_referer`),
   KEY `request_uri` (`request_uri`)
-) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=218 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4453,7 +4464,118 @@ INSERT INTO `ps_connections_source` VALUES
 (103,21,'http://localhost:8080/content/4-about-us','localhost:8080/','','2024-11-27 22:15:31'),
 (104,21,'http://localhost:8080/','localhost:8080/home-accessories/6-mug-the-best-is-yet-to-come.html','','2024-11-27 22:18:21'),
 (105,23,'http://localhost:8080/','localhost:8080/men/1-1-hummingbird-printed-t-shirt.html','','2024-11-28 00:01:12'),
-(106,24,'http://localhost:8080/','localhost:8080/favicon.ico','','2024-11-28 13:30:38');
+(106,24,'http://localhost:8080/','localhost:8080/favicon.ico','','2024-11-28 13:30:38'),
+(107,28,'http://localhost:8080/','localhost:8080/favicon.ico','','2024-11-28 21:30:27'),
+(108,29,'http://localhost:8080/','localhost:8080/promocje','','2024-11-28 22:16:18'),
+(109,29,'http://localhost:8080/','localhost:8080/nowe-produkty','','2024-11-28 22:16:20'),
+(110,29,'http://localhost:8080/','localhost:8080/content/1-delivery','','2024-11-28 22:16:25'),
+(111,29,'http://localhost:8080/','localhost:8080/content/4-about-us','','2024-11-28 22:16:29'),
+(112,29,'http://localhost:8080/','localhost:8080/kontakt','','2024-11-28 22:16:42'),
+(113,29,'http://localhost:8080/kontakt','localhost:8080/logowanie?back=my-account','','2024-11-28 22:18:14'),
+(114,29,'http://localhost:8080/logowanie?back=my-account','localhost:8080/logowanie?create_account=1','','2024-11-28 22:18:17'),
+(115,29,'http://localhost:8080/logowanie?create_account=1','localhost:8080/','','2024-11-28 22:18:30'),
+(116,29,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:18:31'),
+(117,29,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:18:32'),
+(118,29,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:18:33'),
+(119,29,'http://localhost:8080/','localhost:8080/koszyk?action=show','','2024-11-28 22:18:38'),
+(120,29,'http://localhost:8080/koszyk?action=show','localhost:8080/koszyk?action=show','','2024-11-28 22:18:39'),
+(121,29,'http://localhost:8080/koszyk','localhost:8080/','','2024-11-28 22:18:51'),
+(122,29,'http://localhost:8080/','localhost:8080/logowanie?back=my-account','','2024-11-28 22:19:26'),
+(123,29,'http://localhost:8080/logowanie?back=my-account','localhost:8080/logowanie?back=my-account','','2024-11-28 22:19:28'),
+(124,29,'http://localhost:8080/logowanie?back=my-account','localhost:8080/logowanie?back=my-account','','2024-11-28 22:19:30'),
+(125,29,'http://localhost:8080/logowanie?back=my-account','localhost:8080/logowanie?back=my-account','','2024-11-28 22:19:34'),
+(126,29,'http://localhost:8080/logowanie?back=my-account','localhost:8080/logowanie?create_account=1','','2024-11-28 22:19:35'),
+(127,29,'http://localhost:8080/logowanie?create_account=1','localhost:8080/','','2024-11-28 22:19:55'),
+(128,30,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:19:59'),
+(129,30,'http://localhost:8080/','localhost:8080/logowanie?back=my-account','','2024-11-28 22:19:59'),
+(130,30,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-28 22:20:01'),
+(131,30,'http://localhost:8080/moje-konto','localhost:8080/historia-zamowien','','2024-11-28 22:20:03'),
+(132,30,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:20:44'),
+(133,30,'http://localhost:8080/','localhost:8080/moje-konto','','2024-11-28 22:20:46'),
+(134,30,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:20:47'),
+(135,30,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:20:49'),
+(136,30,'http://localhost:8080/','localhost:8080/historia-zamowien','','2024-11-28 22:20:54'),
+(137,30,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:20:55'),
+(138,30,'http://localhost:8080/','localhost:8080/module/blockwishlist/lists','','2024-11-28 22:22:44'),
+(139,30,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:22:45'),
+(140,30,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:22:56'),
+(141,30,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:22:58'),
+(142,30,'http://localhost:8080/','localhost:8080/module/blockwishlist/lists','','2024-11-28 22:23:01'),
+(143,30,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:23:50'),
+(144,30,'http://localhost:8080/','localhost:8080/module/blockwishlist/lists','','2024-11-28 22:23:52'),
+(145,30,'http://localhost:8080/module/blockwishlist/lists','localhost:8080/module/blockwishlist/lists','','2024-11-28 22:23:53'),
+(146,30,'http://localhost:8080/module/blockwishlist/lists','localhost:8080/moje-konto','','2024-11-28 22:23:55'),
+(147,31,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-28 22:23:57'),
+(148,31,'http://localhost:8080/logowanie?back=my-account','localhost:8080/logowanie','','2024-11-28 22:23:58'),
+(149,31,'http://localhost:8080/logowanie','localhost:8080/logowanie','','2024-11-28 22:23:59'),
+(150,31,'http://localhost:8080/logowanie','localhost:8080/logowanie','','2024-11-28 22:24:00'),
+(151,31,'http://localhost:8080/logowanie','localhost:8080/','','2024-11-28 22:24:01'),
+(152,31,'http://localhost:8080/','localhost:8080/logowanie','','2024-11-28 22:24:01'),
+(153,31,'http://localhost:8080/logowanie','localhost:8080/logowanie','','2024-11-28 22:24:02'),
+(154,31,'http://localhost:8080/logowanie','localhost:8080/logowanie','','2024-11-28 22:24:03'),
+(155,31,'http://localhost:8080/logowanie','localhost:8080/logowanie','','2024-11-28 22:24:04'),
+(156,31,'http://localhost:8080/logowanie','localhost:8080/logowanie','','2024-11-28 22:24:31'),
+(157,31,'http://localhost:8080/logowanie','localhost:8080/logowanie?back=my-account','','2024-11-28 22:24:33'),
+(158,31,'http://localhost:8080/logowanie?back=my-account','localhost:8080/logowanie','','2024-11-28 22:24:36'),
+(159,31,'http://localhost:8080/logowanie','localhost:8080/logowanie','','2024-11-28 22:24:36'),
+(160,31,'http://localhost:8080/logowanie','localhost:8080/logowanie','','2024-11-28 22:24:37'),
+(161,31,'http://localhost:8080/logowanie','localhost:8080/logowanie','','2024-11-28 22:24:38'),
+(162,31,'http://localhost:8080/logowanie','localhost:8080/logowanie','','2024-11-28 22:24:38'),
+(163,31,'http://localhost:8080/logowanie','localhost:8080/logowanie','','2024-11-28 22:24:39'),
+(164,31,'http://localhost:8080/logowanie','localhost:8080/logowanie','','2024-11-28 22:24:39'),
+(165,31,'http://localhost:8080/logowanie','localhost:8080/logowanie','','2024-11-28 22:24:41'),
+(166,31,'http://localhost:8080/logowanie','localhost:8080/logowanie','','2024-11-28 22:24:42'),
+(167,31,'http://localhost:8080/logowanie','localhost:8080/','','2024-11-28 22:24:46'),
+(168,31,'http://localhost:8080/','localhost:8080/logowanie','','2024-11-28 22:24:47'),
+(169,31,'http://localhost:8080/logowanie','localhost:8080/','','2024-11-28 22:24:50'),
+(170,31,'http://localhost:8080/','localhost:8080/module/blockwishlist/lists','','2024-11-28 22:24:51'),
+(171,31,'http://localhost:8080/','localhost:8080/module/blockwishlist/lists','','2024-11-28 22:25:03'),
+(172,31,'http://localhost:8080/module/blockwishlist/lists','localhost:8080/module/blockwishlist/module/blockwishlist/lists','','2024-11-28 22:25:04'),
+(173,31,'http://localhost:8080/','localhost:8080/module/blockwishlist/lists','','2024-11-28 22:25:06'),
+(174,31,'http://localhost:8080/module/blockwishlist/lists','localhost:8080/','','2024-11-28 22:25:07'),
+(175,31,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:25:15'),
+(176,31,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:25:27'),
+(177,31,'http://localhost:8080/','localhost:8080/module/blockwishlist/lists','','2024-11-28 22:25:28'),
+(178,31,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:25:30'),
+(179,31,'http://localhost:8080/','localhost:8080/module/blockwishlist/lists','','2024-11-28 22:25:31'),
+(180,31,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:25:32'),
+(181,31,'http://localhost:8080/','localhost:8080/module/blockwishlist/lists','','2024-11-28 22:25:33'),
+(182,31,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:25:34'),
+(183,31,'http://localhost:8080/','localhost:8080/module/blockwishlist/lists','','2024-11-28 22:25:42'),
+(184,31,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:25:43'),
+(185,31,'http://localhost:8080/','localhost:8080/women/2-9-brown-bear-printed-sweater.html','','2024-11-28 22:25:47'),
+(186,31,'http://localhost:8080/women/2-9-brown-bear-printed-sweater.html','localhost:8080/women/koszyk','','2024-11-28 22:25:50'),
+(187,31,'http://localhost:8080/women/koszyk','localhost:8080/women/koszyk','','2024-11-28 22:25:52'),
+(188,31,'http://localhost:8080/women/koszyk','localhost:8080/','','2024-11-28 22:25:53'),
+(189,31,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:25:54'),
+(190,31,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:25:55'),
+(191,31,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:25:56'),
+(192,31,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:25:59'),
+(193,31,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:26:01'),
+(194,31,'http://localhost:8080/','localhost:8080/home-accessories/7-mug-the-adventure-begins.html','','2024-11-28 22:26:07'),
+(195,31,'http://localhost:8080/home-accessories/7-mug-the-adventure-begins.html','localhost:8080/koszyk?action=show','','2024-11-28 22:26:10'),
+(196,31,'http://localhost:8080/','localhost:8080/home-accessories/7-mug-the-adventure-begins.html','','2024-11-28 22:26:33'),
+(197,31,'http://localhost:8080/home-accessories/7-mug-the-adventure-begins.html','localhost:8080/','','2024-11-28 22:26:34'),
+(198,31,'http://localhost:8080/','localhost:8080/koszyk?action=show','','2024-11-28 22:26:38'),
+(199,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:26:40'),
+(200,31,'http://localhost:8080/','localhost:8080/koszyk?action=show','','2024-11-28 22:26:50'),
+(201,31,'http://localhost:8080/','localhost:8080/koszyk?action=show','','2024-11-28 22:28:05'),
+(202,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:28:06'),
+(203,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:29:34'),
+(204,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:31:30'),
+(205,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:33:01'),
+(206,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:33:11'),
+(207,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:33:54'),
+(208,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:34:03'),
+(209,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:34:48'),
+(210,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:34:54'),
+(211,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:35:01'),
+(212,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:35:14'),
+(213,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:35:19'),
+(214,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:35:19'),
+(215,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:35:23'),
+(216,31,'http://localhost:8080/koszyk?action=show','localhost:8080/','','2024-11-28 22:35:27'),
+(217,32,'http://localhost:8080/','localhost:8080/','','2024-11-28 22:35:35');
 /*!40000 ALTER TABLE `ps_connections_source` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5485,7 +5607,7 @@ CREATE TABLE `ps_customer` (
   KEY `id_gender` (`id_gender`),
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_shop` (`id_shop`,`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5496,7 +5618,8 @@ LOCK TABLES `ps_customer` WRITE;
 /*!40000 ALTER TABLE `ps_customer` DISABLE KEYS */;
 INSERT INTO `ps_customer` VALUES
 (1,1,1,1,3,1,0,'','','','Anonymous','Anonymous','anonymous@psgdpr.com','$2y$10$5CLF5NTMEfXfNBo8jdWnPu/oAedQr40vxuLiMubj5w5WHB1ODMzLW','2024-11-24 00:20:11','0000-00-00',0,'','0000-00-00 00:00:00',0,'',0.000000,0,0,'c8e747006fa7d1b86d0ddce09b66443d','',0,0,0,'2024-11-24 06:20:11','2024-11-24 06:20:11','','0000-00-00 00:00:00'),
-(2,1,1,1,3,1,0,'','','','John','DOE','pub@prestashop.com','e709ea22efbab4576799f95c3bc75193','2024-11-24 00:20:22','1970-01-15',1,'','2013-12-13 08:19:15',1,'',0.000000,0,0,'ede1b487313fdb58d991b3a5bde5a36f','',1,0,0,'2024-11-24 06:20:22','2024-11-24 06:20:22','','0000-00-00 00:00:00');
+(2,1,1,1,3,1,0,'','','','John','DOE','pub@prestashop.com','e709ea22efbab4576799f95c3bc75193','2024-11-24 00:20:22','1970-01-15',1,'','2013-12-13 08:19:15',1,'',0.000000,0,0,'ede1b487313fdb58d991b3a5bde5a36f','',1,0,0,'2024-11-24 06:20:22','2024-11-24 06:20:22','','0000-00-00 00:00:00'),
+(3,1,1,0,3,1,0,'','','','yht','tgdt','krzysztofgd23@wp.pl','$2y$10$0eq62eqUtvMqyBjp0k8xR.Kx1tia7iW96.uUPNySRmfmNwEq9INLy','2024-11-28 16:19:55','0000-00-00',0,'','0000-00-00 00:00:00',0,'',0.000000,0,0,'0ed096d4a7d952ed290c0e3ccfee360c','',1,0,0,'2024-11-28 22:19:55','2024-11-28 22:19:55','','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `ps_customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5524,7 +5647,8 @@ LOCK TABLES `ps_customer_group` WRITE;
 /*!40000 ALTER TABLE `ps_customer_group` DISABLE KEYS */;
 INSERT INTO `ps_customer_group` VALUES
 (1,3),
-(2,3);
+(2,3),
+(3,3);
 /*!40000 ALTER TABLE `ps_customer_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5596,7 +5720,7 @@ CREATE TABLE `ps_customer_session` (
   `id_customer` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_customer_session`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5919,7 +6043,7 @@ CREATE TABLE `ps_employee` (
 LOCK TABLES `ps_employee` WRITE;
 /*!40000 ALTER TABLE `ps_employee` DISABLE KEYS */;
 INSERT INTO `ps_employee` VALUES
-(1,1,1,'Doe','John','demo@prestashop.com','$2y$10$8HNbSXVEy240jsIAvYXZtOXO/WeoUrZPwHRscpkXFErnsOplpUmR2','2024-11-24 00:19:40','2024-10-24','2024-11-24','0000-00-00','0000-00-00',1,NULL,NULL,'default','theme.css',1,0,1,1,NULL,0,0,0,'2024-11-28',NULL,'0000-00-00 00:00:00',0);
+(1,1,1,'Doe','John','demo@prestashop.com','$2y$10$8HNbSXVEy240jsIAvYXZtOXO/WeoUrZPwHRscpkXFErnsOplpUmR2','2024-11-24 00:19:40','2024-10-24','2024-11-24','0000-00-00','0000-00-00',1,NULL,NULL,'default','theme.css',1,0,1,1,NULL,5,0,0,'2024-11-28',NULL,'0000-00-00 00:00:00',0);
 /*!40000 ALTER TABLE `ps_employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5962,7 +6086,7 @@ CREATE TABLE `ps_employee_session` (
   `id_employee` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_employee_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5976,7 +6100,7 @@ INSERT INTO `ps_employee_session` VALUES
 (3,1,'39e738f64ca445c91a267a07fa8a3f564925ef29'),
 (5,1,'9e343bdcdf6e2fcf22eeed43ecd3b00da889a78c'),
 (6,1,'f1d8e5a2c61db76303845cf15d15b85fdae5284c'),
-(9,1,'75b041a4f5210a54687454a83b8d9424149a6f61');
+(11,1,'bdd58730324aa800d5a854a51c3fe44cd8ab60ff');
 /*!40000 ALTER TABLE `ps_employee_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6607,7 +6731,7 @@ CREATE TABLE `ps_guest` (
   KEY `id_customer` (`id_customer`),
   KEY `id_operating_system` (`id_operating_system`),
   KEY `id_web_browser` (`id_web_browser`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6622,7 +6746,8 @@ INSERT INTO `ps_guest` VALUES
 (3,6,11,0,0,0,0,0,0,0,0,0,0,0,'pl',0),
 (4,6,11,0,0,0,0,0,0,0,0,0,0,0,'en',0),
 (5,6,11,0,0,0,0,0,0,0,0,0,0,0,'en',0),
-(6,6,11,0,0,0,0,0,0,0,0,0,0,0,'en',0);
+(6,6,11,3,0,0,0,0,0,0,0,0,0,0,'en',0),
+(9,6,11,0,0,0,0,0,0,0,0,0,0,0,'en',0);
 /*!40000 ALTER TABLE `ps_guest` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7884,7 +8009,6 @@ INSERT INTO `ps_hook_module` VALUES
 (14,1,697,2),
 (16,1,31,2),
 (17,1,705,2),
-(18,1,41,2),
 (19,1,25,2),
 (22,1,122,2),
 (22,1,683,2),
@@ -7931,7 +8055,6 @@ INSERT INTO `ps_hook_module` VALUES
 (5,1,688,3),
 (6,1,689,3),
 (12,1,15,3),
-(15,1,41,3),
 (19,1,705,3),
 (22,1,685,3),
 (29,1,706,3),
@@ -8923,7 +9046,7 @@ CREATE TABLE `ps_link_block` (
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   `content` text DEFAULT NULL,
   PRIMARY KEY (`id_link_block`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8933,8 +9056,10 @@ CREATE TABLE `ps_link_block` (
 LOCK TABLES `ps_link_block` WRITE;
 /*!40000 ALTER TABLE `ps_link_block` DISABLE KEYS */;
 INSERT INTO `ps_link_block` VALUES
-(1,41,0,'{\"cms\":[false],\"product\":[\"prices-drop\",\"new-products\",\"best-sales\"],\"static\":[false]}'),
-(2,41,1,'{\"cms\":[\"1\",\"2\",\"3\",\"4\",\"5\"],\"product\":[false],\"static\":[\"contact\",\"sitemap\",\"stores\"]}');
+(1,41,0,'{\"cms\":[false],\"static\":[false],\"product\":[false],\"category\":[false]}'),
+(2,41,1,'{\"cms\":[false],\"static\":[false],\"product\":[false],\"category\":[false]}'),
+(3,41,0,'{\"cms\":[false],\"static\":[false],\"product\":[false],\"category\":[false]}'),
+(4,41,0,'{\"cms\":[false],\"static\":[false],\"product\":[false],\"category\":[false]}');
 /*!40000 ALTER TABLE `ps_link_block` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -8961,8 +9086,10 @@ CREATE TABLE `ps_link_block_lang` (
 LOCK TABLES `ps_link_block_lang` WRITE;
 /*!40000 ALTER TABLE `ps_link_block_lang` DISABLE KEYS */;
 INSERT INTO `ps_link_block_lang` VALUES
-(1,1,'Products',NULL),
-(2,1,'Our company',NULL);
+(1,1,'Zamówienia','[{\"title\":\"Status zam\\u00f3wienia\",\"url\":\"http:\\/\\/localhost:8080\"},{\"title\":\"\\u015aledzenie przesy\\u0142ki\",\"url\":\"http:\\/\\/localhost:8080\"},{\"title\":\"Chc\\u0119 zareklamowa\\u0107 produkt\",\"url\":\"http:\\/\\/localhost:8080\"},{\"title\":\"Chc\\u0119 zwr\\u00f3ci\\u0107 produkt\",\"url\":\"http:\\/\\/localhost:8080\"},{\"title\":\"Chc\\u0119 wymieni\\u0107 produkt\",\"url\":\"http:\\/\\/localhost:8080\"},{\"title\":\"Kontakt\",\"url\":\"http:\\/\\/localhost:8080\\/kontakt\"}]'),
+(2,1,'Konto','[{\"title\":\"Zarejestruj si\\u0119\",\"url\":\"http:\\/\\/localhost:8080\\/logowanie?create_account=1\"},{\"title\":\"Koszyk\",\"url\":\"http:\\/\\/localhost:8080\\/koszyk?action=show\"},{\"title\":\"Listy zakupowe\",\"url\":\"http:\\/\\/localhost:8080\"},{\"title\":\"Lista zakupionych produkt\\u00f3w\",\"url\":\"http:\\/\\/localhost:8080\"},{\"title\":\"Historia transakcji\",\"url\":\"http:\\/\\/localhost:8080\\/historia-zamowien\"},{\"title\":\"Moje rabaty\",\"url\":\"http:\\/\\/localhost:8080\"},{\"title\":\"Newsletter\",\"url\":\"http:\\/\\/localhost:8080\"}]'),
+(3,1,'Darmowe kursy robienia biżuterii','[{\"title\":\"Bi\\u017cuteria z koralik\\u00f3w TOHO\",\"url\":\"http:\\/\\/localhost:8080\\/\"},{\"title\":\"Makrama - sploty i wzory\",\"url\":\"http:\\/\\/localhost:8080\\/\"},{\"title\":\"Robienie bi\\u017cuterii\",\"url\":\"http:\\/\\/localhost:8080\\/\"},{\"title\":\"Kursy video z robienia bi\\u017cuterii\",\"url\":\"http:\\/\\/localhost:8080\\/\"}]'),
+(4,1,'Przydatne informacje','[{\"title\":\"Koszty dostawy\",\"url\":\"http:\\/\\/localhost:8080\\/\"},{\"title\":\"Regulamin\",\"url\":\"http:\\/\\/localhost:8080\\/\"},{\"title\":\"Odst\\u0105pienie od umowy\",\"url\":\"http:\\/\\/localhost:8080\\/\"},{\"title\":\"Program lojalno\\u015bciowy\",\"url\":\"http:\\/\\/localhost:8080\\/\"}]');
 /*!40000 ALTER TABLE `ps_link_block_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -8978,7 +9105,7 @@ CREATE TABLE `ps_link_block_shop` (
   `id_shop` int(10) unsigned NOT NULL,
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_link_block`,`id_shop`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8989,7 +9116,9 @@ LOCK TABLES `ps_link_block_shop` WRITE;
 /*!40000 ALTER TABLE `ps_link_block_shop` DISABLE KEYS */;
 INSERT INTO `ps_link_block_shop` VALUES
 (1,1,0),
-(2,1,1);
+(2,1,1),
+(3,1,2),
+(4,1,3);
 /*!40000 ALTER TABLE `ps_link_block_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9066,7 +9195,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=242 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -9316,7 +9445,10 @@ INSERT INTO `ps_log` VALUES
 (238,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-27 12:55:32','2024-11-27 12:55:32'),
 (239,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-27 19:53:16','2024-11-27 19:53:16'),
 (240,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-27 21:38:36','2024-11-27 21:38:36'),
-(241,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-28 13:28:57','2024-11-28 13:28:57');
+(241,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-28 13:28:57','2024-11-28 13:28:57'),
+(242,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-28 20:46:42','2024-11-28 20:46:42'),
+(243,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-28 22:11:13','2024-11-28 22:11:13'),
+(244,3,0,'Swift Error: Expected response code 220 but got an empty response','',0,1,NULL,1,0,0,'2024-11-28 22:19:55','2024-11-28 22:19:55');
 /*!40000 ALTER TABLE `ps_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -10534,7 +10666,7 @@ CREATE TABLE `ps_module_history` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10550,7 +10682,8 @@ INSERT INTO `ps_module_history` VALUES
 (4,1,15,'2024-11-24 19:08:05','2024-11-24 19:08:05'),
 (5,1,32,'2024-11-24 19:12:01','2024-11-24 19:17:47'),
 (6,1,1,'2024-11-26 14:17:53','2024-11-28 13:29:23'),
-(7,1,25,'2024-11-26 15:28:12','2024-11-27 20:01:30');
+(7,1,25,'2024-11-26 15:28:12','2024-11-27 20:01:30'),
+(8,1,28,'2024-11-28 22:12:30','2024-11-28 22:28:18');
 /*!40000 ALTER TABLE `ps_module_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -11507,7 +11640,7 @@ CREATE TABLE `ps_page` (
   PRIMARY KEY (`id_page`),
   KEY `id_page_type` (`id_page_type`),
   KEY `id_object` (`id_object`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -11519,7 +11652,8 @@ LOCK TABLES `ps_page` WRITE;
 INSERT INTO `ps_page` VALUES
 (1,1,NULL),
 (2,2,NULL),
-(3,3,1);
+(3,3,1),
+(4,4,NULL);
 /*!40000 ALTER TABLE `ps_page` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -11535,7 +11669,7 @@ CREATE TABLE `ps_page_type` (
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id_page_type`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -11545,6 +11679,7 @@ CREATE TABLE `ps_page_type` (
 LOCK TABLES `ps_page_type` WRITE;
 /*!40000 ALTER TABLE `ps_page_type` DISABLE KEYS */;
 INSERT INTO `ps_page_type` VALUES
+(4,'authentication'),
 (1,'index'),
 (2,'pagenotfound'),
 (3,'product');
@@ -12850,7 +12985,7 @@ CREATE TABLE `ps_psgdpr_log` (
   PRIMARY KEY (`id_gdpr_log`),
   KEY `id_customer` (`id_customer`),
   KEY `idx_id_customer` (`id_customer`,`id_guest`,`client_name`,`id_module`,`date_add`,`date_upd`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12859,6 +12994,8 @@ CREATE TABLE `ps_psgdpr_log` (
 
 LOCK TABLES `ps_psgdpr_log` WRITE;
 /*!40000 ALTER TABLE `ps_psgdpr_log` DISABLE KEYS */;
+INSERT INTO `ps_psgdpr_log` VALUES
+(1,3,0,'yht tgdt',0,1,'2024-11-28 22:19:55','2024-11-28 22:19:55');
 /*!40000 ALTER TABLE `ps_psgdpr_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -17314,7 +17451,7 @@ CREATE TABLE `ps_wishlist` (
   `date_upd` datetime NOT NULL,
   `default` int(10) unsigned DEFAULT 0,
   PRIMARY KEY (`id_wishlist`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -17323,6 +17460,8 @@ CREATE TABLE `ps_wishlist` (
 
 LOCK TABLES `ps_wishlist` WRITE;
 /*!40000 ALTER TABLE `ps_wishlist` DISABLE KEYS */;
+INSERT INTO `ps_wishlist` VALUES
+(1,3,1,1,'B7F63712EF5D3A0D','Listy zakupowe',NULL,'2024-11-28 22:22:44','2024-11-28 22:22:44',1);
 /*!40000 ALTER TABLE `ps_wishlist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -17452,4 +17591,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-11-28 13:32:22
+-- Dump completed on 2024-11-28 21:35:46
