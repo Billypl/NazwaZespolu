@@ -43,6 +43,13 @@
     </div>
     <div class="row">
       <div class="col-md-12">
+      <div id="price_info" class="footer_settings__price_info price_info mb-4 d-md-flex align-items-md-center mb-md-0"><div class="price_info__wrapper"><span class="price_info__text --type">
+										W sklepie prezentujemy ceny brutto (z VAT).<hr>                  <img class="idosell__img mx-auto d-block b-lazy b-loaded" src="/img/certificates.svg?v=1" alt="Sklepy internetowe IdoSell">
+									</span></div></div>
+        <div class="contact_footer_list">
+        <ul><li class="contact_type_header"><a href="https://www.pasart.pl/pl/contact" title="">
+          </a></li><li class="contact_type_phone"><a href="tel:785732738">785732738</a></li><li class="contact_type_mail"><a href="mailto:sklep@pasart.pl">sklep@pasart.pl</a></li><li class="contact_type_adress"><span class="shopshortname">pasart<span>, </span></span><span>Lubliniecka 32b<span>, </span></span><span>42-288<span> Strzebiń</span></span></li></ul>
+        </div>
         <p class="text-sm-center low_footer">
           ♡ Sklep przyjazny rękodzielnikom ♡ Darmowa dostawa od 199zł ♡ Wysyłka w 24h ♡14 dni na zwrot ♡ Zniżki do -90%
         </p>

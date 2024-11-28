@@ -142,6 +142,65 @@ input{
 
 .low_footer{
     color: #333f4f;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     margin-bottom: 2rem;
+}
+
+.footer-container li a {
+    font-size: 0.88rem;
+    color: #333f4f;
+    cursor: pointer;
+}
+
+.footer-container{
+    color: #333f4f;
+    font-size: 0.88rem;
+}
+
+.contact_footer_list{
+    display: table;
+    justify-self: center;
+    margin-bottom: 1rem;
+}
+
+.contact_footer_list a{
+    text-decoration: underline;
+}
+
+.contact_footer_list li
+{
+    display: table-cell;
+    padding-right: 1.2rem;
+    white-space: nowrap;
+}
+
+.price_info__text{
+    color: #999;
+    font-size: 0.7rem;
+}
+
+.footer-container{
+    letter-spacing: 0.028rem;
+}
+
+#price_info hr {
+    margin-top: -0.6rem;
+    width: 56%;
+    border-top: 1.5px solid rgba(0,0,0,0.1);
+}
+
+#price_info{
+    margin-bottom: 2.4rem;
+}
+.idosell__img {
+    float: right;
+    margin-top: -2.3rem;
+}
+
+.col-md-6{
+    width: unset;
+}
+
+.links .wrapper{
+    margin-right: 2.3rem;
 }
