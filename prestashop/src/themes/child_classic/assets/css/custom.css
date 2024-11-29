@@ -87,14 +87,37 @@ input{
     margin-left: -1.4rem;
     color: #333f4f;
     font-size: 0.8rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.signout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #333f4f;
+    font-size: 0.8rem;
+    margin-left: -1.7rem;
+}
+
+.logout{
     margin-top: 0.15rem;
 }
 
-.user-info a:before{
+.user-info p.signin:before{
+    content: '\E8A0';
+    margin-bottom: 0.2rem;
+}
+
+.user-info p.signout:before{
     content: '\E8A0';
 }
 
-.user-info a:before, .favorites_icon a:before, #_desktop_cart p:before{
+.user-info p.signout:before, .user-info p.signin:before, .favorites_icon a:before, #_desktop_cart p:before{
     font-size: 1.1rem;
     font-family: FontAwesome;
 }
@@ -109,7 +132,8 @@ input{
 
 #_desktop_user_info{
     margin-right: 2.5rem;
-    margin-top: 1rem
+    margin-top: 1rem;
+    margin-bottom: -1.2rem;
 }
 
 #_desktop_cart{
