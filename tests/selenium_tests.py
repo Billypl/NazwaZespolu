@@ -6,10 +6,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import random
 import time
+import os
+import glob
 
 
 # Timout time for elements/pages to load
 TIMEOUT_TIME_SEC = 3
+INVOICE_DOWNLOAD_TIMEOUT_SEC = 10
+AUTO_DELETE_INVOICE = False
+WEBSITE_URL = "http://localhost:8080/"
 
 # Class names
 FIRST_CATEGORY_ID = "category-6"
@@ -56,6 +61,10 @@ CHECKOUT_PAYMENT_METHOD_ID = "payment-option-3"
 CHECKOUT_PAYMENT_ACCEPT_TERMS_CHECKBOX_ID = "conditions_to_approve[terms-and-conditions]"
 CHECKOUT_PAYMENT_SUBMIT_BUTTON_CLASSNAME = "btn.btn-primary.center-block"
 ORDER_REFERENCE_VALUE_ID = "order-reference-value"
+ACCOUNT_LINK_CLASSNAME = "account"
+ORDER_DETAILS_LINK_ID = "history-link"
+ORDER_STATUS_CLASSNAME = "label.label-pill.bright"
+DOWNLOAD_INVOICE_LINK_CLASSNAME = "text-sm-center.hidden-md-down"
 
 
 # Add 10 products (with random quantity) from 2 categories to cart
@@ -180,7 +189,7 @@ def register_test():
     surname_input = driver.find_element(By.ID, REGISTER_SURNAME_INPUT_ID)
     surname_input.send_keys("Rogowski")
     email_input = driver.find_element(By.ID, REGISTER_EMAIL_INPUT_ID)
-    email_input.send_keys("s193126@student.pg.edu.pl")
+    email_input.send_keys(f"{int(time.time())}@student.pg.edu.pl")
     password_input = driver.find_element(By.ID, REGISTER_PASSWORD_INPUT_ID)
     password_input.send_keys("kocham-prestashopa")
     birthdate_input = driver.find_element(By.ID, REGISTER_BIRTHDATE_INPUT_ID)
@@ -281,11 +290,62 @@ def choose_payment_method_and_submit_test():
 
     print("TEST - Choosing payment on delivery method and submitting and order (6,8) - has completed successfully!")
 
+# Go to orders page and check order status
+def check_order_status_test():
+    WebDriverWait(driver, TIMEOUT_TIME_SEC).until(
+        EC.presence_of_element_located((By.CLASS_NAME, ACCOUNT_LINK_CLASSNAME))
+    )
+    account_link = driver.find_element(By.CLASS_NAME, ACCOUNT_LINK_CLASSNAME)
+    account_link.click()
+
+    WebDriverWait(driver, TIMEOUT_TIME_SEC).until(
+        EC.presence_of_element_located((By.ID, ORDER_DETAILS_LINK_ID))
+    )
+    order_details_link = driver.find_element(By.ID, ORDER_DETAILS_LINK_ID)
+    order_details_link.click()
+
+    WebDriverWait(driver, TIMEOUT_TIME_SEC).until(
+        EC.presence_of_element_located((By.CLASS_NAME, ORDER_STATUS_CLASSNAME))
+    )
+    order_statuses = driver.find_elements(By.CLASS_NAME, ORDER_STATUS_CLASSNAME)
+    order_status = order_statuses[0].text
+
+    assert "Oczekiwanie na płatność przy odbiorze" in order_status, f"Wrong order status: {order_status}" 
+
+    print("TEST - Checking order status (9) - has completed successfully!")
+
+# Download an invoice, then find and delete it from disk
+def download_invoice_test():
+    WebDriverWait(driver, TIMEOUT_TIME_SEC).until(
+        EC.presence_of_element_located((By.CLASS_NAME, DOWNLOAD_INVOICE_LINK_CLASSNAME))
+    )
+    invoice_link = driver.find_element(By.CLASS_NAME, DOWNLOAD_INVOICE_LINK_CLASSNAME)
+    invoice_link.click()
+
+    downloads_path = os.path.join(os.path.expanduser('~'), 'Downloads')
+
+    # Wait for file to download
+    end_time = time.time() + INVOICE_DOWNLOAD_TIMEOUT_SEC
+    while time.time() < end_time:
+        files = [f for f in os.listdir(downloads_path) if f.startswith("FV") and f.endswith(".pdf")]
+        if files:
+            break
+        time.sleep(1)
+
+    invoice_files = glob.glob(os.path.join(downloads_path, 'FV*.pdf'))
+    assert len(invoice_files) > 0, "No invoice file found."
+
+    if AUTO_DELETE_INVOICE:
+        for invoice_file in invoice_files:
+            os.remove(invoice_file)
+
+    print("TEST - Downloading an invoice (10) - has completed successfully!")
+
 
 # Create Google Chrome webdriver to perform test actions
 service = Service(executable_path="chromedriver.exe")
 driver = webdriver.Chrome(service=service)
-driver.get("http://localhost:8080/")
+driver.get(WEBSITE_URL)
 
 # Theoretical number of products which should be in the cart
 total_cart_quantity = [0]
@@ -297,7 +357,9 @@ register_test()
 make_order_test()
 choose_delivery_test()
 choose_payment_method_and_submit_test()
-time.sleep(7)
+check_order_status_test()
+download_invoice_test()
+#time.sleep(7)
 
 print("All tests have completed successfully!")
 driver.quit()
