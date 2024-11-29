@@ -1,22 +1,8 @@
+from config import *
 import json
+import sys
 import requests
 from bs4 import BeautifulSoup
-
-PASART_URL = "https://www.pasart.pl"
-PASART_PL_URL = PASART_URL + "/pl"
-PASART_SEARCH_URL = PASART_PL_URL + "/search"
-PASART_CATEGORIES_URL = PASART_PL_URL + "/categories"
-PASART_NEWPRODUCTS_URL = PASART_PL_URL + "/newproducts/nowosc"
-PASART_BESTSELLERS_URL = PASART_PL_URL + "/bestsellers/bestseller"
-PASART_PROMOTIONS_URL = PASART_PL_URL + "/menu/promocje-2311"
-
-
-SCRAPING_OUTPUT_DIRECTORY = '../resources/'
-PRODUCTS_OUTPUT_FILE = SCRAPING_OUTPUT_DIRECTORY + 'products.json'
-CATEGORIES_OUTPUT_FILE = SCRAPING_OUTPUT_DIRECTORY + 'categories.json'
-
-# pasart html or url structure constants #
-IMAGE_SIZE_LINK_INDEX = 6
 
 
 def extract_product_info(product_url, special_categories_product_list):
@@ -24,7 +10,7 @@ def extract_product_info(product_url, special_categories_product_list):
     soup = BeautifulSoup(response.text, 'html.parser')
 
     product_info = {}
-
+    # Information about product is located in 4th script tag
     product_info_script = soup.find('footer').find_all('script', type='application/ld+json')[3]
 
     if product_info_script:
@@ -84,7 +70,7 @@ def extract_product_info(product_url, special_categories_product_list):
             if not hasSpecs:
                 product_info["offers"].append(offer_details)
     else:
-        print(f"\033Coudn't find product info script: {product_url} \033[0m")
+        log_message(f"Coudn't find product info script: {product_url}")
         return None
 
     # Extract product categories
@@ -100,7 +86,7 @@ def extract_product_info(product_url, special_categories_product_list):
             categories[f'level{index}'] = category.find('a').get_text()
         product_info['categories'] = categories
     else:
-        print(f"\033Coudn't find any categories: {product_url}\033[0m")
+        log_message(f"Coudn't find any categories: {product_url}")
         return None
         
     # Set special product categories
@@ -125,7 +111,7 @@ def extract_product_info(product_url, special_categories_product_list):
         product_info['properties'] = product_properties
 
     else:
-        print(f"\033Coudn't find any product properties: {product_url}\033[0m")
+        log_message(f"Coudn't find any product properties: {product_url}")
         return None
 
 
@@ -161,7 +147,7 @@ def extract_product_info(product_url, special_categories_product_list):
                     )
                 """
     else:
-        print(f"\033Coudn't find any photos: {product_url}\033[0m")
+        log_message(f"Coudn't find any photos: {product_url}")
         return None
 
 
@@ -169,11 +155,12 @@ def extract_product_info(product_url, special_categories_product_list):
 
 
 def get_all_products_links(max_page_count):
-    page_num = 1
+    page_num = 0
     all_products_links = []
     isFinished = False
 
-    while not isFinished and page_num <= max_page_count:
+    while not isFinished and page_num < max_page_count:
+        sys.stdout.write(f"\rFetching page num: {page_num}")
         response = requests.get(PASART_SEARCH_URL + "?counter=" + str(page_num))
         soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -188,6 +175,7 @@ def get_all_products_links(max_page_count):
             isFinished = True
         page_num += 1
 
+    sys.stdout.write(f"\rFetching all products links finished\n")
     return all_products_links
 
 
@@ -206,6 +194,7 @@ def extract_special_category_product_connections():
         isFinished = False
 
         while not isFinished:
+            sys.stdout.write(f"\rFetching {category} page num: {page_num}")
             response = requests.get(categories_urls[category_id] + "?counter=" + str(page_num))
             soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -220,6 +209,7 @@ def extract_special_category_product_connections():
                 isFinished = True   
             page_num += 1
         category_id += 1
+        sys.stdout.write(f"\rFetching {category} related products finished\n")
 
     return special_categories_product_list
        
@@ -228,13 +218,17 @@ def extract_and_save_products(max_page_count = 1e6):
     all_products_links = get_all_products_links(max_page_count)
     special_categories_product_list = extract_special_category_product_connections()
 
+    progress_bar(0, len(all_products_links), reset=True)
     with open(PRODUCTS_OUTPUT_FILE, 'w', encoding='utf-8') as f:
         f.write('[')  # Start the JSON array
         first_entry = True  # Flag to handle commas between entries
 
+        it = 0
         for product_link in all_products_links:
-            print(product_link)
             product_info = extract_product_info(product_link, special_categories_product_list)
+            
+            progress_bar(it + 1, len(all_products_links))
+            it += 1
             if product_info is None:
                 continue
 
@@ -249,40 +243,8 @@ def extract_and_save_products(max_page_count = 1e6):
             # json.dump(product_info, f, ensure_ascii=False, indent=4) # Formatted file
 
         f.write(']')  # End the JSON array
-
-
-####### SCRAP CATEGORIES ######## 
-
-def extract_categories_tree(ul_tag):
-
-    categories_tree = []
-    for li in ul_tag.find_all("li", recursive=False):
-        # Extract category name from the <a> tag
-        a_tag = li.find("a")
-        category_name = a_tag.text.strip()
-        category = ""
-        
-        # Check for nested categories
-        nested_categories = li.find("ul")
-        if nested_categories:
-            category = {"name": category_name, "subcategories": extract_categories_tree(nested_categories)}
-        else:
-            category = category_name
-        
-        categories_tree.append(category)
-    return categories_tree
-
-def extract_and_save_categories():
-    response = requests.get(PASART_CATEGORIES_URL)
-    soup = BeautifulSoup(response.text, 'html.parser')
-
-    categories_tree = extract_categories_tree(soup.find(id="content").find("ul"))
-
-
-    with open(CATEGORIES_OUTPUT_FILE, 'w', encoding='utf-8') as f:
-        json.dump(categories_tree, f, ensure_ascii=False)
-        # json.dump(categories_tree, f, ensure_ascii=False, indent=4) # Formatted file
-
-
+        sys.stdout.write(f"\nFetching all products links finished")
+    
+    
 extract_and_save_products()
-extract_and_save_categories()
+# extract_and_save_products(max_page_count=1)
