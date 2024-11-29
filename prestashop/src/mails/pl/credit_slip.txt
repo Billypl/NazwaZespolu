@@ -2,13 +2,13 @@
 
 {shop_url}
 
-Hi {firstname} {lastname},
+Witaj {firstname} {lastname},
 
-Order ID {order_name} - Credit slip
+Numer zamówienia {order_name} - Pokwitowanie - korekta kredytowa
 
-A credit slip has been generated in your name for order with the reference {order_name}.
+W Twoim imieniu został wygenerowany kupon na zamówienie o numerze {order_name}.
 
-Review this credit slip and download your invoice on our shop, go to the [Credit slips]({history_url}) section of your customer account.
+Przejrzyj ten rachunek i pobierz fakturę w naszym sklepie, przejdź do sekcji[Moje pokwitowania - korekty płatności]({history_url}) konta klienta.
 
 [{shop_name}]({shop_url})
 

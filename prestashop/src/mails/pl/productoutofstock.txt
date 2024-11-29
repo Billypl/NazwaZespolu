@@ -2,15 +2,15 @@
 
 {shop_url}
 
-Hi {firstname} {lastname},
+Witaj {firstname} {lastname},
 
-{product} is almost out of stock.
+{product} jest prawie niedostępny.
 
-There are now less than {last_qty} items in stock.
+W magazynie jest teraz mniej niż {last_qty} przedmiotów.
 
-Remaining stock: {qty}
+Pozostałe zapasy: {qty}
 
-Replenish your inventory, go to the Catalog > Stocks section of your back office to manage your stock.
+Uzupełnij zapasy, przejdź do sekcji Katalog > Zapasy swojego panelu administracyjnego, aby zarządzać zapasami.
 
 [{shop_name}]({shop_url})
 
