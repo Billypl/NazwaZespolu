@@ -4098,7 +4098,7 @@ INSERT INTO `ps_configuration` VALUES
 (446,NULL,NULL,'PS_PSX_FIREBASE_REFRESH_DATE','2024-11-25 20:32:49','2024-11-25 20:32:49','2024-11-25 20:32:49'),
 (447,NULL,NULL,'PS_ACCOUNTS_FIREBASE_ID_TOKEN',NULL,'2024-11-25 20:32:49','2024-11-25 20:32:49'),
 (448,NULL,NULL,'PS_ACCOUNTS_ACCESS_TOKEN',NULL,'2024-11-25 20:32:49','2024-11-25 20:32:49'),
-(449,NULL,NULL,'PS_ACCOUNTS_FIREBASE_REFRESH_TOKEN',NULL,'2024-11-26 13:30:55','2024-11-28 20:46:44');
+(449,NULL,NULL,'PS_ACCOUNTS_FIREBASE_REFRESH_TOKEN',NULL,'2024-11-26 13:30:55','2024-11-29 09:13:04');
 /*!40000 ALTER TABLE `ps_configuration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4260,7 +4260,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4301,7 +4301,10 @@ INSERT INTO `ps_connections` VALUES
 (29,1,1,6,1,2886860801,'2024-11-28 21:49:35',''),
 (30,1,1,6,1,2886860801,'2024-11-28 22:19:59','http://localhost:8080/'),
 (31,1,1,6,4,2886860801,'2024-11-28 22:23:57','http://localhost:8080/moje-konto'),
-(32,1,1,9,1,2886860801,'2024-11-28 22:35:35','http://localhost:8080/');
+(32,1,1,9,1,2886860801,'2024-11-28 22:35:35','http://localhost:8080/'),
+(33,1,1,6,1,2886860801,'2024-11-29 08:29:49',''),
+(34,1,1,6,1,2886860801,'2024-11-29 09:00:02',''),
+(35,1,1,6,1,2886860801,'2024-11-29 09:31:07','');
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6043,7 +6046,7 @@ CREATE TABLE `ps_employee` (
 LOCK TABLES `ps_employee` WRITE;
 /*!40000 ALTER TABLE `ps_employee` DISABLE KEYS */;
 INSERT INTO `ps_employee` VALUES
-(1,1,1,'Doe','John','demo@prestashop.com','$2y$10$8HNbSXVEy240jsIAvYXZtOXO/WeoUrZPwHRscpkXFErnsOplpUmR2','2024-11-24 00:19:40','2024-10-24','2024-11-24','0000-00-00','0000-00-00',1,NULL,NULL,'default','theme.css',1,0,1,1,NULL,5,0,0,'2024-11-28',NULL,'0000-00-00 00:00:00',0);
+(1,1,1,'Doe','John','demo@prestashop.com','$2y$10$8HNbSXVEy240jsIAvYXZtOXO/WeoUrZPwHRscpkXFErnsOplpUmR2','2024-11-24 00:19:40','2024-10-24','2024-11-24','0000-00-00','0000-00-00',1,NULL,NULL,'default','theme.css',1,0,1,1,NULL,5,0,0,'2024-11-29',NULL,'0000-00-00 00:00:00',0);
 /*!40000 ALTER TABLE `ps_employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6086,7 +6089,7 @@ CREATE TABLE `ps_employee_session` (
   `id_employee` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_employee_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6099,8 +6102,8 @@ INSERT INTO `ps_employee_session` VALUES
 (2,1,'60cf3a59d1293badd3893ec8398ff2131fc81064'),
 (3,1,'39e738f64ca445c91a267a07fa8a3f564925ef29'),
 (5,1,'9e343bdcdf6e2fcf22eeed43ecd3b00da889a78c'),
-(6,1,'f1d8e5a2c61db76303845cf15d15b85fdae5284c'),
-(11,1,'bdd58730324aa800d5a854a51c3fe44cd8ab60ff');
+(11,1,'bdd58730324aa800d5a854a51c3fe44cd8ab60ff'),
+(12,1,'09e76e4ca21493b1690f8e9025b04f14cf5c399b');
 /*!40000 ALTER TABLE `ps_employee_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9195,7 +9198,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=246 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -9448,7 +9451,8 @@ INSERT INTO `ps_log` VALUES
 (241,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-28 13:28:57','2024-11-28 13:28:57'),
 (242,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-28 20:46:42','2024-11-28 20:46:42'),
 (243,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-28 22:11:13','2024-11-28 22:11:13'),
-(244,3,0,'Swift Error: Expected response code 220 but got an empty response','',0,1,NULL,1,0,0,'2024-11-28 22:19:55','2024-11-28 22:19:55');
+(244,3,0,'Swift Error: Expected response code 220 but got an empty response','',0,1,NULL,1,0,0,'2024-11-28 22:19:55','2024-11-28 22:19:55'),
+(245,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-29 09:13:00','2024-11-29 09:13:00');
 /*!40000 ALTER TABLE `ps_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -17591,4 +17595,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-11-28 21:35:46
+-- Dump completed on 2024-11-29  8:32:07

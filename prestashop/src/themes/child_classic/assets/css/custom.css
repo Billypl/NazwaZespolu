@@ -190,7 +190,7 @@ input{
 }
 
 #price_info{
-    margin-bottom: 2.4rem;
+    margin-bottom: 2.4rem
 }
 .idosell__img {
     float: right;
@@ -201,6 +201,41 @@ input{
     width: unset;
 }
 
-.links .wrapper{
-    margin-right: 2.3rem;
+.footer_half_column{
+    margin-top: -2rem;
+    border: solid 1px #ccc;
+    border-radius: 15px;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+.footer_column{
+    margin-right: 5rem;
+}
+
+.links{
+    margin-bottom: 1.4rem;
+    margin-left: 0.9rem;
+}
+
+.links li a {
+    font-size: 0.77rem;
+    color: #333f4f;
+}
+
+.links .link_title{
+    color: #333f4f;
+}
+
+.fc3{
+    margin-left: 0.5rem;
+}
+
+.fc3 .link_title {
+    width: 75%;
+}
+
+.fc4 {
+    float:right;
+    margin-top: -10.2rem;
 }
