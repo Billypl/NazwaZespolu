@@ -48,7 +48,6 @@
         title="{l s='Log in to your customer account' d='Shop.Theme.Customeraccount'}"
         rel="nofollow"
       >
-        <i class="material-icons log_icon">&#xE7FF;</i>
         <p class="hidden-sm-down signin">{l s='Sign in' d='Shop.Theme.Actions'}</p>
       </a>
     {/if}
