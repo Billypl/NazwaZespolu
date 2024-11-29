@@ -1,20 +1,27 @@
 from config import *
+import logging
 import requests
+from http import HTTPStatus
 import xml.etree.ElementTree as ET
 
 # Function to delete a category
 def delete_category(category_id):
     url = f"{CATEGORIES_URL}/{category_id}"
     response = requests.delete(url, auth=(API_KEY, ''))
-    if response.status_code == 200:
-        print(f"Deleted category ID: {category_id}")
+    
+    # LOG response status message
+    if response.status_code == HTTPStatus.OK:
+        log_message(f"Deleted category ID: {category_id}")
     else:
-        print(f"Failed to delete category ID {category_id}: {response.status_code}, {response.text}")
+        log_message(f"Failed to delete category ID {category_id}: {response.status_code}, {response.text}")
 
-# Main script to delete categories starting from ID 2
-start_id = 400
-end_id = 786
-current_id = start_id
 
-for current_id in range (start_id, end_id):
+# Main script to delete categories 
+# IMPORTANT NOTE indexes under 3 are special and are better left not to be deleted
+start_index, end_index = 1000, 1200
+progress_bar(0, end_index - start_index, reset=True)
+
+for current_id in range(start_index, end_index):
     delete_category(current_id)
+    progress_bar(current_id - start_index + 1, end_index - start_index)
+    

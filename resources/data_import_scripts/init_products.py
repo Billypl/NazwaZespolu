@@ -1,49 +1,45 @@
 from config import *
 import requests
+from http import HTTPStatus
 from requests.auth import HTTPBasicAuth
-import json
-import xml.etree.ElementTree as ET
 from io import BytesIO
+import xml.etree.ElementTree as ET
+import json
+from concurrent.futures import ThreadPoolExecutor
 
 
 PRODUCT_QUANTITY = 5
 
 def download_image(image_url):
     response = requests.get(image_url)
-    if response.status_code == 200:
-        print("Image downloaded successfully.")
+    if response.status_code == HTTPStatus.OK:
+        log_message(f"Image downloaded successfully {image_url}")
         return BytesIO(response.content)
     else:
-        print("Failed to download image.")
+        log_message(f"Failed to download image {image_url}")
         return None
+
 
 def upload_product_image(product_id, product_name, product_image_url):
     product_image_data = download_image(product_image_url)
-    
-    files = {
-        'image': ("image.jpg", product_image_data, 'image/jpeg')
-    }
-
-    headers = {
-        'Content-Type': 'multipart/form-data',
-    }
-
     upload_url = f"{PRODUCTS_IMAGES_URL}/{product_id}"
-    request = requests.Request(method="POST", url=upload_url, auth=(API_KEY, ''), headers=headers, files=files)
-    print(request)
-    response = requests.post(upload_url, auth=(API_KEY, ''), headers=headers, files=files)
 
-    if response.status_code == 201:
-        print("Product image uploaded successfully!")
+    response = requests.post(
+        upload_url,
+        files={'image': (f"{product_id}.jpg", product_image_data, 'image/jpeg')},
+        auth=HTTPBasicAuth(API_KEY, '')
+    )
+
+    if response.status_code == HTTPStatus.OK or response.status_code == HTTPStatus.CREATED:
+        log_message(f"Image uploaded for product {product_name} successfully!")
     else:
-        print(f"Failed to upload product image: {response.status_code}")
-        print(response.text)
+        log_message(f"Failed to upload image for product {product_name}: {response.status_code}")
 
 
 def get_stock_id(product_id):
     
     response = requests.get(
-        f"{API_URL}/stock_availables?filter[id_product]={product_id}",
+        f"{STOCK_AVAILABLES_URL}?filter[id_product]={product_id}",
         auth=(API_KEY, '')
     )
     if response.status_code == 200:
@@ -56,21 +52,22 @@ def get_stock_id(product_id):
 
 def update_stock(stock_id, quantity):
 
-    response = requests.get(f"{API_URL}/stock_availables/{stock_id}", auth=(API_KEY, ''))
-    if response.status_code == 200:
+    response = requests.get(f"{STOCK_AVAILABLES_URL}/{stock_id}", auth=(API_KEY, ''))
+    if response.status_code == HTTPStatus.OK:
+        # Fetch product stock data and modify its quantity
         stock_data = ET.fromstring(response.content)
         for node in stock_data.findall(".//quantity"):
             node.text = str(quantity)
         
-        headers = {'Content-Type': 'application/xml'}
         update_response = requests.put(
-            f"{API_URL}/stock_availables/{stock_id}",
+            f"{STOCK_AVAILABLES_URL}/{stock_id}",
             auth=(API_KEY, ''),
             data=ET.tostring(stock_data),
-            headers=headers
+            headers=POST_HEADERS
         )
+        
         if update_response.status_code in [200, 204]:
-            print(f"Stock updated successfully for stock ID {stock_id}")
+            log_message(f"Stock updated successfully for stock ID {stock_id}")
         else:
             raise Exception(f"Error updating stock: {update_response.content}")
     else:
@@ -81,24 +78,46 @@ def create_product(product_json, categories_ids):
     
     product_name = product_json['name']
     product_price = product_json['offers'][0]['price']
+    reference = product_json['properties'][0]['value']
+
     
+    properties = ''
+    for prop in product_json['properties']:
+        properties += f'{prop["type"]}: {prop["value"]}\n'
+    properties.strip()
+        
     product_netto_price = round(float(product_price) / 1.23, 6)
-    
+
     product_xml = f"""<prestashop xmlns:xlink="http://www.w3.org/1999/xlink">
         <product>
             <id_category_default>2</id_category_default>
             <id_tax_rules_group>1</id_tax_rules_group>
             <price><![CDATA[{product_netto_price}]]></price>
+            <id_shop_default>1</id_shop_default>
+            <reference><![CDATA[{reference}]]></reference>
             <active>1</active>
+            <state>1</state>
             <name>
                 <language id="1"><![CDATA[{product_name}]]></language>
             </name>
+            <description>
+                <language id="1"><![CDATA[{properties}]]></language>
+            </description>
             <associations>
                 <categories>
+                    <category>
+                        <id>2</id>
+                    </category>
+    """
+    
+    """
+            <description>
+                <language id="1"><![CDATA[{properties}]]></language>
+            </description>
     """
     # Iterate over categories and append them to the product_xml string
     for level, category_name in product_json['categories'].items():
-        if level == "level4":
+        if level == "level4": # Prestashop categories page doesn't list deeper than level 3 categories
             break
         product_xml += f"""
             <category>
@@ -120,12 +139,13 @@ def create_product(product_json, categories_ids):
     </prestashop>"""
         
     response = requests.post(PRODUCTS_URL, auth=(API_KEY, ''), headers=POST_HEADERS, data=product_xml)
+    global log_file
     
-    if response.status_code == 201:
-        print("Product created successfully!")
+    if response.status_code == HTTPStatus.CREATED:
+        log_message(f"Product {product_name} created successfully!")
     else:
-        print(f"Failed to create product: {response.status_code}")
-        print(response.text)
+        log_message(f"Failed to create product {product_name}: {response.status_code}")
+        log_message(response.text)
         return
         
         
@@ -134,16 +154,31 @@ def create_product(product_json, categories_ids):
     product_id_element = root.find(".//id")
     product_id = product_id_element.text.strip()
 
-    update_stock(get_stock_id(product_id), PRODUCT_QUANTITY)
-    # upload_product_image(product_id, product_name, product_json['images'][0])
+    with ThreadPoolExecutor() as executor:
+        executor.submit(update_stock(get_stock_id(product_id), PRODUCT_QUANTITY))
+        executor.submit(upload_product_image(product_id, product_name, product_json['images'][0]))
 
+
+def create_products(products_data, categories_ids, max_products_count=-1):
+    product_counter = max_products_count
     
+    progress_bar(0, max_products_count, reset=True)
+    for product in products_data:
+        progress_bar(max_products_count - product_counter + 1, max_products_count)
+        create_product(product, categories_ids)
+        product_counter -= 1
+        if product_counter == 0:
+            break
     
-with open(SCRAPING_PRODUCTS_FILE, 'r', encoding='utf-8') as file:
-    products_data = json.load(file)
-    
-with open(CATEGORIES_IDS_OUTPUT_FILE, 'r', encoding='utf-8') as file_cat:
-    categories_ids = json.load(file_cat)
-    
-for product in products_data:
-    create_product(product, categories_ids)
+def load_to_memory_json_data():
+    with open(SCRAPING_PRODUCTS_FILE, 'r', encoding='utf-8') as file:
+        products_data = json.load(file)
+        
+    with open(CATEGORIES_IDS_OUTPUT_FILE, 'r', encoding='utf-8') as file_cat:
+        categories_ids = json.load(file_cat)
+        
+    return products_data, categories_ids
+
+
+products_data, categories_ids = load_to_memory_json_data()
+create_products(products_data, categories_ids, max_products_count=10)
