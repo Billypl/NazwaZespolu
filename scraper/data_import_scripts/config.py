@@ -20,8 +20,8 @@ SCRAPING_PRODUCTS_FILE = SCRAPING_RESULST_DIRECTORY + "/products.json"
 
 # Other
 POST_HEADERS = {"Content-Type": "application/xml"}
-CATEGORIES_IDS_OUTPUT_FILE = "./resources/data_import_scripts/categories_ids.json"
-LOG_FILE = './resources/data_import_scripts/app.log'
+CATEGORIES_IDS_OUTPUT_FILE = "./scraper/data_import_scripts/categories_ids.json"
+LOG_FILE = './scraper/data_import_scripts/app.log'
 LOGGING_ENABLED = True
 
 
