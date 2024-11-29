@@ -23,9 +23,8 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
  <div id="_favorites">
-    <div class="header">
+    <div class="header favorites_icon">
         <a rel="nofollow" href="module/blockwishlist/lists">
-        <i class="material-icons favorite_icon">favorite_border</i>
         <p class="favorite_label">Listy zakupowe</p>
     </div>
  </div>
@@ -35,10 +34,7 @@
       {if $cart.products_count > 0}
         <a rel="nofollow" aria-label="{l s='Shopping cart link containing %nbProducts% product(s)' sprintf=['%nbProducts%' => $cart.products_count] d='Shop.Theme.Checkout'}" href="koszyk?action=show">
       {/if}
-        <svg xmlns="http://www.w3.org/2000/svg" class="material-icons" width="1em" height="1em" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2m-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3m7 17H5V8h14zm-7-8c-1.66 0-3-1.34-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.66-1.34 3-3 3"/>
-        </svg>
-        <p class="cart-products-count">({$cart.products_count})</p>
+        <p class="cart-products-count">{$cart.totals.total.value}</p>
       {if $cart.products_count > 0}
         </a>
       {/if}

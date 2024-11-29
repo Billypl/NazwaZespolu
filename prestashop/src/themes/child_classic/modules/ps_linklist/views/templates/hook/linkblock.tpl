@@ -42,7 +42,7 @@
       <ul id="footer_sub_menu_{$linkBlock.id}" class="collapse">
         {foreach $linkBlock.links as $link}
           <li>
-          <i class="icon-register-card"></i>
+          <i class="{$link.id}-{$linkBlock.id}"></i>
             <a
                 id="{$link.id}-{$linkBlock.id}"
                 class="{$link.class}"

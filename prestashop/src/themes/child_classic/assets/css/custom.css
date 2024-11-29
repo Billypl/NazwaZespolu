@@ -39,7 +39,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-top: 0.3rem;
+    margin-top: 0.2rem;
 }
 
 #search_widget{
@@ -84,25 +84,53 @@ input{
 }
 
 .signin{
-    margin-left: -1rem;
+    margin-left: -1.4rem;
     color: #333f4f;
     font-size: 0.8rem;
+    margin-top: 0.15rem;
+}
+
+.user-info a:before{
+    content: '\E8A0';
+}
+
+.user-info a:before, .favorites_icon a:before, #_desktop_cart p:before{
+    font-size: 1.1rem;
+    font-family: FontAwesome;
+}
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('img/fontello.eot#iefix') format('embedded-opentype'),url('img/fontello.woff?r=1709290328') format('woff'),url('img/fontello.ttf?r=1709290328') format('truetype'),url('img/fontello.svg#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap
 }
 
 #_desktop_user_info{
-    margin-right: 3rem;
+    margin-right: 2.5rem;
     margin-top: 1rem
 }
 
 #_desktop_cart{
     margin-top: 1rem;
-    margin-right: 0.5rem;
+    margin-right: 1.3rem;
+}
+
+#_desktop_cart p:before{
+    content: '\E89F';
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
 }
 
 .cart-products-count{
     margin-left: 0.2rem;
     color: #333f4f;
     font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #footer {
@@ -122,7 +150,7 @@ input{
 
 #_favorites{
     margin-top: 1rem;
-    margin-right: 4rem;
+    margin-right: 3rem;
 }
 
 .favorite_label{
@@ -130,9 +158,10 @@ input{
     font-size: 0.8rem;
 }
 
-.favorite_icon{
-    margin-left: 2.1rem;
-    color: #333f4f;
+.favorites_icon a:before {
+    content: '\E86D';
+    font-size: 1.6rem;
+    margin-left: 2rem;
 }
 
 .log_icon{
@@ -143,13 +172,17 @@ input{
 .low_footer{
     color: #333f4f;
     font-size: 0.78rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.9rem;
 }
 
 .footer-container li a {
     font-size: 0.88rem;
     color: #333f4f;
     cursor: pointer;
+}
+
+.footer-container li {
+    vertical-align: middle;
 }
 
 .footer-container{
@@ -207,14 +240,15 @@ input{
     border-radius: 15px;
     padding-top: 2rem;
     padding-bottom: 1rem;
+    padding-right: unset;
 }
 
 .footer_column{
-    margin-right: 5rem;
+    margin-right: 4rem;
 }
 
 .links{
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.6rem;
     margin-left: 0.9rem;
 }
 
@@ -228,7 +262,7 @@ input{
 }
 
 .fc3{
-    margin-left: 0.5rem;
+    margin-left: 1rem;
 }
 
 .fc3 .link_title {
@@ -237,5 +271,89 @@ input{
 
 .fc4 {
     float:right;
-    margin-top: -10.2rem;
+    margin-right: 0.1rem;
+    margin-left: -2.8rem;
 }
+
+.fc1{
+    margin-left: 0.4rem;
+}
+
+.fc2
+{
+    margin-left: 0.4rem;
+}
+
+.link-custom-page-status-zamowienia-1,
+.link-custom-page-sledzenie-przesylki-1,
+.link-custom-page-chce-zareklamowac-produkt-1,
+.link-custom-page-chce-zwrocic-produkt-1,
+.link-custom-page-chce-wymienic-produkt-1,
+.link-custom-page-kontakt-1,
+.link-custom-page-zarejestruj-sie-2,
+.link-custom-page-koszyk-2,
+.link-custom-page-listy-zakupowe-2,
+.link-custom-page-lista-zakupionych-produktow-2,
+.link-custom-page-historia-transakcji-2,
+.link-custom-page-moje-rabaty-2,
+.link-custom-page-newsletter-2 {
+    color: #b13f81;
+    font-style: normal;
+    font-size: 1.05rem;
+    font-family: FontAwesome;
+    margin-right: 0.2rem;
+}
+
+
+.link-custom-page-status-zamowienia-1::before {
+    content: "\E871";
+}
+
+.link-custom-page-sledzenie-przesylki-1::before {
+    content: "\f0d1";
+}
+
+.link-custom-page-chce-zareklamowac-produkt-1::before {
+    content: "\E872";
+}
+
+.link-custom-page-chce-zwrocic-produkt-1::before {
+    content: "\E877";
+}
+
+.link-custom-page-chce-wymienic-produkt-1::before {
+    content: "\E873";
+}
+
+.link-custom-page-kontakt-1::before {
+    content: "\F095";
+}
+
+.link-custom-page-zarejestruj-sie-2::before {
+    content: "\E874";
+}
+
+.link-custom-page-koszyk-2::before {
+    content: "\e80B";
+}
+
+.link-custom-page-listy-zakupowe-2::before {
+    content: "\E86D";
+}
+
+.link-custom-page-lista-zakupionych-produktow-2::before {
+    content: "\E875";
+}
+
+.link-custom-page-historia-transakcji-2::before {
+    content: "\f017";
+}
+
+.link-custom-page-moje-rabaty-2::before {
+    content: "\E878";
+}
+
+.link-custom-page-newsletter-2::before {
+    content: "\E876";
+}
+
