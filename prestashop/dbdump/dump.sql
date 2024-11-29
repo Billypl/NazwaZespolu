@@ -2778,7 +2778,7 @@ CREATE TABLE `ps_cart` (
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_shop_2` (`id_shop`,`date_upd`),
   KEY `id_shop` (`id_shop`,`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2795,7 +2795,17 @@ INSERT INTO `ps_cart` VALUES
 (5,1,1,2,'{\"3\":\"2,\"}',1,5,5,1,2,1,'b44a6d9efd7a0076a0fbce6b15eaf3b1',0,0,'',0,0,'2024-11-24 06:20:19','2024-11-24 06:20:19',NULL),
 (6,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-28 22:18:36','2024-11-28 22:19:56',NULL),
 (7,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-28 22:20:01','2024-11-28 22:23:55',NULL),
-(8,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-28 22:24:50','2024-11-28 22:35:30',NULL);
+(8,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-28 22:24:50','2024-11-28 22:35:30',NULL),
+(9,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-29 21:20:08','2024-11-29 21:42:13',NULL),
+(10,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-29 21:44:22','2024-11-29 21:44:31',NULL),
+(11,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-29 21:45:28','2024-11-29 21:45:28',NULL),
+(12,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-29 21:48:23','2024-11-29 21:48:23',NULL),
+(13,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-29 21:48:26','2024-11-29 21:48:26',NULL),
+(14,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-29 21:48:28','2024-11-29 21:48:28',NULL),
+(15,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-29 21:48:30','2024-11-29 21:48:30',NULL),
+(16,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-29 21:49:07','2024-11-29 21:49:25',NULL),
+(17,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-29 21:49:33','2024-11-29 21:49:48',NULL),
+(18,1,1,0,'',1,0,0,1,3,6,'0ed096d4a7d952ed290c0e3ccfee360c',0,0,'',0,0,'2024-11-29 21:49:58','2024-11-29 21:49:58',NULL);
 /*!40000 ALTER TABLE `ps_cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4260,7 +4270,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4301,16 +4311,27 @@ INSERT INTO `ps_connections` VALUES
 (29,1,1,6,1,2886860801,'2024-11-28 21:49:35',''),
 (30,1,1,6,1,2886860801,'2024-11-28 22:19:59','http://localhost:8080/'),
 (31,1,1,6,4,2886860801,'2024-11-28 22:23:57','http://localhost:8080/moje-konto'),
-(32,1,1,9,1,2886860801,'2024-11-28 22:35:35','http://localhost:8080/'),
+(32,1,1,6,1,2886860801,'2024-11-28 22:35:35','http://localhost:8080/'),
 (33,1,1,6,1,2886860801,'2024-11-29 08:29:49',''),
 (34,1,1,6,1,2886860801,'2024-11-29 09:00:02',''),
 (35,1,1,6,1,2886860801,'2024-11-29 09:31:07',''),
-(36,1,1,9,1,2886860801,'2024-11-29 15:33:51',''),
-(37,1,1,9,2,2886860801,'2024-11-29 16:35:35',''),
-(38,1,1,9,2,2886860801,'2024-11-29 17:06:13',''),
-(39,1,1,9,2,2886860801,'2024-11-29 18:01:48',''),
-(40,1,1,9,2,2886860801,'2024-11-29 18:32:04',''),
-(41,1,1,9,2,2886860801,'2024-11-29 19:03:43','');
+(36,1,1,6,1,2886860801,'2024-11-29 15:33:51',''),
+(37,1,1,6,2,2886860801,'2024-11-29 16:35:35',''),
+(38,1,1,6,2,2886860801,'2024-11-29 17:06:13',''),
+(39,1,1,6,2,2886860801,'2024-11-29 18:01:48',''),
+(40,1,1,6,2,2886860801,'2024-11-29 18:32:04',''),
+(41,1,1,6,2,2886860801,'2024-11-29 19:03:43',''),
+(42,1,1,6,1,2886860801,'2024-11-29 21:19:03',''),
+(43,1,1,6,1,2886860801,'2024-11-29 21:42:23','http://localhost:8080/'),
+(44,1,1,6,4,2886860801,'2024-11-29 21:44:47','http://localhost:8080/moje-konto'),
+(45,1,1,6,4,2886860801,'2024-11-29 21:45:31','http://localhost:8080/moje-konto'),
+(46,1,1,6,4,2886860801,'2024-11-29 21:48:24','http://localhost:8080/moje-konto'),
+(47,1,1,6,4,2886860801,'2024-11-29 21:48:27','http://localhost:8080/moje-konto'),
+(48,1,1,6,4,2886860801,'2024-11-29 21:48:29','http://localhost:8080/moje-konto'),
+(49,1,1,6,4,2886860801,'2024-11-29 21:48:45','http://localhost:8080/moje-konto'),
+(50,1,1,6,4,2886860801,'2024-11-29 21:49:30','http://localhost:8080/moje-konto'),
+(51,1,1,6,4,2886860801,'2024-11-29 21:49:51','http://localhost:8080/moje-konto'),
+(52,1,1,19,4,2886860801,'2024-11-29 21:50:00','http://localhost:8080/moje-konto');
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4358,7 +4379,7 @@ CREATE TABLE `ps_connections_source` (
   KEY `orderby` (`date_add`),
   KEY `http_referer` (`http_referer`),
   KEY `request_uri` (`request_uri`)
-) ENGINE=InnoDB AUTO_INCREMENT=411 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=554 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4777,7 +4798,150 @@ INSERT INTO `ps_connections_source` VALUES
 (407,36,'http://localhost:8080/logowanie','localhost:8080/','','2024-11-29 19:16:51'),
 (408,36,'http://localhost:8080/logowanie','localhost:8080/','','2024-11-29 19:20:59'),
 (409,36,'http://localhost:8080/logowanie','localhost:8080/','','2024-11-29 19:21:26'),
-(410,36,'http://localhost:8080/logowanie','localhost:8080/','','2024-11-29 19:21:38');
+(410,36,'http://localhost:8080/logowanie','localhost:8080/','','2024-11-29 19:21:38'),
+(411,42,'http://localhost:8080/','localhost:8080/logowanie?back=my-account','','2024-11-29 21:19:54'),
+(412,42,'http://localhost:8080/logowanie?back=my-account','localhost:8080/logowanie?back=my-account','','2024-11-29 21:20:04'),
+(413,42,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:20:08'),
+(414,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:20:33'),
+(415,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:23:40'),
+(416,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:23:41'),
+(417,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:25:11'),
+(418,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:25:27'),
+(419,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:25:32'),
+(420,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:25:34'),
+(421,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:27:11'),
+(422,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:27:15'),
+(423,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:27:46'),
+(424,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:28:24'),
+(425,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:28:55'),
+(426,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:28:56'),
+(427,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:28:56'),
+(428,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:29:26'),
+(429,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:29:27'),
+(430,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:29:28'),
+(431,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:29:36'),
+(432,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:29:41'),
+(433,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:29:41'),
+(434,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:29:42'),
+(435,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:29:50'),
+(436,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:30:43'),
+(437,42,'http://localhost:8080/','localhost:8080/moje-konto','','2024-11-29 21:31:04'),
+(438,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:31:07'),
+(439,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:31:39'),
+(440,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:32:24'),
+(441,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:32:40'),
+(442,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:34:22'),
+(443,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:34:28'),
+(444,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:34:42'),
+(445,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:34:44'),
+(446,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:35:01'),
+(447,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:35:07'),
+(448,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:35:17'),
+(449,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:35:29'),
+(450,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:35:33'),
+(451,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:35:38'),
+(452,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:35:39'),
+(453,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:36:57'),
+(454,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:37:06'),
+(455,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:37:10'),
+(456,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:37:14'),
+(457,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:37:18'),
+(458,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:37:43'),
+(459,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:37:48'),
+(460,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:37:50'),
+(461,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:38:54'),
+(462,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:39:16'),
+(463,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:39:48'),
+(464,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:40:09'),
+(465,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:40:50'),
+(466,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:40:56'),
+(467,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:40:57'),
+(468,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:41:07'),
+(469,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:41:11'),
+(470,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:41:35'),
+(471,42,'http://localhost:8080/moje-konto','localhost:8080/','','2024-11-29 21:41:36'),
+(472,42,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:41:39'),
+(473,42,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:42:04'),
+(474,42,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:42:13'),
+(475,43,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:42:23'),
+(476,43,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:42:26'),
+(477,43,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:42:27'),
+(478,43,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:42:41'),
+(479,43,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:43:35'),
+(480,43,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:43:43'),
+(481,43,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:43:45'),
+(482,43,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:43:46'),
+(483,43,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:44:00'),
+(484,43,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:44:03'),
+(485,43,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:44:07'),
+(486,43,'http://localhost:8080/','localhost:8080/','','2024-11-29 21:44:12'),
+(487,43,'http://localhost:8080/','localhost:8080/logowanie?back=my-account','','2024-11-29 21:44:19'),
+(488,43,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:44:22'),
+(489,44,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:44:47'),
+(490,44,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:45:13'),
+(491,44,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:45:23'),
+(492,44,'http://localhost:8080/logowanie?back=my-account','localhost:8080/logowanie?back=my-account','','2024-11-29 21:45:26'),
+(493,44,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:45:28'),
+(494,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:45:31'),
+(495,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:45:53'),
+(496,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:46:10'),
+(497,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:46:17'),
+(498,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:46:22'),
+(499,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:46:23'),
+(500,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:46:27'),
+(501,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:46:31'),
+(502,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:46:34'),
+(503,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:46:37'),
+(504,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:46:39'),
+(505,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:46:39'),
+(506,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:46:39'),
+(507,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:46:43'),
+(508,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:47:02'),
+(509,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:47:02'),
+(510,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:47:13'),
+(511,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:47:14'),
+(512,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:47:14'),
+(513,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:47:14'),
+(514,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:47:19'),
+(515,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:47:23'),
+(516,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:47:35'),
+(517,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:47:36'),
+(518,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:47:48'),
+(519,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:47:50'),
+(520,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:48:04'),
+(521,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:48:08'),
+(522,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:48:14'),
+(523,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:48:15'),
+(524,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:48:15'),
+(525,45,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:48:16'),
+(526,45,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:48:23'),
+(527,46,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:48:24'),
+(528,46,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:48:26'),
+(529,47,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:48:27'),
+(530,47,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:48:28'),
+(531,48,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:48:29'),
+(532,48,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:48:30'),
+(533,49,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:48:45'),
+(534,49,'http://localhost:8080/logowanie?back=my-account','localhost:8080/logowanie?back=my-account','','2024-11-29 21:49:05'),
+(535,49,'http://localhost:8080/logowanie?back=my-account','localhost:8080/logowanie?back=my-account','','2024-11-29 21:49:06'),
+(536,49,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:49:07'),
+(537,49,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:49:15'),
+(538,49,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:49:18'),
+(539,49,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:49:19'),
+(540,49,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:49:19'),
+(541,49,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:49:20'),
+(542,49,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:49:25'),
+(543,49,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:49:25'),
+(544,50,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:49:30'),
+(545,50,'http://localhost:8080/logowanie?back=my-account','localhost:8080/logowanie?back=my-account','','2024-11-29 21:49:32'),
+(546,50,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:49:34'),
+(547,50,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:49:43'),
+(548,50,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:49:48'),
+(549,51,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:49:51'),
+(550,51,'http://localhost:8080/logowanie?back=my-account','localhost:8080/logowanie?back=my-account','','2024-11-29 21:49:57'),
+(551,51,'http://localhost:8080/logowanie?back=my-account','localhost:8080/moje-konto','','2024-11-29 21:49:58'),
+(552,52,'http://localhost:8080/moje-konto','localhost:8080/logowanie?back=my-account','','2024-11-29 21:50:00'),
+(553,52,'http://localhost:8080/logowanie?back=my-account','localhost:8080/','','2024-11-29 21:50:02');
 /*!40000 ALTER TABLE `ps_connections_source` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5922,7 +6086,7 @@ CREATE TABLE `ps_customer_session` (
   `id_customer` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_customer_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6933,7 +7097,7 @@ CREATE TABLE `ps_guest` (
   KEY `id_customer` (`id_customer`),
   KEY `id_operating_system` (`id_operating_system`),
   KEY `id_web_browser` (`id_web_browser`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6949,7 +7113,7 @@ INSERT INTO `ps_guest` VALUES
 (4,6,11,0,0,0,0,0,0,0,0,0,0,0,'en',0),
 (5,6,11,0,0,0,0,0,0,0,0,0,0,0,'en',0),
 (6,6,11,3,0,0,0,0,0,0,0,0,0,0,'en',0),
-(9,6,11,0,0,0,0,0,0,0,0,0,0,0,'en',0);
+(19,6,11,0,0,0,0,0,0,0,0,0,0,0,'en',0);
 /*!40000 ALTER TABLE `ps_guest` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -17794,4 +17958,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-11-29 18:21:58
+-- Dump completed on 2024-11-29 20:50:13

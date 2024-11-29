@@ -30,8 +30,7 @@
         href="{$urls.actions.logout}"
         rel="nofollow"
       >
-        <i class="material-icons log_icon">&#xE7FF;</i>
-        {l s='Sign out' d='Shop.Theme.Actions'}
+        <p class="hidden-sm-down signout">{l s='Sign out' d='Shop.Theme.Actions'} <br>
       </a>
       <a
         class="account"
@@ -39,8 +38,7 @@
         title="{l s='View my customer account' d='Shop.Theme.Customeraccount'}"
         rel="nofollow"
       >
-        <i class="material-icons hidden-md-up logged log_icon">&#xE7FF;</i>
-        <p class="hidden-sm-down">{$customerName}</p>
+        {$customerName}</p>
       </a>
     {else}
       <a
