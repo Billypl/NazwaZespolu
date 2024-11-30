@@ -27,6 +27,16 @@
 
 <div class="products{if !empty($cssClass)} {$cssClass}{/if}">
     {foreach from=$products item="product" key="position"}
+        {if $position <= ceil(count($products) / 2 - 1)}
         {include file="catalog/_partials/miniatures/product.tpl" product=$product position=$position productClasses=$productClasses}
+        {/if}
+        {if $position == ceil(count($products) / 2 - 1)}
+              <h2 class="h2 products-section-title text-uppercase">
+                {l s='Bestsellery' d='Shop.Theme.Catalog'}
+              </h2>
+        {/if}
+        {if $position > ceil(count($products) / 2 - 1)}
+            {include file="catalog/_partials/miniatures/product.tpl" product=$product position=$position productClasses=$productClasses}
+        {/if}
     {/foreach}
 </div>
