@@ -1249,7 +1249,7 @@ CREATE TABLE `ps_admin_filter` (
   `filter_id` varchar(191) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `admin_filter_search_id_idx` (`employee`,`shop`,`controller`,`action`,`filter_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1267,7 +1267,8 @@ INSERT INTO `ps_admin_filter` VALUES
 (6,1,1,'','','{\"limit\":50,\"orderBy\":\"date_add\",\"sortOrder\":\"DESC\",\"filters\":[]}','customer'),
 (7,1,1,'','','{\"limit\":50,\"orderBy\":\"id_order\",\"sortOrder\":\"DESC\",\"filters\":[]}','order'),
 (8,1,1,'','','{\"limit\":50,\"orderBy\":\"id_cart_rule\",\"sortOrder\":\"asc\",\"filters\":[]}','customer_discount'),
-(9,1,1,'','','{\"limit\":50,\"orderBy\":\"id_address\",\"sortOrder\":\"asc\",\"filters\":[]}','customer_address');
+(9,1,1,'','','{\"limit\":50,\"orderBy\":\"id_address\",\"sortOrder\":\"asc\",\"filters\":[]}','customer_address'),
+(10,1,1,'','','{\"limit\":50,\"orderBy\":\"id_webservice_account\",\"sortOrder\":\"asc\",\"filters\":[]}','webservice_key');
 /*!40000 ALTER TABLE `ps_admin_filter` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3706,7 +3707,7 @@ CREATE TABLE `ps_configuration` (
   KEY `name` (`name`),
   KEY `id_shop` (`id_shop`),
   KEY `id_shop_group` (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=463 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=464 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4155,7 +4156,7 @@ INSERT INTO `ps_configuration` VALUES
 (446,NULL,NULL,'PS_PSX_FIREBASE_REFRESH_DATE','2024-11-25 20:32:49','2024-11-25 20:32:49','2024-11-25 20:32:49'),
 (447,NULL,NULL,'PS_ACCOUNTS_FIREBASE_ID_TOKEN',NULL,'2024-11-25 20:32:49','2024-11-25 20:32:49'),
 (448,NULL,NULL,'PS_ACCOUNTS_ACCESS_TOKEN',NULL,'2024-11-25 20:32:49','2024-11-25 20:32:49'),
-(449,NULL,NULL,'PS_ACCOUNTS_FIREBASE_REFRESH_TOKEN',NULL,'2024-11-26 13:30:55','2024-11-30 20:35:33'),
+(449,NULL,NULL,'PS_ACCOUNTS_FIREBASE_REFRESH_TOKEN',NULL,'2024-11-26 13:30:55','2024-11-30 22:04:52'),
 (450,NULL,NULL,'PS_LAYERED_INDEXED','1','2024-11-24 06:20:26','2024-11-24 06:20:26'),
 (451,NULL,NULL,'ONBOARDINGV2_SHUT_DOWN','1','2024-11-26 12:08:08','2024-11-26 12:08:08'),
 (452,NULL,NULL,'PS_MAIL_EMAIL_MESSAGE','2','2024-11-26 12:09:04','2024-11-26 12:09:04'),
@@ -4168,7 +4169,8 @@ INSERT INTO `ps_configuration` VALUES
 (459,NULL,NULL,'BANK_WIRE_OWNER','Julian Kulikowski','2024-11-30 18:57:31','2024-11-30 18:57:31'),
 (460,NULL,NULL,'BANK_WIRE_ADDRESS','Powszechna Kasa Oszczędności Bank Polski S.A.\r\nul. Puławska 15, 02-515 Warszawa, Polska','2024-11-30 18:57:31','2024-11-30 18:57:31'),
 (461,NULL,NULL,'BANK_WIRE_RESERVATION_DAYS','5','2024-11-30 18:57:31','2024-11-30 18:57:31'),
-(462,NULL,NULL,'BANK_WIRE_CUSTOM_TEXT',NULL,'2024-11-30 18:57:31','2024-11-30 18:57:31');
+(462,NULL,NULL,'BANK_WIRE_CUSTOM_TEXT',NULL,'2024-11-30 18:57:31','2024-11-30 18:57:31'),
+(463,NULL,NULL,'PS_WEBSERVICE','1','2024-11-30 22:05:15','2024-11-30 22:05:15');
 /*!40000 ALTER TABLE `ps_configuration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4352,7 +4354,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4427,7 +4429,8 @@ INSERT INTO `ps_connections` VALUES
 (63,1,1,20,1,2886860801,'2024-11-30 18:49:10',''),
 (64,1,1,21,1,2886860801,'2024-11-30 19:04:38','http://localhost:8080/'),
 (65,1,1,22,4,2886860801,'2024-11-30 19:06:39','http://localhost:8080/historia-zamowien'),
-(66,1,1,21,1,2886860801,'2024-11-30 20:18:04','');
+(66,1,1,21,1,2886860801,'2024-11-30 20:18:04',''),
+(67,1,1,20,1,2886860801,'2024-11-30 22:04:34','');
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4475,7 +4478,7 @@ CREATE TABLE `ps_connections_source` (
   KEY `orderby` (`date_add`),
   KEY `http_referer` (`http_referer`),
   KEY `request_uri` (`request_uri`)
-) ENGINE=InnoDB AUTO_INCREMENT=1027 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1028 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5510,7 +5513,8 @@ INSERT INTO `ps_connections_source` VALUES
 (1023,66,'http://localhost:8080/zam%C3%B3wienie','localhost:8080/potwierdzenie-zamowienia?id_cart=21&id_module=65&id_order=8&key=6d01e950a9fe0407b84c86bbd394e383','','2024-11-30 20:34:46'),
 (1024,66,'http://localhost:8080/potwierdzenie-zamowienia?id_cart=21&id_module=65&id_order=8&key=6d01e950a9fe0407b84c86bbd394e383','localhost:8080/moje-konto','','2024-11-30 20:35:17'),
 (1025,66,'http://localhost:8080/moje-konto','localhost:8080/historia-zamowien','','2024-11-30 20:35:19'),
-(1026,66,'http://localhost:8080/historia-zamowien','localhost:8080/','','2024-11-30 20:35:26');
+(1026,66,'http://localhost:8080/historia-zamowien','localhost:8080/','','2024-11-30 20:35:26'),
+(1027,67,'http://localhost:8080/','localhost:8080/','','2024-11-30 22:04:38');
 /*!40000 ALTER TABLE `ps_connections_source` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7028,7 +7032,7 @@ CREATE TABLE `ps_employee_session` (
   `id_employee` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_employee_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7043,7 +7047,8 @@ INSERT INTO `ps_employee_session` VALUES
 (5,1,'9e343bdcdf6e2fcf22eeed43ecd3b00da889a78c'),
 (12,1,'09e76e4ca21493b1690f8e9025b04f14cf5c399b'),
 (14,1,'4c44fd2d3a1ff2d88d2bcd698cf0bbc0baa85bf5'),
-(15,1,'f8664a09e9a73c2af2551774357e52dc7c23b1e1');
+(15,1,'f8664a09e9a73c2af2551774357e52dc7c23b1e1'),
+(16,1,'69368999188ec3265fec20c23e4d07824c768fe6');
 /*!40000 ALTER TABLE `ps_employee_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -10146,7 +10151,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=366 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=368 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10520,7 +10525,9 @@ INSERT INTO `ps_log` VALUES
 (362,1,0,'Frontcontroller::init - Cart cannot be loaded or an order has already been placed using this cart','Cart',19,1,NULL,1,0,0,'2024-11-30 19:01:13','2024-11-30 19:01:13'),
 (363,1,0,'Frontcontroller::init - Cart cannot be loaded or an order has already been placed using this cart','Cart',20,1,NULL,1,0,0,'2024-11-30 19:06:17','2024-11-30 19:06:17'),
 (364,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-30 20:17:58','2024-11-30 20:17:58'),
-(365,1,0,'Frontcontroller::init - Cart cannot be loaded or an order has already been placed using this cart','Cart',21,1,NULL,1,0,0,'2024-11-30 20:34:45','2024-11-30 20:34:45');
+(365,1,0,'Frontcontroller::init - Cart cannot be loaded or an order has already been placed using this cart','Cart',21,1,NULL,1,0,0,'2024-11-30 20:34:45','2024-11-30 20:34:45'),
+(366,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-11-30 22:04:48','2024-11-30 22:04:48'),
+(367,1,0,'Klucz API został stworzony: 1I2A8SCWBC1MM7M4EJPK7ZENPAEGVFHW','WebserviceKey',1,1,NULL,1,0,1,'2024-11-30 22:06:46','2024-11-30 22:06:46');
 /*!40000 ALTER TABLE `ps_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -18496,7 +18503,7 @@ CREATE TABLE `ps_webservice_account` (
   `active` tinyint(2) NOT NULL,
   PRIMARY KEY (`id_webservice_account`),
   KEY `key` (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -18505,6 +18512,8 @@ CREATE TABLE `ps_webservice_account` (
 
 LOCK TABLES `ps_webservice_account` WRITE;
 /*!40000 ALTER TABLE `ps_webservice_account` DISABLE KEYS */;
+INSERT INTO `ps_webservice_account` VALUES
+(1,'1I2A8SCWBC1MM7M4EJPK7ZENPAEGVFHW','','WebserviceRequest',0,NULL,1);
 /*!40000 ALTER TABLE `ps_webservice_account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -18529,6 +18538,8 @@ CREATE TABLE `ps_webservice_account_shop` (
 
 LOCK TABLES `ps_webservice_account_shop` WRITE;
 /*!40000 ALTER TABLE `ps_webservice_account_shop` DISABLE KEYS */;
+INSERT INTO `ps_webservice_account_shop` VALUES
+(1,1);
 /*!40000 ALTER TABLE `ps_webservice_account_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -18549,7 +18560,7 @@ CREATE TABLE `ps_webservice_permission` (
   KEY `resource` (`resource`),
   KEY `method` (`method`),
   KEY `id_webservice_account` (`id_webservice_account`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=346 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -18558,6 +18569,352 @@ CREATE TABLE `ps_webservice_permission` (
 
 LOCK TABLES `ps_webservice_permission` WRITE;
 /*!40000 ALTER TABLE `ps_webservice_permission` DISABLE KEYS */;
+INSERT INTO `ps_webservice_permission` VALUES
+(1,'addresses','GET',1),
+(3,'addresses','POST',1),
+(2,'addresses','PUT',1),
+(4,'addresses','DELETE',1),
+(5,'addresses','HEAD',1),
+(6,'attachments','GET',1),
+(8,'attachments','POST',1),
+(7,'attachments','PUT',1),
+(9,'attachments','DELETE',1),
+(10,'attachments','HEAD',1),
+(11,'carriers','GET',1),
+(13,'carriers','POST',1),
+(12,'carriers','PUT',1),
+(14,'carriers','DELETE',1),
+(15,'carriers','HEAD',1),
+(16,'cart_rules','GET',1),
+(18,'cart_rules','POST',1),
+(17,'cart_rules','PUT',1),
+(19,'cart_rules','DELETE',1),
+(20,'cart_rules','HEAD',1),
+(21,'carts','GET',1),
+(23,'carts','POST',1),
+(22,'carts','PUT',1),
+(24,'carts','DELETE',1),
+(25,'carts','HEAD',1),
+(26,'categories','GET',1),
+(28,'categories','POST',1),
+(27,'categories','PUT',1),
+(29,'categories','DELETE',1),
+(30,'categories','HEAD',1),
+(31,'combinations','GET',1),
+(33,'combinations','POST',1),
+(32,'combinations','PUT',1),
+(34,'combinations','DELETE',1),
+(35,'combinations','HEAD',1),
+(36,'configurations','GET',1),
+(38,'configurations','POST',1),
+(37,'configurations','PUT',1),
+(39,'configurations','DELETE',1),
+(40,'configurations','HEAD',1),
+(41,'contacts','GET',1),
+(43,'contacts','POST',1),
+(42,'contacts','PUT',1),
+(44,'contacts','DELETE',1),
+(45,'contacts','HEAD',1),
+(46,'content_management_system','GET',1),
+(48,'content_management_system','POST',1),
+(47,'content_management_system','PUT',1),
+(49,'content_management_system','DELETE',1),
+(50,'content_management_system','HEAD',1),
+(51,'countries','GET',1),
+(53,'countries','POST',1),
+(52,'countries','PUT',1),
+(54,'countries','DELETE',1),
+(55,'countries','HEAD',1),
+(56,'currencies','GET',1),
+(58,'currencies','POST',1),
+(57,'currencies','PUT',1),
+(59,'currencies','DELETE',1),
+(60,'currencies','HEAD',1),
+(61,'customer_messages','GET',1),
+(63,'customer_messages','POST',1),
+(62,'customer_messages','PUT',1),
+(64,'customer_messages','DELETE',1),
+(65,'customer_messages','HEAD',1),
+(66,'customer_threads','GET',1),
+(68,'customer_threads','POST',1),
+(67,'customer_threads','PUT',1),
+(69,'customer_threads','DELETE',1),
+(70,'customer_threads','HEAD',1),
+(71,'customers','GET',1),
+(73,'customers','POST',1),
+(72,'customers','PUT',1),
+(74,'customers','DELETE',1),
+(75,'customers','HEAD',1),
+(76,'customizations','GET',1),
+(78,'customizations','POST',1),
+(77,'customizations','PUT',1),
+(79,'customizations','DELETE',1),
+(80,'customizations','HEAD',1),
+(81,'deliveries','GET',1),
+(83,'deliveries','POST',1),
+(82,'deliveries','PUT',1),
+(84,'deliveries','DELETE',1),
+(85,'deliveries','HEAD',1),
+(86,'employees','GET',1),
+(88,'employees','POST',1),
+(87,'employees','PUT',1),
+(89,'employees','DELETE',1),
+(90,'employees','HEAD',1),
+(91,'groups','GET',1),
+(93,'groups','POST',1),
+(92,'groups','PUT',1),
+(94,'groups','DELETE',1),
+(95,'groups','HEAD',1),
+(96,'guests','GET',1),
+(98,'guests','POST',1),
+(97,'guests','PUT',1),
+(99,'guests','DELETE',1),
+(100,'guests','HEAD',1),
+(101,'image_types','GET',1),
+(103,'image_types','POST',1),
+(102,'image_types','PUT',1),
+(104,'image_types','DELETE',1),
+(105,'image_types','HEAD',1),
+(106,'images','GET',1),
+(108,'images','POST',1),
+(107,'images','PUT',1),
+(109,'images','DELETE',1),
+(110,'images','HEAD',1),
+(111,'languages','GET',1),
+(113,'languages','POST',1),
+(112,'languages','PUT',1),
+(114,'languages','DELETE',1),
+(115,'languages','HEAD',1),
+(116,'manufacturers','GET',1),
+(118,'manufacturers','POST',1),
+(117,'manufacturers','PUT',1),
+(119,'manufacturers','DELETE',1),
+(120,'manufacturers','HEAD',1),
+(121,'messages','GET',1),
+(123,'messages','POST',1),
+(122,'messages','PUT',1),
+(124,'messages','DELETE',1),
+(125,'messages','HEAD',1),
+(126,'order_carriers','GET',1),
+(128,'order_carriers','POST',1),
+(127,'order_carriers','PUT',1),
+(129,'order_carriers','DELETE',1),
+(130,'order_carriers','HEAD',1),
+(131,'order_cart_rules','GET',1),
+(133,'order_cart_rules','POST',1),
+(132,'order_cart_rules','PUT',1),
+(134,'order_cart_rules','DELETE',1),
+(135,'order_cart_rules','HEAD',1),
+(136,'order_details','GET',1),
+(138,'order_details','POST',1),
+(137,'order_details','PUT',1),
+(139,'order_details','DELETE',1),
+(140,'order_details','HEAD',1),
+(141,'order_histories','GET',1),
+(143,'order_histories','POST',1),
+(142,'order_histories','PUT',1),
+(144,'order_histories','DELETE',1),
+(145,'order_histories','HEAD',1),
+(146,'order_invoices','GET',1),
+(148,'order_invoices','POST',1),
+(147,'order_invoices','PUT',1),
+(149,'order_invoices','DELETE',1),
+(150,'order_invoices','HEAD',1),
+(151,'order_payments','GET',1),
+(153,'order_payments','POST',1),
+(152,'order_payments','PUT',1),
+(154,'order_payments','DELETE',1),
+(155,'order_payments','HEAD',1),
+(156,'order_slip','GET',1),
+(158,'order_slip','POST',1),
+(157,'order_slip','PUT',1),
+(159,'order_slip','DELETE',1),
+(160,'order_slip','HEAD',1),
+(161,'order_states','GET',1),
+(163,'order_states','POST',1),
+(162,'order_states','PUT',1),
+(164,'order_states','DELETE',1),
+(165,'order_states','HEAD',1),
+(166,'orders','GET',1),
+(168,'orders','POST',1),
+(167,'orders','PUT',1),
+(169,'orders','DELETE',1),
+(170,'orders','HEAD',1),
+(171,'price_ranges','GET',1),
+(173,'price_ranges','POST',1),
+(172,'price_ranges','PUT',1),
+(174,'price_ranges','DELETE',1),
+(175,'price_ranges','HEAD',1),
+(176,'product_customization_fields','GET',1),
+(178,'product_customization_fields','POST',1),
+(177,'product_customization_fields','PUT',1),
+(179,'product_customization_fields','DELETE',1),
+(180,'product_customization_fields','HEAD',1),
+(181,'product_feature_values','GET',1),
+(183,'product_feature_values','POST',1),
+(182,'product_feature_values','PUT',1),
+(184,'product_feature_values','DELETE',1),
+(185,'product_feature_values','HEAD',1),
+(186,'product_features','GET',1),
+(188,'product_features','POST',1),
+(187,'product_features','PUT',1),
+(189,'product_features','DELETE',1),
+(190,'product_features','HEAD',1),
+(191,'product_option_values','GET',1),
+(193,'product_option_values','POST',1),
+(192,'product_option_values','PUT',1),
+(194,'product_option_values','DELETE',1),
+(195,'product_option_values','HEAD',1),
+(196,'product_options','GET',1),
+(198,'product_options','POST',1),
+(197,'product_options','PUT',1),
+(199,'product_options','DELETE',1),
+(200,'product_options','HEAD',1),
+(201,'product_suppliers','GET',1),
+(203,'product_suppliers','POST',1),
+(202,'product_suppliers','PUT',1),
+(204,'product_suppliers','DELETE',1),
+(205,'product_suppliers','HEAD',1),
+(206,'products','GET',1),
+(208,'products','POST',1),
+(207,'products','PUT',1),
+(209,'products','DELETE',1),
+(210,'products','HEAD',1),
+(211,'search','GET',1),
+(213,'search','POST',1),
+(212,'search','PUT',1),
+(214,'search','DELETE',1),
+(215,'search','HEAD',1),
+(216,'shop_groups','GET',1),
+(218,'shop_groups','POST',1),
+(217,'shop_groups','PUT',1),
+(219,'shop_groups','DELETE',1),
+(220,'shop_groups','HEAD',1),
+(221,'shop_urls','GET',1),
+(223,'shop_urls','POST',1),
+(222,'shop_urls','PUT',1),
+(224,'shop_urls','DELETE',1),
+(225,'shop_urls','HEAD',1),
+(226,'shops','GET',1),
+(228,'shops','POST',1),
+(227,'shops','PUT',1),
+(229,'shops','DELETE',1),
+(230,'shops','HEAD',1),
+(231,'specific_price_rules','GET',1),
+(233,'specific_price_rules','POST',1),
+(232,'specific_price_rules','PUT',1),
+(234,'specific_price_rules','DELETE',1),
+(235,'specific_price_rules','HEAD',1),
+(236,'specific_prices','GET',1),
+(238,'specific_prices','POST',1),
+(237,'specific_prices','PUT',1),
+(239,'specific_prices','DELETE',1),
+(240,'specific_prices','HEAD',1),
+(241,'states','GET',1),
+(243,'states','POST',1),
+(242,'states','PUT',1),
+(244,'states','DELETE',1),
+(245,'states','HEAD',1),
+(246,'stock_availables','GET',1),
+(248,'stock_availables','POST',1),
+(247,'stock_availables','PUT',1),
+(249,'stock_availables','DELETE',1),
+(250,'stock_availables','HEAD',1),
+(251,'stock_movement_reasons','GET',1),
+(253,'stock_movement_reasons','POST',1),
+(252,'stock_movement_reasons','PUT',1),
+(254,'stock_movement_reasons','DELETE',1),
+(255,'stock_movement_reasons','HEAD',1),
+(256,'stock_movements','GET',1),
+(258,'stock_movements','POST',1),
+(257,'stock_movements','PUT',1),
+(259,'stock_movements','DELETE',1),
+(260,'stock_movements','HEAD',1),
+(261,'stocks','GET',1),
+(263,'stocks','POST',1),
+(262,'stocks','PUT',1),
+(264,'stocks','DELETE',1),
+(265,'stocks','HEAD',1),
+(266,'stores','GET',1),
+(268,'stores','POST',1),
+(267,'stores','PUT',1),
+(269,'stores','DELETE',1),
+(270,'stores','HEAD',1),
+(271,'suppliers','GET',1),
+(273,'suppliers','POST',1),
+(272,'suppliers','PUT',1),
+(274,'suppliers','DELETE',1),
+(275,'suppliers','HEAD',1),
+(276,'supply_order_details','GET',1),
+(278,'supply_order_details','POST',1),
+(277,'supply_order_details','PUT',1),
+(279,'supply_order_details','DELETE',1),
+(280,'supply_order_details','HEAD',1),
+(281,'supply_order_histories','GET',1),
+(283,'supply_order_histories','POST',1),
+(282,'supply_order_histories','PUT',1),
+(284,'supply_order_histories','DELETE',1),
+(285,'supply_order_histories','HEAD',1),
+(286,'supply_order_receipt_histories','GET',1),
+(288,'supply_order_receipt_histories','POST',1),
+(287,'supply_order_receipt_histories','PUT',1),
+(289,'supply_order_receipt_histories','DELETE',1),
+(290,'supply_order_receipt_histories','HEAD',1),
+(291,'supply_order_states','GET',1),
+(293,'supply_order_states','POST',1),
+(292,'supply_order_states','PUT',1),
+(294,'supply_order_states','DELETE',1),
+(295,'supply_order_states','HEAD',1),
+(296,'supply_orders','GET',1),
+(298,'supply_orders','POST',1),
+(297,'supply_orders','PUT',1),
+(299,'supply_orders','DELETE',1),
+(300,'supply_orders','HEAD',1),
+(301,'tags','GET',1),
+(303,'tags','POST',1),
+(302,'tags','PUT',1),
+(304,'tags','DELETE',1),
+(305,'tags','HEAD',1),
+(306,'tax_rule_groups','GET',1),
+(308,'tax_rule_groups','POST',1),
+(307,'tax_rule_groups','PUT',1),
+(309,'tax_rule_groups','DELETE',1),
+(310,'tax_rule_groups','HEAD',1),
+(311,'tax_rules','GET',1),
+(313,'tax_rules','POST',1),
+(312,'tax_rules','PUT',1),
+(314,'tax_rules','DELETE',1),
+(315,'tax_rules','HEAD',1),
+(316,'taxes','GET',1),
+(318,'taxes','POST',1),
+(317,'taxes','PUT',1),
+(319,'taxes','DELETE',1),
+(320,'taxes','HEAD',1),
+(321,'translated_configurations','GET',1),
+(323,'translated_configurations','POST',1),
+(322,'translated_configurations','PUT',1),
+(324,'translated_configurations','DELETE',1),
+(325,'translated_configurations','HEAD',1),
+(326,'warehouse_product_locations','GET',1),
+(328,'warehouse_product_locations','POST',1),
+(327,'warehouse_product_locations','PUT',1),
+(329,'warehouse_product_locations','DELETE',1),
+(330,'warehouse_product_locations','HEAD',1),
+(331,'warehouses','GET',1),
+(333,'warehouses','POST',1),
+(332,'warehouses','PUT',1),
+(334,'warehouses','DELETE',1),
+(335,'warehouses','HEAD',1),
+(336,'weight_ranges','GET',1),
+(338,'weight_ranges','POST',1),
+(337,'weight_ranges','PUT',1),
+(339,'weight_ranges','DELETE',1),
+(340,'weight_ranges','HEAD',1),
+(341,'zones','GET',1),
+(343,'zones','POST',1),
+(342,'zones','PUT',1),
+(344,'zones','DELETE',1),
+(345,'zones','HEAD',1);
 /*!40000 ALTER TABLE `ps_webservice_permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -18720,4 +19077,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-11-30 19:35:56
+-- Dump completed on 2024-11-30 21:07:20
