@@ -21,7 +21,7 @@ def create_category(category_name, parent_id):
     </prestashop>
     """
         
-    response = requests.post(CATEGORIES_URL, auth=(API_KEY, ''), headers=POST_HEADERS, data=category_xml)
+    response = requests.post(CATEGORIES_URL, auth=(API_KEY, ''), headers=POST_HEADERS, data=category_xml.encode('utf-8'))
     
     if response.status_code == HTTPStatus.CREATED:
         tree = ET.ElementTree(ET.fromstring(response.text))

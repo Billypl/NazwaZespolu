@@ -3,7 +3,6 @@ import requests
 from http import HTTPStatus
 import xml.etree.ElementTree as ET
 
-
 # Function to delete a category
 def delete_product(product_id):
     url = f"{PRODUCTS_URL}/{product_id}"
@@ -15,9 +14,8 @@ def delete_product(product_id):
     else:
         log_message(f"Failed to delete product ID {product_id}: {response.status_code}, {response.text}")
 
-
 # Main script to delete products
-start_index, end_index = 150, 220
+start_index, end_index = int(sys.argv[1]), int(sys.argv[2] + 1) 
 progress_bar(0, end_index - start_index, reset=True)
 
 for current_id in range(start_index, end_index):

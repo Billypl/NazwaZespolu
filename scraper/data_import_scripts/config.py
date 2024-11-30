@@ -18,14 +18,15 @@ PRODUCTS_IMAGES_URL = IMAGES_URL + '/products'
 STOCK_AVAILABLES_URL = API_URL + '/stock_availables'
 
 # Scraping results file location
-SCRAPING_RESULST_DIRECTORY = "./resources/scraping_results"
+SCRAPING_RESULST_DIRECTORY = "../../resources/scraping_results"
 SCRAPING_CATEGORIES_FILE = SCRAPING_RESULST_DIRECTORY + "/categories.json"
 SCRAPING_PRODUCTS_FILE = SCRAPING_RESULST_DIRECTORY + "/products.json"
 
 # Other
-POST_HEADERS = {"Content-Type": "application/xml"}
-CATEGORIES_IDS_OUTPUT_FILE = "./scraper/data_import_scripts/categories_ids.json"
-LOG_FILE = './scraper/data_import_scripts/app.log'
+POST_HEADERS = {'Content-Type': 'application/xml; charset=UTF-8'}
+
+CATEGORIES_IDS_OUTPUT_FILE = "categories_ids.json"
+LOG_FILE = 'app.log'
 LOGGING_ENABLED = True
 
 
