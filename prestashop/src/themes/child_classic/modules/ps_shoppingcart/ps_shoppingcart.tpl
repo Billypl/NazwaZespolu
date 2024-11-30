@@ -24,20 +24,17 @@
  *}
  <div id="_favorites">
     <div class="header favorites_icon">
-        <a rel="nofollow" href="module/blockwishlist/lists">
+        <a rel="nofollow" href="/module/blockwishlist/lists">
         <p class="favorite_label">Listy zakupowe</p>
+        </a>
     </div>
  </div>
 <div id="_desktop_cart">
   <div class="blockcart cart-preview {if $cart.products_count > 0}active{else}inactive{/if}" data-refresh-url="{$refresh_url}">
     <div class="header">
-      {if $cart.products_count > 0}
-        <a rel="nofollow" aria-label="{l s='Shopping cart link containing %nbProducts% product(s)' sprintf=['%nbProducts%' => $cart.products_count] d='Shop.Theme.Checkout'}" href="koszyk?action=show">
-      {/if}
+        <a rel="nofollow" aria-label="{l s='Shopping cart link containing %nbProducts% product(s)' sprintf=['%nbProducts%' => $cart.products_count] d='Shop.Theme.Checkout'}" href="/koszyk?action=show">
         <p class="cart-products-count">{$cart.totals.total.value}</p>
-      {if $cart.products_count > 0}
         </a>
-      {/if}
     </div>
   </div>
 </div>
