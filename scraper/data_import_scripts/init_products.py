@@ -9,6 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 
 PRODUCT_QUANTITY = 5
+PRODUCT_WEIGHT = 0.1
 
 def download_image(image_url):
     response = requests.get(image_url)
@@ -98,6 +99,7 @@ def create_product(product_json, categories_ids):
             <price><![CDATA[{product_netto_price}]]></price>
             <new>0</new>
             <id_shop_default>1</id_shop_default>
+            <weight><![CDATA[{PRODUCT_WEIGHT}]]></weight>
             <reference><![CDATA[{reference}]]></reference>
             <available_for_order>1</available_for_order>
             <active>1</active>
