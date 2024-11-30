@@ -15,7 +15,7 @@ def delete_product(product_id):
         log_message(f"Failed to delete product ID {product_id}: {response.status_code}, {response.text}")
 
 # Main script to delete products
-start_index, end_index = int(sys.argv[1]), int(sys.argv[2] + 1) 
+start_index, end_index = int(sys.argv[1]), int(sys.argv[2]) + 1 
 progress_bar(0, end_index - start_index, reset=True)
 
 for current_id in range(start_index, end_index):
