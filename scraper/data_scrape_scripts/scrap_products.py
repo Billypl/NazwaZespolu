@@ -23,7 +23,7 @@ def extract_product_info(product_url, special_categories_product_list):
         # Extract important information
         product_info = {
             "name": json_data.get("name", ""),
-            # "description": json_data.get("description", ""),
+            "description": "",
             "productID": json_data.get("productID", "").replace("mpn:", ""), # Don't know if it should stay with mpn: or not
             "categories": {},
             "special_categories": [],
@@ -72,6 +72,14 @@ def extract_product_info(product_url, special_categories_product_list):
     else:
         log_message(f"Coudn't find product info script: {product_url}")
         return None
+    
+    # Extract product description
+    projector_long_description = soup.find('section', id='projector_longdescription')
+    if projector_long_description:
+        for unwanted_tag in projector_long_description.find_all(["iframe", "script"]):
+            unwanted_tag.decompose()
+        product_info["description"] = projector_long_description.get_text(separator="\n", strip=True)
+    
 
     # Extract product categories
     breadcrumbs_navigation = soup.find('div', id='breadcrumbs')
@@ -245,6 +253,4 @@ def extract_and_save_products(max_page_count = 1e6):
         f.write(']')  # End the JSON array
         sys.stdout.write(f"\nFetching all products links finished")
     
-    
 extract_and_save_products()
-# extract_and_save_products(max_page_count=1)
