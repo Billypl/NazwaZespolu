@@ -2,11 +2,11 @@
 
 {shop_url}
 
-Hi,
+Witaj,
 
-Subscribing to newsletter
+Zapisz się do newslettera
 
-Thank you for subscribing to our newsletter. We are pleased to offer you the following voucher: {discount}
+Dziękujemy za subskrypcję naszego newslettera. Z przyjemnością oferujemy następujący kupon: {discount}
 
 [{shop_name}]({shop_url})
 

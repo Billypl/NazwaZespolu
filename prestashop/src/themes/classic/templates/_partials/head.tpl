@@ -30,7 +30,7 @@
 {/block}
 
 {block name='head_seo'}
-  <title>{block name='head_seo_title'}{$page.meta.title}{/block}</title>
+  <title>{block name='head_seo_title'}Sklep z koralikami • Akcesoria do biżuterii • pasart.pl{/block}</title>
   {block name='hook_after_title_tag'}
     {hook h='displayAfterTitleTag'}
   {/block}

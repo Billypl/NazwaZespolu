@@ -2,27 +2,27 @@
 
 {shop_url}
 
-Hi,
+Witaj,
 
-You have received a new return request for {shop_name}.
+Odebrano nowe żądanie zwrotu do {shop_name}.
 
-Return Details
+Szczegóły zwrotu
 
-Order: {order_name} Placed on {date}
+Zamówienie: {order_name} Złożone w {date}
 
-Customer: {firstname} {lastname}, ({email})
+Klient: {firstname} {lastname}, ({email})
 
-Reference	Product	Quantity   {items}
+Indeks	Produkt	Ilość   {items}
 
-Delivery address
+Adres dostawy
 
 {delivery_block_html}
 
-Billing address
+Adres do faktury
 
 {invoice_block_html}
 
-Customer message:
+Wiadomość klienta:
 
 {message}
 

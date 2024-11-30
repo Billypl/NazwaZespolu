@@ -19,6 +19,9 @@ After that you can access the shop on:
 ```bash
 http://localhost:8080/ # front page
 http://localhost:8080/admin-dev # admin panel
+# login and password to admin panel
+demo@prestashop.com
+prestashop_demo
 ```
 
 To stop the shop and cleanup docker:
