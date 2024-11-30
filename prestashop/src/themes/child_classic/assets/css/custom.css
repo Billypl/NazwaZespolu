@@ -254,7 +254,7 @@ input{
     margin-top: -2.3rem;
 }
 
-.col-md-6{
+.links, .footer_half_column, .footer_column{
     width: unset;
 }
 
@@ -381,3 +381,232 @@ input{
     content: "\E876";
 }
 
+#wrapper .breadcrumb li::after {
+    content: ">";
+    color: #333f4f;
+    font-size: 0.7rem;
+}
+
+#wrapper .breadcrumb li span, #wrapper .breadcrumb li a span, #wrapper .breadcrumb ol span {
+    color: #333f4f;
+    font-size: 0.7rem;
+    letter-spacing: 0.03rem;
+}
+
+.breadcrumb{
+    margin-bottom: 2rem;
+}
+
+.images-container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#product #content{
+    float: left;
+    max-width: 100%;
+}
+
+.images-container .mask {
+    padding-right: 6rem;
+}
+
+.product-container .spec-col{
+    padding-left: 4rem;
+}
+
+.product-flags{
+    position: inherit;
+    flex-direction: row;
+    gap: 0.1rem;
+}
+
+.product-flags li.product-flag.discount-percentage, .product-flags li.product-flag.discount-amount, .product-flags li.product-flag.discount {
+    background: #f6b3c7;
+}
+
+.product-flags li.product-flag {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 0.05rem 0.4375rem;
+    margin-top: .625rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    pointer-events: auto;
+    background: #b13f81;
+    border-radius: 5rem;
+}
+
+.product-variants .control-label{
+    font-size: 0.8rem;
+}
+
+.product-variants .form-control{
+    float:right;
+}
+
+.product-variants>.product-variants-item select {
+    width: 70%;
+    margin-top: -0.4rem;
+    font-size: 0.8rem;
+    border-radius: 5rem;
+    padding-left: 0.8rem;
+}
+
+.product-variants>.product-variants-item {
+    margin: 1.5rem 0;
+}
+
+.spec-col .title{
+    font-size: 1.2rem;
+    font-weight:600;
+    letter-spacing: 0.03rem;
+    margin-bottom: 1rem;;
+}
+
+.spec-col .delivery-info{
+    font-size: 0.8rem;
+    color: #333f4f;
+    font-family: inherit;
+}
+
+pre{
+    font-family: inherit;
+    color: #333f4f;
+}
+
+.product-discount .discount {
+    display: inline-block;
+    padding: 0.3125rem 0;
+    margin-left: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #f6b3c7;
+    text-transform: unset;
+    background: unset;
+}
+
+.product-discount .regular-price {
+    margin-right: 0;
+    font-size: 0.7rem;
+}
+
+.product-discount{
+    color: #999;
+}
+
+.has-discount.product-price, .has-discount p, .has-discount .page-content.page-cms ul, .page-content.page-cms .has-discount ul {
+    color: #b13f81;
+}
+
+.current-price-value{
+    font-size: 1.9rem;
+    line-height: 0.1;
+    font-weight: 100;
+}
+
+.product-price .brutto{
+    color: #333f4f;
+    font-weight: 100;
+    font-size: 0.9rem;
+}
+
+.loyalty-points{
+    font-size: 0.8rem;
+    color: #333f4f;
+    font-weight: 100;
+}
+
+.current-price-value {
+    color: #b13f81;
+}
+
+.product-quantity #quantity_wanted{
+    border-radius: 2rem 0 0 2rem;
+    padding: 0 1.7rem;
+    background: #f1f1f1;
+    width: 4rem;
+}
+
+.product-actions .add-to-cart{
+    text-transform: unset;
+    background: #b13f81;
+    border-radius: 5rem;
+    width: 21rem;
+    height: 3rem;
+    font-weight: 100;
+}
+
+.product-add-to-cart .add-to-favorite{
+    font-size: 0.8rem;
+    color: #333f4f;
+    font-weight: 100;
+    float:left;
+    text-decoration: underline;
+}
+
+.product-add-to-cart .add-to-compare{
+    color: #333f4f;
+    font-size: 0.8rem;
+    font-weight: 100;
+    float:right;
+    text-decoration: underline;
+}
+
+.productinfo ul{
+    margin-top: 2rem;
+}
+
+.productinfo ul li{
+    padding-top: 0.5rem;
+    letter-spacing: 0.02rem;
+    font-size: 0.8rem;
+}
+
+.productinfo li.inf1::before, .productinfo li.inf2::before, .productinfo li.inf3::before, .productinfo li.inf4::before{
+    font-size: 0.9rem;
+    font-family: FontAwesome;
+    vertical-align: middle;
+}
+
+.productinfo li.inf1{
+    padding-top: 0;
+}
+
+.productinfo li.inf1::before{
+    content: '\E884';
+}
+
+.productinfo li.inf2::before{
+    content: '\E815';
+    padding-right: 0.5rem;
+}
+
+.productinfo li.inf3::before{
+    content: '\E89D';
+    padding-right: 0.5rem;
+}
+
+.productinfo li.inf4::before{
+    content: '\E8A5';
+    padding-right: 0.5rem;
+}
+
+.productinfo li.inf5{
+    padding-top: 1.3rem;
+    font-size: 0.7rem;
+    color: #999;
+}
+
+.spec-col .product-description p{
+    color: #333f4f;
+    margin-top: -1.5rem;
+    font-size: 0.9rem;
+}
+
+.spec-col .tab-content{
+    margin-left: -40rem;
+}
