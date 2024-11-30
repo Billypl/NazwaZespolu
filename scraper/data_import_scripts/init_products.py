@@ -10,7 +10,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 PRODUCT_QUANTITY = 5
 PRODUCT_WEIGHT = 0.1
-PRODUCTS_NUMBER_TO_INITIALZIE = 20 # -1
+PRODUCTS_NUMBER_TO_INITIALZIE = int(sys.argv[1]) # -1
 
 def download_image(image_url):
     response = requests.get(image_url)
