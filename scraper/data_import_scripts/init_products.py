@@ -79,12 +79,15 @@ def create_product(product_json, categories_ids):
     product_name = product_json['name']
     product_price = product_json['offers'][0]['price']
     reference = product_json['properties'][0]['value']
+    description = product_json['description']
     properties = ''
 
     
     for prop in product_json['properties']:
-        properties += f'{prop["type"]}: {prop["value"]} <br>'
+        properties += f'<br>{prop["type"]}: {prop["value"]} <br>'
     properties.strip()
+    
+    full_description = f'{description}<br>{properties}'
         
     product_netto_price = round(float(product_price) / 1.23, 6)
 
@@ -104,7 +107,7 @@ def create_product(product_json, categories_ids):
                 <language id="1"><![CDATA[{product_name}]]></language>
             </name>
             <description>
-                <language id="1"><![CDATA[{properties}]]></language>
+                <language id="1"><![CDATA[{full_description}]]></language>
             </description>
             <associations>
                 <categories>
@@ -159,7 +162,8 @@ def create_product(product_json, categories_ids):
 
     with ThreadPoolExecutor() as executor:
         executor.submit(update_stock(get_stock_id(product_id), PRODUCT_QUANTITY))
-        executor.submit(upload_product_image(product_id, product_name, product_json['images'][0]))
+        for image_link in product_json['images']:
+            executor.submit(upload_product_image(product_id, product_name, image_link))
 
 
 def create_products(products_data, categories_ids, max_products_count=-1):
@@ -186,4 +190,4 @@ def load_to_memory_json_data():
 
 
 products_data, categories_ids = load_to_memory_json_data()
-create_products(products_data, categories_ids)
+create_products(products_data, categories_ids, max_products_count=1)
