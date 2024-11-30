@@ -1,10 +1,14 @@
 import logging
 import sys
 import time
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # PrestaShop API Configuration
-API_KEY = "AHUST17VZN26G1DYME6K6INALDE4L628"
-API_URL = "http://localhost:8080/api"
+API_KEY = os.getenv("API_KEY")
+API_URL = os.getenv("API_URL")
 
 # Prestashop urls
 CATEGORIES_URL = API_URL + '/categories'

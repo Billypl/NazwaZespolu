@@ -1,0 +1,4 @@
+./data_import_scripts/__pycache__
+./data_import_scripts/app.log
+./data_import_scripts/categories_ids.json
+./data_scrape_scripts/scrapper.log

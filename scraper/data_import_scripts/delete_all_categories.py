@@ -18,7 +18,7 @@ def delete_category(category_id):
 
 # Main script to delete categories 
 # IMPORTANT NOTE indexes under 3 are special and are better left not to be deleted
-start_index, end_index = 1000, 1200
+start_index, end_index = 3, 200
 progress_bar(0, end_index - start_index, reset=True)
 
 for current_id in range(start_index, end_index):

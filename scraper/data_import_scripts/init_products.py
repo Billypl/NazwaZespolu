@@ -79,11 +79,11 @@ def create_product(product_json, categories_ids):
     product_name = product_json['name']
     product_price = product_json['offers'][0]['price']
     reference = product_json['properties'][0]['value']
+    properties = ''
 
     
-    properties = ''
     for prop in product_json['properties']:
-        properties += f'{prop["type"]}: {prop["value"]}\n'
+        properties += f'{prop["type"]}: {prop["value"]} <br>'
     properties.strip()
         
     product_netto_price = round(float(product_price) / 1.23, 6)
@@ -93,9 +93,12 @@ def create_product(product_json, categories_ids):
             <id_category_default>2</id_category_default>
             <id_tax_rules_group>1</id_tax_rules_group>
             <price><![CDATA[{product_netto_price}]]></price>
+            <new>0</new>
             <id_shop_default>1</id_shop_default>
             <reference><![CDATA[{reference}]]></reference>
+            <available_for_order>1</available_for_order>
             <active>1</active>
+            <show_price>1</show_price>            
             <state>1</state>
             <name>
                 <language id="1"><![CDATA[{product_name}]]></language>
@@ -160,6 +163,8 @@ def create_product(product_json, categories_ids):
 
 
 def create_products(products_data, categories_ids, max_products_count=-1):
+    if max_products_count == -1:
+        max_products_count = len(products_data)
     product_counter = max_products_count
     
     progress_bar(0, max_products_count, reset=True)
@@ -181,4 +186,4 @@ def load_to_memory_json_data():
 
 
 products_data, categories_ids = load_to_memory_json_data()
-create_products(products_data, categories_ids, max_products_count=10)
+create_products(products_data, categories_ids)

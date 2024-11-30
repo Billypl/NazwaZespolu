@@ -17,7 +17,7 @@ def delete_product(product_id):
 
 
 # Main script to delete products
-start_index, end_index = 5200, 5400
+start_index, end_index = 150, 220
 progress_bar(0, end_index - start_index, reset=True)
 
 for current_id in range(start_index, end_index):
