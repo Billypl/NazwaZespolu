@@ -21,6 +21,7 @@ WEBSITE_URL = "http://localhost:8080/"
 MAX_PRODUCT_QUANTITY_TO_ADD = 1
 # No need to specify home directory
 DOWNLOAD_FOLDER_PATH = "Downloads\presta-tmp"
+MAX_ITERATIONS_TO_FIND_RANDOM_PRODUCT = 10
 
 # Class names
 FIRST_CATEGORY_ID = "category-6"
@@ -71,6 +72,7 @@ ORDER_DETAILS_LINK_ID = "history-link"
 ORDER_STATUS_CLASSNAME = "label.label-pill.bright"
 DOWNLOAD_INVOICE_LINK_CLASSNAME = "text-sm-center.hidden-md-down"
 CART_PRODUCT_QUANTITY_COUNT_CLASSNAME = "js-cart-line-product-quantity.form-control"
+PRODUCT_AVAIBLE_ID = "product-availability"
 
 
 # Add 10 products (with random quantity) from 2 categories to cart
@@ -83,7 +85,9 @@ def products_to_cart_test(total_cart_quantity):
 
 def add_category_products_to_cart(category_id):
     cart_quantity = 0
-    for i in range(1,6):
+    i = 0
+    index = 1
+    while i < 5:
         WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
             EC.presence_of_element_located((By.ID, category_id))
         )
@@ -93,7 +97,7 @@ def add_category_products_to_cart(category_id):
         WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
             EC.presence_of_element_located((By.CLASS_NAME, PRODUCT_LINK_CLASSNAME))
         )
-        product_link = driver.find_element(By.XPATH, f"(//a[@class='{PRODUCT_LINK_CLASSNAME_XPATH}'])[{i}]")
+        product_link = driver.find_element(By.XPATH, f"(//a[@class='{PRODUCT_LINK_CLASSNAME_XPATH}'])[{index}]")
         product_link.click()
 
         WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
@@ -103,9 +107,21 @@ def add_category_products_to_cart(category_id):
         quantity_of_product = random.randint(1,MAX_PRODUCT_QUANTITY_TO_ADD)
         for _ in range(quantity_of_product - 1):
             plus_one_button.click()
+
+        # Check if given quantity of product is available
+        WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
+            EC.presence_of_element_located((By.ID, PRODUCT_AVAIBLE_ID))
+        )
+        product_avaible = driver.find_element(By.ID, PRODUCT_AVAIBLE_ID)
+        if "Obecnie brak na stanie" in product_avaible.text or "Nie ma wystarczającej ilości produktów w magazynie" in product_avaible.text:
+            index += 1
+            continue
+
         add_to_cart_button = driver.find_element(By.CLASS_NAME, ADD_TO_CART_BUTTON_CLASSNAME)
         add_to_cart_button.click()
         cart_quantity += quantity_of_product
+        index += 1
+        i += 1
 
         close_cart_pop_up()
 
@@ -113,18 +129,31 @@ def add_category_products_to_cart(category_id):
 
 # Search for product and add one random result to cart
 def search_and_add_product_to_cart_test(search_text, total_cart_quantity):
-    WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-        EC.presence_of_element_located((By.CLASS_NAME, SEARCH_INPUT_CLASSNAME))
-    )
-    search_input = driver.find_element(By.CLASS_NAME, SEARCH_INPUT_CLASSNAME)
-    search_input.send_keys(search_text + Keys.ENTER)
+    i = 0
+    is_product_added = False
+    while not is_product_added and i < MAX_ITERATIONS_TO_FIND_RANDOM_PRODUCT:
+        WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
+            EC.presence_of_element_located((By.CLASS_NAME, SEARCH_INPUT_CLASSNAME))
+        )
+        search_input = driver.find_element(By.CLASS_NAME, SEARCH_INPUT_CLASSNAME)
+        search_input.send_keys(search_text + Keys.ENTER)
 
-    WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-            EC.presence_of_element_located((By.CLASS_NAME, PRODUCT_LINK_CLASSNAME))
-    )
-    product_links = driver.find_elements(By.CLASS_NAME, PRODUCT_LINK_CLASSNAME)
-    random_product = random.randint(0, len(product_links) - 1)
-    product_links[random_product].click()
+        WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
+                EC.presence_of_element_located((By.CLASS_NAME, PRODUCT_LINK_CLASSNAME))
+        )
+        product_links = driver.find_elements(By.CLASS_NAME, PRODUCT_LINK_CLASSNAME)
+        random_product = random.randint(0, len(product_links) - 1)
+        product_links[random_product].click()
+
+        # Check if product is available
+        WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
+            EC.presence_of_element_located((By.ID, PRODUCT_AVAIBLE_ID))
+        )
+        product_avaible = driver.find_element(By.ID, PRODUCT_AVAIBLE_ID)
+        if not "Obecnie brak na stanie" in product_avaible.text:
+            is_product_added = True
+        
+        i += 1
 
     WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
             EC.presence_of_element_located((By.CLASS_NAME, ADD_TO_CART_BUTTON_CLASSNAME))
