@@ -162,10 +162,9 @@ input{
 }
 
 #products .products-section-title, .featured-products .products-section-title, .product-accessories .products-section-title {
-    margin-bottom: 4rem;
-    margin-top: 2rem;
     font-size: 1.5rem;
-    margin: 2rem 56% 4rem 44%;
+    letter-spacing: 0.1rem;
+    margin: 2rem 56% 1rem 44%;
 }
 
 .products-section-title:hover{
@@ -412,7 +411,7 @@ input{
 }
 
 .product-container .spec-col{
-    padding-left: 4rem;
+    padding-left: 7rem;
 }
 
 .product-flags{
@@ -609,4 +608,68 @@ pre{
 
 .spec-col .tab-content{
     margin-left: -40rem;
+}
+
+.products article .wishlist-button-add {
+    display:none;
+}
+
+.featured-products .row{
+    margin: 0;
+} 
+
+.featured-products .row .product{
+    padding-left: 0;
+    padding-right: 0;
+    width: 25%;
+}
+
+.product-miniature .thumbnail-container .product-thumbnail img {
+    width: 18rem;
+    margin-bottom: -1.5rem;
+}
+
+.product-miniature .product-description {
+    padding: 0;
+}
+
+.product-miniature .product-description .product-title a {
+    font-size: 0.72rem;
+    color: #333f4f;
+    letter-spacing: 0.02rem;
+}
+
+.product-description .price{
+    color: #b13f81;
+    font-weight: 400;
+    font-size: 0.9rem;
+    float:left;
+    margin-left: 0.6rem;
+}
+
+.product-description .product-price-and-shipping p{
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #333f4f;
+    float:left;
+    margin-left: 0.6rem;
+}
+
+#products #js-product-list .products-section-title{
+    display:none;
+}
+
+.product-container .product-cover img{
+    position: inherit;
+    max-width: 110%;
+    height: auto;
+}
+
+.product-container .product-cover .layer{
+    display: none;
+}
+
+.product-images>li.thumb-container>.thumb.selected, .product-images>li.thumb-container>.thumb:hover {
+    border: #b13f87 3px solid;
+    border-radius: 1rem;
 }

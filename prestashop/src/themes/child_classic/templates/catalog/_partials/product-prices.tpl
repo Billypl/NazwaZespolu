@@ -61,7 +61,7 @@
             {/if}
           / szt</span>
         </div>
-        <span class="loyalty-points" content="{$product.rounded_display_price}">Możesz kupić za {$product.price|floatval} pkt. </span>
+        <span class="loyalty-points" content="{$product.rounded_display_price}">Możesz kupić za {$product.price|floatval * 10} pkt. </span>
 
 
         {block name='product_unit_price'}
