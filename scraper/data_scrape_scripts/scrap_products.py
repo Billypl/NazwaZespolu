@@ -124,16 +124,20 @@ def extract_product_info(product_url, special_categories_product_list):
 
 
     # Extract photos links
+    photos_nav_div = soup.find('div', id='photos_nav')
     photos_slider_div = soup.find('div', id='photos_slider')
-    if photos_slider_div:
+    if photos_nav_div:
 
         # Iterate over all figure tags within the div
-        for figure in photos_slider_div.find_all('figure'):
+        for figure in photos_nav_div.find_all('figure'):
             # Find the img tag within the figure
             img_tag = figure.find('img')
             
-            if img_tag and 'src' in img_tag.attrs:
-                img_src = img_tag['src']
+            if img_tag and 'src' in img_tag.attrs or 'data-src' in img_tag.attrs:
+                if 'data-src' in img_tag.attrs:                
+                    img_src = img_tag['data-src']
+                else:
+                    img_src = img_tag['src']
                 size_chars = ['s', 'm', 'l']
 
                 
@@ -154,6 +158,22 @@ def extract_product_info(product_url, special_categories_product_list):
                         }
                     )
                 """
+    elif photos_slider_div:
+        # Iterate over all figure tags within the div
+        for figure in photos_slider_div.find_all('figure'):
+            img_tag = figure.find('img')
+            
+            if img_tag and 'src' in img_tag.attrs or 'data-src' in img_tag.attrs:
+                if 'data-src' in img_tag.attrs:                
+                    img_src = img_tag['data-src']
+                else:
+                    img_src = img_tag['src']
+                size_chars = ['s', 'm', 'l']
+
+                
+                product_info['images'].append(
+                    PASART_URL + img_src[:IMAGE_SIZE_LINK_INDEX] + size_chars[2] + img_src[IMAGE_SIZE_LINK_INDEX + 1:]
+                )
     else:
         log_message(f"Coudn't find any photos: {product_url}")
         return None
@@ -247,10 +267,10 @@ def extract_and_save_products(max_page_count = 1e6):
                 first_entry = False
 
             
-            json.dump(product_info, f, ensure_ascii=False)
-            # json.dump(product_info, f, ensure_ascii=False, indent=4) # Formatted file
+            # json.dump(product_info, f, ensure_ascii=False)
+            json.dump(product_info, f, ensure_ascii=False, indent=4) # Formatted file
 
         f.write(']')  # End the JSON array
         sys.stdout.write(f"\nFetching all products links finished")
     
-extract_and_save_products()
+extract_and_save_products(1)

@@ -21,7 +21,7 @@ IMAGE_SIZE_LINK_INDEX = 6
 
 # Other
 LOGGING_ENABLED = True
-LOG_FILE = "./scraper/data_scrape_scripts/scraper.log"
+LOG_FILE = "./scraper.log"
 
 def progress_bar(iteration, total, length=30, reset=False):
     if reset:
