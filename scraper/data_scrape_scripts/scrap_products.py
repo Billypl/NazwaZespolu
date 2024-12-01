@@ -267,10 +267,10 @@ def extract_and_save_products(max_page_count = 1e6):
                 first_entry = False
 
             
-            # json.dump(product_info, f, ensure_ascii=False)
-            json.dump(product_info, f, ensure_ascii=False, indent=4) # Formatted file
+            json.dump(product_info, f, ensure_ascii=False)
+            # json.dump(product_info, f, ensure_ascii=False, indent=4) # Formatted file
 
         f.write(']')  # End the JSON array
         sys.stdout.write(f"\nFetching all products links finished")
     
-extract_and_save_products(1)
+extract_and_save_products()
