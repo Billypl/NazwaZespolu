@@ -12,7 +12,7 @@ PASART_BESTSELLERS_URL = PASART_PL_URL + "/bestsellers/bestseller"
 PASART_PROMOTIONS_URL = PASART_PL_URL + "/menu/promocje-2311"
 
 # Scraping output files
-SCRAPING_OUTPUT_DIRECTORY = './resources/scraping_results/'
+SCRAPING_OUTPUT_DIRECTORY = '../../resources/scraping_results/'
 PRODUCTS_OUTPUT_FILE = SCRAPING_OUTPUT_DIRECTORY + 'products.json'
 CATEGORIES_OUTPUT_FILE = SCRAPING_OUTPUT_DIRECTORY + 'categories.json'
 
