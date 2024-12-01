@@ -1,10 +1,26 @@
 # An online shop
-Online shop made with PrestaShop for Electronic Buisness class.
+Online shop made with PrestaShop for Electronic Buisness class.  
+Oryginal page: https://www.pasart.pl/
 
 # Used software
 - PrestaShop 1.7.8.11
 - MariaDB 11.5.2
 - Docker
+- Git LFS
+
+# Setup
+Our goal was for everyone to be able to setup and run our shop in as few command as possible. Therfore we created [setup](integration/local/setup.sh) and [run](integration/local/run.sh) scripts. If you wish to setup it yourself, below are provided commands to required software. 
+## Docker
+```bash
+# todo
+```
+
+## Git LFS
+[Official tutorial](https://git-lfs.com/)
+```bash
+sudo apt install git-lfs
+git lfs install
+```
 
 # How to run locally (dev)?
 ## TL;DR:
@@ -17,6 +33,10 @@ cd integration/local
 explorer.exe http://localhost:8080/
 # on linux
 xdg-open http://localhost:8080/
+
+# To stop 
+./backup.sh # if you want to save changes made in admin panel 
+./stop.sh
 ```
 ## Detailed
 
@@ -68,6 +88,9 @@ Do database restore right after `GIT PULL` to load updated changes.
 
 **Explanation1:** *prestashop manages that database, so it may change when you change someting in admin panel - hence need for constant dumping*  
 **Explanation2:** *databse is not versioned directly, but rather through sql-dump - hence need for loading the dump into database*
+
+# Sources
+You can find used sources and protips regarding each part of the project in [docs/protips.md](docs/FAQ.md).
 
 # Team
 - Michał Pawiłojć 193159
