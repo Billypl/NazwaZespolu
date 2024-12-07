@@ -20,9 +20,14 @@ def delete_category(category_id):
 # IMPORTANT NOTE indexes under 3 are special and are better left not to be deleted
 start_index, end_index = int(sys.argv[1]), int(sys.argv[2]) + 1 
 start_index = start_index if start_index >= 3 else 3
+
+sys.stdout.write("Deleting categories...\n")
 progress_bar(0, end_index - start_index, reset=True)
 
 for current_id in range(start_index, end_index):
     delete_category(current_id)
     progress_bar(current_id - start_index + 1, end_index - start_index)
+    
+sys.stdout.write(f"\rDeleting categories finished\n")
+
     

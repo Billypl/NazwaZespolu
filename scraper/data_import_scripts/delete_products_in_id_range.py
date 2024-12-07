@@ -16,8 +16,12 @@ def delete_product(product_id):
 
 # Main script to delete products
 start_index, end_index = int(sys.argv[1]), int(sys.argv[2]) + 1 
+
+sys.stdout.write("Deleting products...\n")
 progress_bar(0, end_index - start_index, reset=True)
 
 for current_id in range(start_index, end_index):
     delete_product(current_id)
     progress_bar(current_id - start_index + 1, end_index - start_index)
+    
+sys.stdout.write(f"\rDeleting products finished\n")

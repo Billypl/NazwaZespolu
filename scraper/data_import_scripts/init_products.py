@@ -191,6 +191,9 @@ def load_to_memory_json_data():
         
     return products_data, categories_ids
 
+sys.stdout.write("Initializing products...\n")
 
 products_data, categories_ids = load_to_memory_json_data()
 create_products(products_data, categories_ids, max_products_count=PRODUCTS_NUMBER_TO_INITIALZIE)
+
+sys.stdout.write(f"\rInitializing products finished\n")

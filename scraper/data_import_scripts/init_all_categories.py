@@ -55,8 +55,12 @@ def create_categories(categories, parent_id=2):
 with open(SCRAPING_CATEGORIES_FILE, 'r', encoding='utf-8') as file:
     categories_data = json.load(file)
     
+sys.stdout.write("Initializing categories...\n")
+
 categories_ids = {}
 create_categories(categories_data)
+
+sys.stdout.write(f"\rInitializing categories finished\n")
 
 # Create category ids map file
 with open(CATEGORIES_IDS_OUTPUT_FILE, 'w', encoding='utf-8') as file:
