@@ -7,10 +7,6 @@ DB_NAME="prestashop"
 DB_PASSWORD="admin" # DON'T store password like that - its fine for development
 GOOGLE_DRIVE_ZIP_LINK="https://drive.google.com/file/d/177JtRtuWCF03i5keMyCckc_c48pcA0qh/view?usp=drive_link"
 
-# # NAMES WITH TIMESTAMPS RESTORATION
-# echo "Please enter the dump file name (e.g., dump_22-30_17-11-24.sql):"
-# read DUMP_FILE
-
 DUMP_FILE_PATH="$DUMP_DIR/$DUMP_FILE"
 
 if [ ! -f "$DUMP_FILE_PATH" ]; then
@@ -24,9 +20,8 @@ echo "Database restored"
 
 echo "Restoring images..."
 file_id=$(echo $GOOGLE_DRIVE_ZIP_LINK | awk -F'/d/|/view' '{print $2}')
-wget -O p.zip "https://drive.usercontent.google.com/download?export=download&confirm=t&id=$file_id"
-rm -rf "../../prestashop/src/img/p"
-unzip p.zip -d "../../prestashop/src/img/"
-rm p.zip
-
+wget -O p.zip "https://drive.usercontent.google.com/download?export=download&confirm=t&id=$file_id" && \
+rm -rf "../../prestashop/src/img/p" && \
+unzip p.zip -d "../../prestashop/src/img/" && \
+rm p.zip && \
 echo "Images restored"
