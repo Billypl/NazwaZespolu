@@ -1,3 +1,4 @@
+from config import *
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -10,69 +11,6 @@ import time
 import os
 import glob
 import shutil
-
-
-# Timout time for elements/pages to load
-PAGE_TIMEOUT_TIME_SEC = 3
-INVOICE_DOWNLOAD_TIMEOUT_SEC = 10
-AUTO_DELETE_INVOICE = False
-WEBSITE_URL = "http://localhost:8080/"
-# Max random quantity of each product for test 1
-MAX_PRODUCT_QUANTITY_TO_ADD = 1
-# No need to specify home directory
-DOWNLOAD_FOLDER_PATH = "Downloads\presta-tmp"
-MAX_ITERATIONS_TO_FIND_RANDOM_PRODUCT = 10
-
-# Class names
-FIRST_CATEGORY_ID = "category-6"
-SECOND_CATEGORY_ID = "category-9"
-PRODUCT_LINK_CLASSNAME = "thumbnail.product-thumbnail"
-PRODUCT_LINK_CLASSNAME_XPATH = "thumbnail product-thumbnail"
-ADD_TO_CART_BUTTON_CLASSNAME = "btn.btn-primary.add-to-cart"
-PLUS_ONE_BUTTON_CLASSNAME = "btn.btn-touchspin.js-touchspin.bootstrap-touchspin-up"
-SEARCH_INPUT_CLASSNAME = "ui-autocomplete-input"
-CART_LINK_CLASSNAME = "blockcart.cart-preview.active"
-PRODUCT_QUANTITY_CLASSNAME = "js-cart-line-product-quantity.form-control"
-PRODUCT_QUANTITY_CLASSNAME_XPATH = "js-cart-line-product-quantity form-control"
-DELETE_PRODUCT_LINK_CLASSNAME_XPATH = "remove-from-cart"
-LOGIN_LINK_CLASSNAME = "user-info"
-REGISTER_LINK_CLASSNAME = "no-account"
-REGISTER_GENDER_ID = "field-id_gender-1"
-REGISTER_NAME_INPUT_ID = "field-firstname"
-REGISTER_SURNAME_INPUT_ID = "field-lastname"
-REGISTER_EMAIL_INPUT_ID = "field-email"
-REGISTER_PASSWORD_INPUT_ID = "field-password"
-REGISTER_BIRTHDATE_INPUT_ID = "field-birthday"
-REGISTER_CHECKBOX1_NAME = "optin"
-REGISTER_CHECKBOX2_NAME = "customer_privacy"
-REGISTER_CHECKBOX3_NAME = "newsletter"
-REGISTER_CHECKBOX4_NAME = "psgdpr"
-REGISTER_SUBMIT_BUTTON_CLASSNAME = "btn.btn-primary.form-control-submit.float-xs-right"
-LOGOUT_LINK_CLASSNAME = "logout.hidden-sm-down"
-GO_TO_CHECKOUT_LINK_CLASSNAME = "checkout.cart-detailed-actions.js-cart-detailed-actions.card-block"
-CHECKOUT_ADDRESS_ALIAS_INPUT_ID = "field-alias"
-CHECKOUT_ADDRESS_COMPANY_INPUT_ID = "field-company"
-CHECKOUT_ADDRESS_NIP_INPUT_ID = "field-vat_number"
-CHECKOUT_ADDRESS_ADDRESS_INPUT_ID = "field-address1"
-CHECKOUT_ADDRESS_ADDRESS_ADD_INFO_INPUT_ID = "field-address2"
-CHECKOUT_ADDRESS_POSTCODE_INPUT_ID = "field-postcode"
-CHECKOUT_ADDRESS_CITY_INPUT_ID = "field-city"
-CHECKOUT_ADDRESS_PHONE_INPUT_ID = "field-phone"
-CHECKOUT_ADDRESS_CONTINUE_BUTTON_NAME = "confirm-addresses"
-CHECKOUT_STEP_COMPLETED_CLASSNAME = "checkout-step.-reachable.-complete.-clickable"
-CHECKOUT_DELIVERY_CARRIER_ID = "delivery_option_7"
-CHECKOUT_DELIVERY_INFO_ID = "delivery_message"
-CHECKOUT_DELIVERY_CONTINUE_BUTTON_NAME = "confirmDeliveryOption"
-CHECKOUT_PAYMENT_METHOD_ID = "payment-option-2"
-CHECKOUT_PAYMENT_ACCEPT_TERMS_CHECKBOX_ID = "conditions_to_approve[terms-and-conditions]"
-CHECKOUT_PAYMENT_SUBMIT_BUTTON_CLASSNAME = "btn.btn-primary.center-block"
-ORDER_REFERENCE_VALUE_ID = "order-reference-value"
-ACCOUNT_LINK_CLASSNAME = "account"
-ORDER_DETAILS_LINK_ID = "history-link"
-ORDER_STATUS_CLASSNAME = "label.label-pill.bright"
-DOWNLOAD_INVOICE_LINK_CLASSNAME = "text-sm-center.hidden-md-down"
-CART_PRODUCT_QUANTITY_COUNT_CLASSNAME = "js-cart-line-product-quantity.form-control"
-PRODUCT_AVAIBLE_ID = "product-availability"
 
 
 # Add 10 products (with random quantity) from 2 categories to cart
@@ -89,13 +27,13 @@ def add_category_products_to_cart(category_id):
     index = 1
     while i < 5:
         WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-            EC.presence_of_element_located((By.ID, category_id))
+            EC.element_to_be_clickable((By.ID, category_id))
         )
         first_category_link = driver.find_element(By.ID, category_id)
         first_category_link.click()
 
         WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-            EC.presence_of_element_located((By.CLASS_NAME, PRODUCT_LINK_CLASSNAME))
+            EC.element_to_be_clickable((By.CLASS_NAME, PRODUCT_LINK_CLASSNAME))
         )
         product_link = driver.find_element(By.XPATH, f"(//a[@class='{PRODUCT_LINK_CLASSNAME_XPATH}'])[{index}]")
         product_link.click()
@@ -139,7 +77,7 @@ def search_and_add_product_to_cart_test(search_text, total_cart_quantity):
         search_input.send_keys(search_text + Keys.ENTER)
 
         WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-                EC.presence_of_element_located((By.CLASS_NAME, PRODUCT_LINK_CLASSNAME))
+                EC.element_to_be_clickable((By.CLASS_NAME, PRODUCT_LINK_CLASSNAME))
         )
         product_links = driver.find_elements(By.CLASS_NAME, PRODUCT_LINK_CLASSNAME)
         random_product = random.randint(0, len(product_links) - 1)
@@ -156,7 +94,7 @@ def search_and_add_product_to_cart_test(search_text, total_cart_quantity):
         i += 1
 
     WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-            EC.presence_of_element_located((By.CLASS_NAME, ADD_TO_CART_BUTTON_CLASSNAME))
+            EC.element_to_be_clickable((By.CLASS_NAME, ADD_TO_CART_BUTTON_CLASSNAME))
     )
     add_to_cart_button = driver.find_element(By.CLASS_NAME, ADD_TO_CART_BUTTON_CLASSNAME)
     add_to_cart_button.click()
@@ -169,9 +107,9 @@ def search_and_add_product_to_cart_test(search_text, total_cart_quantity):
 
 def close_cart_pop_up():
     WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-        EC.element_to_be_clickable((By.XPATH, "//div[@id='blockcart-modal']//button[@data-dismiss='modal']"))
+        EC.element_to_be_clickable((By.XPATH, f"//div[@id='{CART_POP_UP_CLOSE_ID}']//button[@data-dismiss='modal']"))
     )
-    close_button = driver.find_element(By.XPATH, "//div[@id='blockcart-modal']//button[@data-dismiss='modal']")
+    close_button = driver.find_element(By.XPATH, f"//div[@id='{CART_POP_UP_CLOSE_ID}']//button[@data-dismiss='modal']")
     close_button.click()
 
 def check_cart_count_number(total_cart_quantity):
@@ -194,7 +132,7 @@ def delete_products_from_cart_test(total_cart_quantity):
 
     for i in range(1,4):
         WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-            EC.presence_of_element_located((By.CLASS_NAME, PRODUCT_QUANTITY_CLASSNAME))
+            EC.element_to_be_clickable((By.CLASS_NAME, DELETE_PRODUCT_LINK_CLASSNAME))
         )
         product_quantity = driver.find_element(By.XPATH, f"(//input[@class='{PRODUCT_QUANTITY_CLASSNAME_XPATH}'])[{i}]")
         delete_product_link = driver.find_element(By.XPATH, f"(//a[@class='{DELETE_PRODUCT_LINK_CLASSNAME_XPATH}'])[{i}]")
@@ -208,13 +146,13 @@ def delete_products_from_cart_test(total_cart_quantity):
 # Register new user
 def register_test():
     WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-        EC.presence_of_element_located((By.CLASS_NAME, LOGIN_LINK_CLASSNAME))
+        EC.element_to_be_clickable((By.CLASS_NAME, LOGIN_LINK_CLASSNAME))
     )
     login_link = driver.find_element(By.CLASS_NAME, LOGIN_LINK_CLASSNAME)
     login_link.click()
 
     WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-        EC.presence_of_element_located((By.CLASS_NAME, REGISTER_LINK_CLASSNAME))
+        EC.element_to_be_clickable((By.CLASS_NAME, REGISTER_LINK_CLASSNAME))
     )
     register_link = driver.find_element(By.CLASS_NAME, REGISTER_LINK_CLASSNAME)
     register_link.click()
@@ -253,7 +191,7 @@ def register_test():
 
 def go_to_cart():
     WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-        EC.presence_of_element_located((By.CLASS_NAME, CART_LINK_CLASSNAME))
+        EC.element_to_be_clickable((By.CLASS_NAME, CART_LINK_CLASSNAME))
     )
     cart_link = driver.find_element(By.CLASS_NAME, CART_LINK_CLASSNAME)
     cart_link.click()
@@ -263,7 +201,7 @@ def make_order_test():
     go_to_cart()
 
     WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-        EC.presence_of_element_located((By.CLASS_NAME, GO_TO_CHECKOUT_LINK_CLASSNAME))
+        EC.element_to_be_clickable((By.CLASS_NAME, GO_TO_CHECKOUT_LINK_CLASSNAME))
     )
     checkout_link = driver.find_element(By.CLASS_NAME, GO_TO_CHECKOUT_LINK_CLASSNAME)
     checkout_link.click()
@@ -290,6 +228,9 @@ def make_order_test():
     continue_button = driver.find_element(By.NAME, CHECKOUT_ADDRESS_CONTINUE_BUTTON_NAME)
     continue_button.click()
 
+    WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
+        EC.presence_of_element_located((By.CLASS_NAME, CHECKOUT_STEP_COMPLETED_CLASSNAME))
+    )
     complete_steps = driver.find_elements(By.CLASS_NAME, CHECKOUT_STEP_COMPLETED_CLASSNAME)
     assert len(complete_steps) == 2, f"Expected 2 completed steps, but got {len(complete_steps)}" 
 
@@ -307,6 +248,9 @@ def choose_delivery_test():
     continue_button = driver.find_element(By.NAME, CHECKOUT_DELIVERY_CONTINUE_BUTTON_NAME)
     continue_button.click()
 
+    WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
+        EC.presence_of_element_located((By.CLASS_NAME, CHECKOUT_STEP_COMPLETED_CLASSNAME))
+    )
     complete_steps = driver.find_elements(By.CLASS_NAME, CHECKOUT_STEP_COMPLETED_CLASSNAME)
     assert len(complete_steps) == 3, f"Expected 3 completed steps, but got {len(complete_steps)}"
 
@@ -333,13 +277,13 @@ def choose_payment_method_and_submit_test():
 # Go to orders page and check order status
 def check_order_status_test():
     WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-        EC.presence_of_element_located((By.CLASS_NAME, ACCOUNT_LINK_CLASSNAME))
+        EC.element_to_be_clickable((By.CLASS_NAME, ACCOUNT_LINK_CLASSNAME))
     )
     account_link = driver.find_element(By.CLASS_NAME, ACCOUNT_LINK_CLASSNAME)
     account_link.click()
 
     WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-        EC.presence_of_element_located((By.ID, ORDER_DETAILS_LINK_ID))
+        EC.element_to_be_clickable((By.ID, ORDER_DETAILS_LINK_ID))
     )
     order_details_link = driver.find_element(By.ID, ORDER_DETAILS_LINK_ID)
     order_details_link.click()
@@ -357,12 +301,12 @@ def check_order_status_test():
 # Download an invoice, then find and delete it from disk
 def download_invoice_test():
     WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-        EC.presence_of_element_located((By.CLASS_NAME, DOWNLOAD_INVOICE_LINK_CLASSNAME))
+        EC.element_to_be_clickable((By.CLASS_NAME, DOWNLOAD_INVOICE_LINK_CLASSNAME))
     )
     invoice_link = driver.find_element(By.CLASS_NAME, DOWNLOAD_INVOICE_LINK_CLASSNAME)
     invoice_link.click()
 
-    downloads_path = os.path.join(os.path.expanduser('~'), DOWNLOAD_FOLDER_PATH)
+    downloads_path = get_download_path()
 
     # Wait for file to download
     end_time = time.time() + INVOICE_DOWNLOAD_TIMEOUT_SEC
@@ -377,12 +321,17 @@ def download_invoice_test():
 
     if AUTO_DELETE_INVOICE:
         shutil.rmtree(downloads_path)
+        if os.path.exists(downloads_path):
+            os.rmdir(downloads_path)
 
     print("TEST - Downloading an invoice (10) - has completed successfully!")
 
+def get_download_path():
+    return os.path.join(os.getcwd(), DOWNLOAD_FOLDER_PATH)
+
 
 # Create download folder
-downloads_path = os.path.join(os.path.expanduser('~'), DOWNLOAD_FOLDER_PATH)
+downloads_path = get_download_path()
 if not os.path.exists(downloads_path):
     os.makedirs(downloads_path)
 
@@ -391,22 +340,36 @@ chrome_options = Options()
 prefs = {
     "download.default_directory": downloads_path
 }
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--window-size=1920,1080")
 chrome_options.add_experimental_option("prefs", prefs)
-service = Service(executable_path="chromedriver.exe")
+chrome_options.binary_location = BINARY_PATH
+service = Service(executable_path=WEBDRIVER_PATH)
 driver = webdriver.Chrome(service=service, options=chrome_options)
 driver.get(WEBSITE_URL)
 
 # Theoretical number of products which should be in the cart
 total_cart_quantity = [0]
 # Tests
+print("RUN - Adding 10 products from 2 categories to cart (1)")
 products_to_cart_test(total_cart_quantity)
+print("RUN - Searching and adding random product to cart (2)")
 search_and_add_product_to_cart_test("czarny", total_cart_quantity)
+print("RUN - Deleting 3 products from cart (3)")
 delete_products_from_cart_test(total_cart_quantity)
+print("RUN - Registering new account (4)")
 register_test()
+print("RUN - Making an order (5)")
 make_order_test()
+print("RUN - Choosing shipping carrier (7)")
 choose_delivery_test()
+print("RUN - Choosing payment on delivery method and submitting and order (6,8)")
 choose_payment_method_and_submit_test()
+print("RUN - Checking order status (9)")
 check_order_status_test()
+print("RUN - Downloading an invoice (10)")
 download_invoice_test()
 #time.sleep(7)
 
