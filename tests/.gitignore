@@ -1,2 +1,9 @@
-selenium_tests.py:Zone.Identifier
-./selenium_tests.py:Zone.Identifier
+# Ignore all __pycache__ directories
+__pycache__/
+venv/
+
+# Ignore web binaries
+tools/
+
+# Ignore donwload folder
+presta-downloads/
