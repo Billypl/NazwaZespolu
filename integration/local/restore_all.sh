@@ -1,5 +1,6 @@
 #!/bin/bash
 
+PRESTASHOP_PATH="../../prestashop/src"
 DUMP_DIR="../../prestashop/dbdump"
 DUMP_FILE="dump.sql"
 DB_CONTAINER_NAME="some-mysql"
@@ -21,7 +22,9 @@ echo "Database restored"
 echo "Restoring images..."
 file_id=$(echo $GOOGLE_DRIVE_ZIP_LINK | awk -F'/d/|/view' '{print $2}')
 wget -O p.zip "https://drive.usercontent.google.com/download?export=download&confirm=t&id=$file_id" && \
-rm -rf "../../prestashop/src/img/p" && \
-unzip p.zip -d "../../prestashop/src/img/" && \
+rm -rf "$PRESTASHOP_PATH/img/p/" && \
+unzip p.zip -d "$PRESTASHOP_PATH/img/" && \
+sudo chmod -R a+rw "$PRESTASHOP_PATH/img/p" && \
+touch "$PRESTASHOP_PATH/img/p/.gitkeep" && \
 rm p.zip && \
 echo "Images restored"

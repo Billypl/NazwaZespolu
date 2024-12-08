@@ -1,2 +1,3 @@
 /prestashop/dbdata/*
 /prestashop/src/img/p/*
+!/prestashop/src/img/p/.gitkeep
