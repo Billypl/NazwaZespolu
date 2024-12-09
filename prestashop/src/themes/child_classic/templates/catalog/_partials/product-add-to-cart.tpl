@@ -81,10 +81,10 @@
           Bezpieczne zakupy
         </li>
         <li class="inf4">
-          Po zakupie otrzymasz 4.23 pkt.
+          Po zakupie otrzymasz {$product.price|floatval * 10} pkt.
         </li>
         <li class="inf5">
-          Najniższa cena przed obniżką
+          Najniższa cena przed obniżką {$product.price}
         </li>
       </ul>
     </div>
