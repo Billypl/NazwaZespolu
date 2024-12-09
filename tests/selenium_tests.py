@@ -356,7 +356,7 @@ total_cart_quantity = [0]
 print("RUN - Adding 10 products from 2 categories to cart (1)")
 products_to_cart_test(total_cart_quantity)
 print("RUN - Searching and adding random product to cart (2)")
-search_and_add_product_to_cart_test("czarny", total_cart_quantity)
+search_and_add_product_to_cart_test(PRODUCT_SEARCH_NAME, total_cart_quantity)
 print("RUN - Deleting 3 products from cart (3)")
 delete_products_from_cart_test(total_cart_quantity)
 print("RUN - Registering new account (4)")

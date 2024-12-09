@@ -18,8 +18,9 @@ MAX_PRODUCT_QUANTITY_TO_ADD = 1
 MAX_ITERATIONS_TO_FIND_RANDOM_PRODUCT = 10
 
 # Class names
-FIRST_CATEGORY_ID = "category-6"
-SECOND_CATEGORY_ID = "category-9"
+FIRST_CATEGORY_ID = "category-13"
+SECOND_CATEGORY_ID = "category-28"
+PRODUCT_SEARCH_NAME = "czarny"
 PRODUCT_LINK_CLASSNAME = "thumbnail.product-thumbnail"
 PRODUCT_LINK_CLASSNAME_XPATH = "thumbnail product-thumbnail"
 ADD_TO_CART_BUTTON_CLASSNAME = "btn.btn-primary.add-to-cart"
