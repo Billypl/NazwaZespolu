@@ -10,6 +10,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 PRODUCT_QUANTITY = 5
 PRODUCT_WEIGHT = 0.1
+PRODUCTS_NUMBER_TO_INITIALZIE = int(sys.argv[1]) # -1
 
 def download_image(image_url):
     response = requests.get(image_url)
@@ -146,7 +147,7 @@ def create_product(product_json, categories_ids):
         </product>
     </prestashop>"""
         
-    response = requests.post(PRODUCTS_URL, auth=(API_KEY, ''), headers=POST_HEADERS, data=product_xml)
+    response = requests.post(PRODUCTS_URL, auth=(API_KEY, ''), headers=POST_HEADERS, data=product_xml.encode('utf-8'))
     global log_file
     
     if response.status_code == HTTPStatus.CREATED:
@@ -190,6 +191,9 @@ def load_to_memory_json_data():
         
     return products_data, categories_ids
 
+sys.stdout.write("Initializing products...\n")
 
 products_data, categories_ids = load_to_memory_json_data()
-create_products(products_data, categories_ids, max_products_count=1)
+create_products(products_data, categories_ids, max_products_count=PRODUCTS_NUMBER_TO_INITIALZIE)
+
+sys.stdout.write(f"\rInitializing products finished\n")

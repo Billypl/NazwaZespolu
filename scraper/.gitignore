@@ -1,5 +1,6 @@
 # Ignore all __pycache__ directories
-__pycache__/
+/*/__pycache__
+/*/venv
 
 # Ignore tmp files
 data_import_scripts/categories_ids.json

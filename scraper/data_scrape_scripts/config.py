@@ -12,7 +12,7 @@ PASART_BESTSELLERS_URL = PASART_PL_URL + "/bestsellers/bestseller"
 PASART_PROMOTIONS_URL = PASART_PL_URL + "/menu/promocje-2311"
 
 # Scraping output files
-SCRAPING_OUTPUT_DIRECTORY = './resources/scraping_results/'
+SCRAPING_OUTPUT_DIRECTORY = '../../resources/scraping_results/'
 PRODUCTS_OUTPUT_FILE = SCRAPING_OUTPUT_DIRECTORY + 'products.json'
 CATEGORIES_OUTPUT_FILE = SCRAPING_OUTPUT_DIRECTORY + 'categories.json'
 
@@ -21,7 +21,7 @@ IMAGE_SIZE_LINK_INDEX = 6
 
 # Other
 LOGGING_ENABLED = True
-LOG_FILE = "./scraper/data_scrape_scripts/scraper.log"
+LOG_FILE = "./scraper.log"
 
 def progress_bar(iteration, total, length=30, reset=False):
     if reset:
