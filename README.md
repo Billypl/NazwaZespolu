@@ -8,6 +8,7 @@ Online shop made with PrestaShop for Electronic Buisness class.
 
 # How to run locally (dev)?
 ## TL;DR:
+Just run [quick_start.sh](quick_start.sh) script or paste those commands:
 ```bash
 cd integration/local
 ./run.sh -d
