@@ -26,7 +26,7 @@ body {
 }
 
 .top-menu a[data-depth="0"] {
-    font-size: 0.96rem;
+    font-size: 0.9rem;
     font-weight: 80;
 }
 
@@ -51,9 +51,17 @@ body {
 
 #header .menu{
     display: flex;
-    padding: 5px 10px 8px;
+    padding: 0px 0px 15px 13px;
     text-transform: uppercase;
     justify-content: center;
+    width: 1200px;
+    max-width: 100%;
+    justify-self: center;
+}
+
+#header .menu .category {
+    margin-left: -0.5rem;
+    margin-bottom: -0.5rem;
 }
 
 #search_widget form input {
@@ -695,4 +703,17 @@ pre{
     margin-bottom: 2rem;
     letter-spacing: 0.02rem;
     font-size: 0.8rem;
+}
+
+#main .images-container .js-qv-mask {
+    white-space: unset;
+}
+
+.header:hover, .user-info p:hover, #header a:hover, .cart-products-count:hover, .product-miniature .product-description .product-title a:hover, #header .top-menu a[data-depth="0"]:hover {
+    color: #b13f87;
+    text-decoration: none;
+}
+
+.category-68 .sub-menu, .category-96 .sub-menu, .category-100 .sub-menu, .category-121 .sub-menu, .category-125 .sub-menu{
+        top: 300px;
 }
