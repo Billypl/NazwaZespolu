@@ -175,6 +175,10 @@ input{
     margin: 2rem 56% 1rem 44%;
 }
 
+.featured-products .products-section-title {
+    margin-bottom: 3rem;
+}
+
 .products-section-title:hover{
     color: #b13f81;
 }
@@ -415,7 +419,8 @@ input{
 }
 
 .images-container .mask {
-    padding-right: 6rem;
+    padding-right: 3.5rem;
+    width: 10rem;
 }
 
 .product-container .spec-col{
@@ -499,6 +504,20 @@ pre{
 .product-discount .regular-price {
     margin-right: 0;
     font-size: 0.7rem;
+}
+
+.featured-products .product-price-and-shipping {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+.featured-products .product-price-and-shipping .regular-price {
+    margin-left: 0.6rem;
+    font-size: 0.75rem;
+    color: #999;
 }
 
 .product-discount{
@@ -634,7 +653,7 @@ pre{
 
 .product-miniature .thumbnail-container .product-thumbnail img {
     width: 18rem;
-    margin-bottom: -1.5rem;
+    margin-bottom: 1rem;
 }
 
 .product-miniature .product-description {
@@ -656,7 +675,7 @@ pre{
 }
 
 .product-description .product-price-and-shipping p{
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 400;
     color: #333f4f;
     float:left;
@@ -709,11 +728,21 @@ pre{
     white-space: unset;
 }
 
-.header:hover, .user-info p:hover, #header a:hover, .cart-products-count:hover, .product-miniature .product-description .product-title a:hover, #header .top-menu a[data-depth="0"]:hover {
+.header:hover, .add-to-favorite:hover, .add-to-compare:hover, .user-info p:hover, #header a:hover, .cart-products-count:hover, .product-miniature .product-description .product-title a:hover, #header .top-menu a[data-depth="0"]:hover {
     color: #b13f87;
     text-decoration: none;
 }
 
 .category-68 .sub-menu, .category-96 .sub-menu, .category-100 .sub-menu, .category-121 .sub-menu, .category-125 .sub-menu{
         top: 300px;
+}
+
+#product .add-to-cart:hover{
+    background: #333f4f;
+}
+
+.product-miniature .product-title {
+    text-align: left;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
