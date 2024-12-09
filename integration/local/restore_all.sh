@@ -6,7 +6,11 @@ DUMP_FILE="dump.sql"
 DB_CONTAINER_NAME="some-mysql"
 DB_NAME="prestashop"
 DB_PASSWORD="admin" # DON'T store password like that - its fine for development
-GOOGLE_DRIVE_ZIP_LINK="https://drive.google.com/file/d/177JtRtuWCF03i5keMyCckc_c48pcA0qh/view?usp=drive_link"
+
+# base zip
+# GOOGLE_DRIVE_ZIP_LINK="https://drive.google.com/file/d/177JtRtuWCF03i5keMyCckc_c48pcA0qh/view?usp=drive_link"
+# filled zip
+GOOGLE_DRIVE_ZIP_LINK="https://drive.google.com/file/d/1xbMJhzBEAs2ZCQuYXgYYeSD2mIj7mNEY/view?usp=drive_link"
 
 DUMP_FILE_PATH="$DUMP_DIR/$DUMP_FILE"
 

@@ -7,6 +7,18 @@ Online shop made with PrestaShop for Electronic Buisness class.
 - Docker
 
 # How to run locally (dev)?
+## TL;DR:
+```bash
+cd integration/local
+./run.sh -d
+./restore_all.sh
+# on windows
+explorer.exe http://localhost:8080/
+# on linux
+xdg-open http://localhost:8080/
+```
+## Detailed
+
 **!Notice -remember about database dumps/restores - read more in [backup/restore section](#database-backup-and-restoration)**  
 Go to `./integration/local`
 
@@ -15,7 +27,7 @@ To run the shop:
 ./run.sh # foreground
 ./run.sh -d # background
 ```
-Then [restore database](#database-backup-and-restoration).  
+Then [restore database](#database-backup-and-restoration) (!).  
 After that you can access the shop on:
 ```bash
 http://localhost:8080/ # front page
@@ -34,11 +46,6 @@ To stop the shop and cleanup docker:
 **!Notice - you need to have your shop running in order to make dump/restore**  
 Learn [when](#important) to create restore database.  
 Go to `./integration/local`
-For backup creation: 
-```bash
-./backup.sh
-# Dump will be created in prestashop/dbdump
-```
 
 For restoration:
 ```bash
@@ -47,6 +54,13 @@ For restoration:
 # when running every other time
 ./restore_db.sh
 ```
+
+For backup creation: 
+```bash
+./backup.sh
+# Dump will be created in prestashop/dbdump
+```
+
 ## Important
 Do databse dump right before the `GIT COMMIT` to save changes.  
 Do database restore right after `GIT PULL` to load updated changes.
