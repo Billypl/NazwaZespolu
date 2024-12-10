@@ -14,12 +14,16 @@ services:
     container_name: prestashop
     image: prestashop/prestashop:1.7.8.11
     restart: unless-stopped
+    command: /bin/bash -c "a2enmod ssl && apache2-foreground"
     depends_on:
       - db
     ports:
       - 8080:80
+      - 8443:443
     volumes:
       - ./src:/var/www/html
+      - ./apache-config/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./apache-config/ssl:/etc/ssl/certs
     environment:
       DB_SERVER: some-mysql
       DB_NAME: prestashop
@@ -27,7 +31,7 @@ services:
       DB_PASSWD: admin
       PS_LANGUAGE: ${PS_LANGUAGE:-pl}
       PS_COUNTRY: ${PS_COUNTRY:-pl}
-      PS_DOMAIN: localhost:8080
+      #PS_DOMAIN: localhost:8080
       PS_FOLDER_ADMIN: admin-dev
       PS_FOLDER_INSTALL: install-dev
       PS_DEV_MODE: 1
