@@ -76,10 +76,6 @@
               <span class="title">{block name='page_title'}{$product.name}{/block}</span>
             {/block}
           {/block}
-           {block name='product_variants'}
-                    {include file='catalog/_partials/product-variants.tpl'}
-                    <div class="delivery-info"><pre>Wysyłka we wtorek   <u>Sprawdź czasy i koszty wysyłki</u></pre></div>
-           {/block}
           {block name='product_prices'}
             {include file='catalog/_partials/product-prices.tpl'}
           {/block}
@@ -98,6 +94,10 @@
                   <input type="hidden" name="token" value="{$static_token}">
                   <input type="hidden" name="id_product" value="{$product.id}" id="product_page_product_id">
                   <input type="hidden" name="id_customization" value="{$product.id_customization}" id="product_customization_id" class="js-product-customization-id">
+
+                  {block name='product_variants'}
+                    {include file='catalog/_partials/product-variants.tpl'}
+                  {/block}
 
                   {block name='product_pack'}
                     {if $packItems}
