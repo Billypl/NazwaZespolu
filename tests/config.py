@@ -1,4 +1,4 @@
-WEBSITE_URL = "http://localhost:8080/"
+WEBSITE_URL = "https://localhost:8443/"
 # Relative to current directory
 WEBDRIVER_PATH = "./tools/chromedriver-linux64/chromedriver"
 BINARY_PATH = "./tools/chrome-headless-shell-linux64/chrome-headless-shell"

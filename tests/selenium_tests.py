@@ -27,7 +27,7 @@ def add_category_products_to_cart(category_id):
     index = 1
     while i < 5:
         WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-            EC.element_to_be_clickable((By.ID, category_id))
+            EC.presence_of_element_located((By.ID, category_id))
         )
         first_category_link = driver.find_element(By.ID, category_id)
         first_category_link.click()
@@ -344,6 +344,7 @@ chrome_options.add_argument("--headless")
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--window-size=1920,1080")
+chrome_options.add_argument("--allow-insecure-localhost")
 chrome_options.add_experimental_option("prefs", prefs)
 chrome_options.binary_location = BINARY_PATH
 service = Service(executable_path=WEBDRIVER_PATH)
