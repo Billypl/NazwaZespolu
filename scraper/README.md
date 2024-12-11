@@ -93,12 +93,6 @@ To specify the range of items to delete, set the `start_index` and `end_index` v
 
 # FAQ
 
-**Q: What if run.sh fails with a permission error?**  
-A: Ensure the script has execute permissions:
-
-```bash
-chmod +x run.sh
-```
 **Q: How do I debug script failures?**  
 A: Check the .log files for detailed error messages.
 

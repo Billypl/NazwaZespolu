@@ -1,9 +1,10 @@
-# General
+# Contributing
+### General
 - for each feature create separate branch - no commiting directly to master / dev
 - you can freerly create sub branches (e.g. feature/f1 -> feature/f1.1)
-- flow: `feature -> dev (merge request) -> master (merged by maintainer)` 
-- merge request only with working features (no broken features will be merged)
-- before commiting remember about creating database [backup](README.md#database-backup-and-restoration)
+- flow: `feature -> dev (pull request) -> master (merged by maintainer)` 
+- merge request only with working features (no broken features will be merged - remember to clean clone you repo after push and test your functionality before pull request)
+- before commiting remember about creating [database backup](README.md#database-backup-and-restoration)
 
 ### Branch names format:  
 `type/feature_name`, e.g.:  

@@ -3,7 +3,7 @@
 cd integration/local
 sudo ./run.sh -d
 sleep 3
-./wait-for-db.sh
+./wait_for_db.sh
 sudo ./restore_all.sh
 
 if [ -n "$WSL_DISTRO_NAME" ]; then

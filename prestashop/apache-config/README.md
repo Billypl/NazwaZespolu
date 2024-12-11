@@ -4,9 +4,11 @@ Code for SSL generation:
 openssl genrsa -aes256 -passout pass:password -out server.pass.key 4096
 openssl rsa -passin pass:password -in server.pass.key -out server.key
 rm server.pass.key
+# csr for actuall CA signing - not used right now
 openssl req -new -key server.key -out server.csr \
 -subj "/C=PL/ST=Pomerania/L=Gdansk/O=Test/OU=Test/CN=localhost"
 openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt
+rm server.csr
 ```
 
 Changes in docker-compose:
