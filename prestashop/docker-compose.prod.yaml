@@ -1,0 +1,37 @@
+services:
+  db:
+    container_name: some-mysql
+    image: mariadb:11.5.2
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: prestashop
+    networks:
+      - prestashop_network
+
+  ps:
+    container_name: BE_188898_prestashop
+    image: billypl/be_188898_prestashop-v1
+    restart: unless-stopped
+    command: /bin/bash -c "a2enmod ssl && apache2-foreground"
+    depends_on:
+      - db
+    ports:
+      - 8080:80
+      - 8443:443
+    environment:
+      DB_SERVER: some-mysql
+      DB_NAME: prestashop
+      DB_USER: root
+      DB_PASSWD: admin
+      PS_LANGUAGE: ${PS_LANGUAGE:-pl}
+      PS_COUNTRY: ${PS_COUNTRY:-pl}
+      PS_FOLDER_ADMIN: admin-dev
+      PS_FOLDER_INSTALL: install-dev
+      PS_DEV_MODE: 1
+      PS_INSTALL_AUTO: 1
+    networks:
+      - prestashop_network
+
+networks:
+  prestashop_network:
