@@ -1,16 +1,5 @@
 services:
-  db:
-    container_name: some-mysql
-    image: mariadb:11.5.2
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: prestashop
-    networks:
-      - prestashop_network
-
   ps:
-    container_name: BE_188898_prestashop
     image: billypl/be_188898_prestashop-v1
     restart: unless-stopped
     command: /bin/bash -c "a2enmod ssl && apache2-foreground"
@@ -19,10 +8,10 @@ services:
     ports:
       - 18889:443
     environment:
-      DB_SERVER: some-mysql
-      DB_NAME: prestashop
+      DB_SERVER: admin-mysql_db
+      DB_NAME: BE_188898
       DB_USER: root
-      DB_PASSWD: admin
+      DB_PASSWD: student
       PS_LANGUAGE: ${PS_LANGUAGE:-pl}
       PS_COUNTRY: ${PS_COUNTRY:-pl}
       PS_FOLDER_ADMIN: admin-dev
@@ -30,7 +19,10 @@ services:
       PS_DEV_MODE: 1
       PS_INSTALL_AUTO: 1
     networks:
+      - admin-mysql_default
       - prestashop_network
 
 networks:
   prestashop_network:
+  admin-mysql_default:
+    external: true
