@@ -11,8 +11,10 @@ This project provides a Selenium script to validate website functionality.
 ## Steps to run
 ```bash
 ./prepare.sh
-./run.sh
+./run.sh [-p]
 ```
+
+-p is a flag for testing in production, so the script knows to use a different URL.
 
 ## Configuration
 Here are the most important parameters which you can find inside the `config.py` script:
