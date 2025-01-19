@@ -26,17 +26,20 @@ def add_category_products_to_cart(category_id):
     cart_quantity = 0
     i = 0
     index = 1
-    while i < 5:
-        WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
-            EC.presence_of_element_located((By.ID, category_id))
-        )
-        first_category_link = driver.find_element(By.ID, category_id)
-        first_category_link.click()
+    back_to_category_url = ""
+    page_index = 1
+    WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
+        EC.presence_of_element_located((By.ID, category_id))
+    )
+    first_category_link = driver.find_element(By.ID, category_id)
+    first_category_link.click()
 
+    while i < 5:
         WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
             EC.element_to_be_clickable((By.CLASS_NAME, PRODUCT_LINK_CLASSNAME))
         )
         product_link = driver.find_element(By.XPATH, f"(//a[@class='{PRODUCT_LINK_CLASSNAME_XPATH}'])[{index}]")
+        back_to_category_url = driver.current_url
         product_link.click()
 
         WebDriverWait(driver, PAGE_TIMEOUT_TIME_SEC).until(
@@ -54,6 +57,15 @@ def add_category_products_to_cart(category_id):
         product_avaible = driver.find_element(By.ID, PRODUCT_AVAIBLE_ID)
         if "Obecnie brak na stanie" in product_avaible.text or "Nie ma wystarczającej ilości produktów w magazynie" in product_avaible.text:
             index += 1
+            if index > 12:
+                index = 1
+                page_index += 1
+                if "page" in back_to_category_url:
+                    back_to_category_url = back_to_category_url.replace(f"page={page_index-1}", f"page={page_index}")
+                else:
+                    back_to_category_url = back_to_category_url + "?page=2"
+
+            driver.get(back_to_category_url)
             continue
 
         add_to_cart_button = driver.find_element(By.CLASS_NAME, ADD_TO_CART_BUTTON_CLASSNAME)
@@ -61,8 +73,16 @@ def add_category_products_to_cart(category_id):
         cart_quantity += quantity_of_product
         index += 1
         i += 1
+        if index > 12:
+                index = 1
+                page_index += 1
+                if "page" in back_to_category_url:
+                    back_to_category_url = back_to_category_url.replace(f"page={page_index-1}", f"page={page_index}")
+                else:
+                    back_to_category_url = back_to_category_url + "?page=2"
 
         close_cart_pop_up()
+        driver.get(back_to_category_url)
 
     return cart_quantity
 
@@ -351,7 +371,8 @@ chrome_options = Options()
 prefs = {
     "download.default_directory": downloads_path
 }
-chrome_options.add_argument("--headless")
+chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+#chrome_options.add_argument("--headless")
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--window-size=1920,1080")
