@@ -11,6 +11,7 @@ import time
 import os
 import glob
 import shutil
+import argparse
 
 
 # Add 10 products (with random quantity) from 2 categories to cart
@@ -330,6 +331,16 @@ def get_download_path():
     return os.path.join(os.getcwd(), DOWNLOAD_FOLDER_PATH)
 
 
+# Handle script flags
+parser = argparse.ArgumentParser(description="Run Selenium tests.")
+parser.add_argument(
+    "-p", 
+    "--param", 
+    action="store_true", 
+    help="Optional flag for Selenium tests"
+)
+args = parser.parse_args()
+
 # Create download folder
 downloads_path = get_download_path()
 if not os.path.exists(downloads_path):
@@ -349,7 +360,10 @@ chrome_options.add_experimental_option("prefs", prefs)
 chrome_options.binary_location = BINARY_PATH
 service = Service(executable_path=WEBDRIVER_PATH)
 driver = webdriver.Chrome(service=service, options=chrome_options)
-driver.get(WEBSITE_URL)
+if args.param:
+    driver.get(PROD_WEBSITE_URL)
+else:
+    driver.get(DEV_WEBSITE_URL)
 
 # Theoretical number of products which should be in the cart
 total_cart_quantity = [0]
