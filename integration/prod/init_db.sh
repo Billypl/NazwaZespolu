@@ -59,11 +59,11 @@ else
     echo "File $PARAMETERS_FILE not found. Skipping configuration update."
 fi
 
-echo "Disabling Friendly URL..."
-mysql -h "$DB_HOST" -P 3306 -u "$DB_USER" -p"$DB_PASSWORD" -e "
-USE $DB_NAME;
-UPDATE ps_configuration SET value=0 WHERE name='PS_REWRITING_SETTINGS';
-"
+# echo "Disabling Friendly URL..."
+# mysql -h "$DB_HOST" -P 3306 -u "$DB_USER" -p"$DB_PASSWORD" -e "
+# USE $DB_NAME;
+# UPDATE ps_configuration SET value=0 WHERE name='PS_REWRITING_SETTINGS';
+# "
 
 exit 0
 
