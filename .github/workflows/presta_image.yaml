@@ -33,10 +33,10 @@ jobs:
         push: true
         context: ./prestashop
         file: ./prestashop/Dockerfile
-        tags: prestashop/prestashop:1.7.8.11
+        tags: billypl/be_188898_prestashop-v1:latest
 
 
     - name: Test Docker image locally
       run: |
-        docker pull prestashop/prestashop:1.7.8.11
+        docker pull billypl/be_188898_prestashop-v1:latest
         echo "Docker image built and pushed successfully"
