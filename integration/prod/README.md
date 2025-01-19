@@ -52,3 +52,9 @@ ssh -L 18889:student-swarm01.maas:18889  rsww@172.20.83.101
 # view at database on https://localhost:9099 (username=root, password=student)
 ssh -L 9099:student-swarm01.maas:9099  rsww@172.20.83.101
 ```
+
+## Image building and taging
+```bash
+docker build . -t billypl/be_188898_prestashop-v1:latest
+docker push billypl/be_188898_prestashop-v1:latest
+```
