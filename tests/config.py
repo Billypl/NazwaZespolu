@@ -1,5 +1,5 @@
 DEV_WEBSITE_URL = "https://localhost:8443/"
-PROD_WEBSITE_URL = "https://localhost:18889/index.php"
+PROD_WEBSITE_URL = "https://localhost:18889/"
 # Relative to current directory
 WEBDRIVER_PATH = "./tools/chromedriver-linux64/chromedriver"
 BINARY_PATH = "./tools/chrome-headless-shell-linux64/chrome-headless-shell"
