@@ -1,0 +1,6 @@
+# cache
+src/var/cache
+prestashop/psdata/themes/*/assets/cache/
+# images for pipeline consistency
+prestashop/psdata/img/tmp
+prestashop/psdata/img/p

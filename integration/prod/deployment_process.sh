@@ -15,4 +15,5 @@ done
 
 docker cp init_db.sh "$(docker ps -q -f name="$CONTAINER_NAME")":/var/www/html/init_db.sh
 docker cp dump.sql "$(docker ps -q -f name="$CONTAINER_NAME")":/var/www/html/dump.sql
-./cluster_helper.sh -d "cd /var/www/html && ./init_db.sh"
+docker cp download_img.sh "$(docker ps -q -f name="$CONTAINER_NAME")":/var/www/html/download_img.sh
+./cluster_helper.sh -d "cd /var/www/html && ./init_db.sh && ./download_img.sh"
