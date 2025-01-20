@@ -1,0 +1,32 @@
+{
+    "name": "prestashop/ps_googleanalytics",
+    "description": "PrestaShop module ps_googleanalytics",
+    "homepage": "https://github.com/PrestaShop/ps_googleanalytics",
+    "license": "AFL-3.0",
+    "authors": [
+        {
+            "name": "PrestaShop SA",
+            "email": "contact@prestashop.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.3"
+    },
+    "require-dev": {
+        "prestashop/php-dev-tools": "3.*"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "prepend-autoloader": false
+    },
+    "autoload": {
+        "classmap": [
+            "ps_googleanalytics.php",
+            "controllers",
+            "classes"
+        ]
+    },
+    "type": "prestashop-module",
+    "author": "PrestaShop"
+}

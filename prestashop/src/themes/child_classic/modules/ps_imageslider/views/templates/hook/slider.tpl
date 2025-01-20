@@ -54,4 +54,15 @@
       </a>
     </div>
   </div>
+    <script>
+    console.log('Banner clicked! Logging event for Google Analytics.');
+        document.getElementById('carousel').addEventListener('click', function () {
+            gtag('event', 'click_banner', {
+                'event_category': 'engagement',
+                'event_label': 'Carousel Banner',
+                'value': 1
+            });
+        });
+    </script>
+</body>
 {/if}
