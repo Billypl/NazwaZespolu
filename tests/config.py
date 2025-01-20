@@ -1,4 +1,5 @@
-WEBSITE_URL = "https://localhost:8443/"
+DEV_WEBSITE_URL = "https://localhost:8443/"
+PROD_WEBSITE_URL = "https://localhost:18889/"
 # Relative to current directory
 WEBDRIVER_PATH = "./tools/chromedriver-linux64/chromedriver"
 BINARY_PATH = "./tools/chrome-headless-shell-linux64/chrome-headless-shell"
@@ -69,3 +70,4 @@ DOWNLOAD_INVOICE_LINK_CLASSNAME = "text-sm-center.hidden-md-down"
 CART_PRODUCT_QUANTITY_COUNT_CLASSNAME = "js-cart-line-product-quantity.form-control"
 PRODUCT_AVAIBLE_ID = "product-availability"
 CART_POP_UP_CLOSE_ID = "blockcart-modal"
+NEXT_PAGE_LINK_CLASSNAME = "next.js-search-link"

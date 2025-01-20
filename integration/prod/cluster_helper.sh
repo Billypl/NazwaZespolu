@@ -23,7 +23,7 @@ function check_args() {
 
 function call_docker_command() {
     local DOCKER_COMMAND="$1"
-    docker exec -it "$CONTAINER_ID" bash -c "$DOCKER_COMMAND"
+    docker exec "$CONTAINER_ID" bash -c "$DOCKER_COMMAND"
 }
 
 function call_mysql_command() {
