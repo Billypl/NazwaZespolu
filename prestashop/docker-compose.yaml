@@ -1,10 +1,10 @@
 services:
 
-  memcached:
-    container_name: BE_188898_memcached
-    image: memcached:latest
-    networks:
-      - prestashop_network
+  # memcached:
+  #   container_name: BE_188898_memcached
+  #   image: memcached:latest
+  #   networks:
+  #     - prestashop_network
 
   db:
     container_name: some-mysql
@@ -20,8 +20,8 @@ services:
 
   ps:
     container_name: prestashop
-    # image: prestashop/prestashop:1.7.8.11
-    build: .
+    image: prestashop/prestashop:1.7.8.11
+    # build: .
     restart: unless-stopped
     command: /bin/bash -c "a2enmod ssl && apache2-foreground"
     depends_on:
