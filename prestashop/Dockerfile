@@ -4,4 +4,11 @@ RUN rm -rf /var/www/html/*
 COPY src /var/www/html
 COPY apache-config/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY apache-config/ssl /etc/ssl/certs
+
+RUN apt-get update && apt-get install -y \
+    libmemcached-dev \
+    zlib1g-dev \
+    && pecl install memcached \
+    && docker-php-ext-enable memcached
+
 RUN chmod -R a+rw /var/www/html/

@@ -1,4 +1,11 @@
 services:
+
+  memcached:
+    container_name: BE_188898_memcached
+    image: memcached:latest
+    networks:
+      - prestashop_network
+
   db:
     container_name: some-mysql
     image: mariadb:11.5.2
@@ -10,9 +17,11 @@ services:
       - prestashop_network
     volumes:
       - ./dbdata:/var/lib/mysql
+
   ps:
     container_name: prestashop
-    image: prestashop/prestashop:1.7.8.11
+    # image: prestashop/prestashop:1.7.8.11
+    build: .
     restart: unless-stopped
     command: /bin/bash -c "a2enmod ssl && apache2-foreground"
     depends_on:
@@ -38,5 +47,6 @@ services:
       PS_INSTALL_AUTO: 1
     networks:
       - prestashop_network
+
 networks:
   prestashop_network:
